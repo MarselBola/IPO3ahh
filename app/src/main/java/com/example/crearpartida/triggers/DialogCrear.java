@@ -1,4 +1,4 @@
-package com.example.crearpartida;
+package com.example.crearpartida.triggers;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -14,6 +14,8 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
+
+import com.example.crearpartida.R;
 
 public class DialogCrear extends AppCompatDialogFragment {
     private int posQuan;

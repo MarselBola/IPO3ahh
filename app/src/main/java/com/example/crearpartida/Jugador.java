@@ -1,5 +1,7 @@
 package com.example.crearpartida;
 
+import com.example.crearpartida.triggers.Avis;
+
 import java.util.ArrayList;
 
 public class Jugador {

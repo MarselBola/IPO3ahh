@@ -1,6 +1,5 @@
-package com.example.crearpartida;
+package com.example.crearpartida.triggers;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.crearpartida.*;
 
 public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener {
     
@@ -46,11 +47,12 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
                 this.finish();
                 break;
             case R.id.bAvisCrear:
-                DialogCrear dialog = new DialogCrear();
-                dialog.show(getSupportFragmentManager(), "");
+                DialogCrear dialogCrear = new DialogCrear();
+                dialogCrear.show(getSupportFragmentManager(), "");
                 break;
             case R.id.bAvisEliminar:
-                
+                //DialogEliminar dialogEliminar = new DialogEliminar();
+                //dialogEliminar.show(getSupportFragmentManager(), "");
                 break;
         }
     }

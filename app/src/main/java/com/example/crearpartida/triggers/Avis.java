@@ -1,4 +1,4 @@
-package com.example.crearpartida;
+package com.example.crearpartida.triggers;
 
 public class Avis {
     private String nom, descripcio;

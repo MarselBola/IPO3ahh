@@ -52,4 +52,6 @@ public class Partida {
         }
         return i;
     }
+    
+    public  Jugador[] getLlistaJugadors() { return this.Jugadors; }
 }

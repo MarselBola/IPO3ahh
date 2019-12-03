@@ -132,6 +132,8 @@ public class ManaAvaiable extends AppCompatActivity implements View.OnClickListe
                                 player.getPlayer().getPlayerMana().getQuantManaSpent());
                         if(pos == -1){
                             player.getPlayer().getPlayerMana().addManaAtSpent(player.getPlayer().getPlayerMana().getManaArray()[i].Copy());
+                            player.getPlayer().getPlayerMana().getManaSpent()[player.getPlayer().getPlayerMana().getQuantManaSpent()-1].setTotal(1);
+
 
                             resID = getResources().getIdentifier("row0" + (player.getPlayer().getPlayerMana().getRowSpent()-1),"id", getPackageName());
                             findViewById(resID).setVisibility(View.VISIBLE);
@@ -155,7 +157,8 @@ public class ManaAvaiable extends AppCompatActivity implements View.OnClickListe
                             player.getPlayer().getPlayerMana().getManaSpent()[pos].addOneToTotal();
                             resID = getResources().getIdentifier("quantWasted" + pos, "id", getPackageName());
                             aux = findViewById(resID);
-                            aux.setText("" + player.getPlayer().getPlayerMana().getManaSpent()[pos].getTotal());
+                            int debug = player.getPlayer().getPlayerMana().getManaSpent()[pos].getTotal();
+                            aux.setText("" + debug);
                         }
                     }
                 }

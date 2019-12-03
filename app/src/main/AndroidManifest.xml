@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         >
-        <activity android:name=".CrearPartida"
-            android:screenOrientation="landscape">
+        <activity android:name=".CrearPartida">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

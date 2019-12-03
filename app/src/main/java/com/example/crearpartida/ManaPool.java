@@ -81,7 +81,7 @@ public class ManaPool {
     }
 
     public int getQuantManaSpent(){
-        return quantManaSpent;
+        return this.quantManaSpent;
     }
     /**
      * Getter de la array de mana del jugador
@@ -152,5 +152,21 @@ public class ManaPool {
             quantManaTotal--;
         }
     }
+
+    /**
+     * Comprova si el mana que es vol introduir a la manaArray...
+     * ...ja esta dins d'aquesta
+     * @param mana
+     * @return true if it pertains, false otherwise
+     */
+            /*
+            private boolean insideArray(Mana mana){
+                for(int i = 0; i < quantManaTotal; i++){
+                    if(manaArray[i].isEqual(mana)) return true;
+                }
+                return false;
+            }
+            */
+    //aquesta comprovacio ja la fem dins de getManaPosition
 
 }

@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">CrearPartida</string>
+    <string name="crear_p">CREAR PARTIDA</string>
+    <string name="jugadors">Número de Jugadores:</string>
+    <string name="vida">Seleccionar vida:</string>
+    <string name="vida20">20</string>
+    <string name="vida30">30</string>
+    <string name="vida40">40</string>
+    <string name="vidaCustom">Custom</string>
+    <string name="Start">START</string>
+    <string name="back_p">BACK</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="daus">Lanzar dado</string>
+    <!-- Titulos del menu principal -->
+    <string name="menu_game">Pantalla de juego</string>
+    <string name="menu_triggers">Triggers</string>
+    <string name="menu_pool">Mana Pool</string>
+    <string name="menu_dice">Dados</string>
+    <string name="menu_help">Ayuda</string>
+    <string name="menu_exit">Salir de la partida</string>
+
+    <!-- Nombre de los jugadores -->
+    <string name="player1_name">Jugador 1</string>
+    <string name="player2_name">Jugador 2</string>
+    <string name="player3_name">Jugador 3</string>
+    <string name="player4_name">Jugador 4</string>
+    <string name="player5_name">Jugador 5</string>
+    <string name="player6_name">Jugador 6</string>
+
+    <!-- Vida de los jugadores -->
+    <string name="player1_life">0</string>
+    <string name="player2_life">0</string>
+    <string name="player3_life">0</string>
+    <string name="player4_life">0</string>
+    <string name="player5_life">0</string>
+    <string name="player6_life">0</string>
+    // Strings varis
+    <string name="ok">OK</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+
+    // Strings de avis
+    <string name="avis">Avisos</string>
+    <string name="crear">Crear</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="crearAvis">CREAR AVISO</string>
+    <string name="nomAvis">Nombre:</string>
+    <string name="descrip">Descripcion:</string>
+    <string name="efecte">Efecto:</string>
+    <string name="duracio">Duracion (turnos):</string>
+    <string name="quan">Cuando activar:</string>
+    <string name="eliminarAvis">ELIMINAR AVISO</string>
+    <string name="avisFinal">Al final</string>
+    <string name="avisPrincipi">Al principio</string>
+    <string name="titolParametresAvis">Nombre - Descripcion</string>
+
+
+
+    // Opcions spinner
+    <string-array name="quan">
+        <item>-</item>
+        <item>Principio turno</item>
+        <item>Final turno</item>
+    </string-array>
+
+</resources>

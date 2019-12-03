@@ -16,8 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 public class DialogCrear extends AppCompatDialogFragment {
-    //private AdapterView<?> adapterViewDuracion, adapterViewEfecto, adapterViewQuan;
-    private int posQuam;
+    private int posQuan;
     private boolean toast = false;
     private DialogCrearListener listener;
     
@@ -27,38 +26,36 @@ public class DialogCrear extends AppCompatDialogFragment {
         final EditText etNombre, etDesc;
         final Spinner quan;
         final ArrayAdapter<CharSequence> adapterQuan;
-    
-    
+        
+        
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_avis, null);
-    
+        
         etNombre = view.findViewById(R.id.etNomAvis);
         etDesc = view.findViewById(R.id.etDescAvis);
-    
+        
         quan = view.findViewById(R.id.sQuan);
         adapterQuan = ArrayAdapter.createFromResource(getActivity(), R.array.quan, android.R.layout.simple_spinner_item);
         quan.setAdapter(adapterQuan);
         quan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //adapterViewQuan = parent;
-                posQuam = position;
+                posQuan = position;
             }
-    
+            
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                //adapterViewQuan = parent;
                 toast = true;
-                posQuam = -1;
+                posQuan = -1;
             }
         });
-    
+        
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(view)
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-    
+                    
                     }
                 })
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -67,18 +64,18 @@ public class DialogCrear extends AppCompatDialogFragment {
                         String nombre = etNombre.getText().toString();
                         if (nombre.equals("-"))
                             toast = true;
-    
+                        
                         String desc = etDesc.getText().toString();
                         if (desc.equals("-"))
                             toast = true;
                         
-                        if (posQuam <= 0 || posQuam >= adapterQuan.getCount())
+                        if (posQuan <= 0 || posQuan >= adapterQuan.getCount())
                             toast = true;
-    
-                        listener.parametresDialog(nombre, desc, posQuam, toast);
+                        
+                        listener.parametresDialog(nombre, desc, posQuan, toast);
                     }
                 });
-    
+        
         return builder.create();
     }
     
@@ -92,7 +89,7 @@ public class DialogCrear extends AppCompatDialogFragment {
         }
     }
     
-    public interface DialogCrearListener{
+    public interface DialogCrearListener {
         void parametresDialog(String nombre, String desc, int quan, boolean toast);
     }
 }

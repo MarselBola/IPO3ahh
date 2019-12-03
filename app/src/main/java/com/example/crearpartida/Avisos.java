@@ -1,5 +1,6 @@
 package com.example.crearpartida;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -49,30 +50,7 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
                 dialog.show(getSupportFragmentManager(), "");
                 break;
             case R.id.bAvisEliminar:
-                TableRow row;
-                TableRow.LayoutParams lp;
-                TextView count;
-                int c = tlsv1.getChildCount();
-                if(c > 0) {
-                    row = new TableRow(this);
-                    lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
-                    row.setLayoutParams(lp);
-                    count = new TextView(this);
-                    count.setText(c);
-                    row.addView(count);
-                    tlsv1.addView(row);
-                }
                 
-                int a = tlsv2.getChildCount();
-                if(a > 0){
-                    row = new TableRow(this);
-                    lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
-                    row.setLayoutParams(lp);
-                    count = new TextView(this);
-                    count.setText(a);
-                    row.addView(count);
-                    tlsv2.addView(row);
-                }
                 break;
         }
     }
@@ -100,8 +78,8 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
             row.addView(espai);
             row.addView(descrip);
             
-            //Global.setAvis(new Avis(nombre, desc, quan));
-            // nse si cal guardar l'avis
+            Globals.getInstance().getJugadorAvisos().getLlistaAvisos().add(new Avis(nombre, desc, quan));
+            
             
             // posar-ho al layout
             if(quan == 1) {

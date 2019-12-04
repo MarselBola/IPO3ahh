@@ -12,39 +12,19 @@
         android:supportsRtl="true"
         >
         <activity android:name=".CrearPartida">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name = ".Avisos">
             <intent-filter>
-                <action android:name = "android.intent.action.MAIN"/>
                 <action android:name = "android.intent.action.VIEW"/>
-
-                <category android:name = "android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ManaAvaiable"
-
             android:theme="@style/OurTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ManaTotal"
-            android:parentActivityName=".ManaAvaiable"
             android:theme="@style/OurTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".StartMenu"
@@ -58,28 +38,12 @@
         <activity
             android:name=".DausActivity"
             android:theme="@style/OurDarkTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".AddMana"
-            android:parentActivityName=".ManaTotal"
             android:theme="@style/OurTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".InGame">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
     </application>

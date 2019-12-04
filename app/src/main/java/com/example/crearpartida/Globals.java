@@ -8,15 +8,11 @@ public class Globals {
     }
     
     private Partida game;
-    
     private Jugador  player = new Jugador(40, "Bruh");
-    
-    public Jugador getPlayer() {return this.player;}
+    private Jugador jugadorAvisos;      // jugador actual per mostrar avisos
     
     private Globals() {
     }
-    
-    private Jugador avisosJugador;  // pos de la taula de jugadors del jugador a mostrar els avisos
     
     public void setGame(Partida p){
         this.game = p;
@@ -25,12 +21,13 @@ public class Globals {
     public Partida getGame(){
         return this.game;
     }
+    public Jugador getPlayer() {return this.player;}
     
     public void setJugadorAvisos(Jugador jug){
-        avisosJugador = jug;
+        jugadorAvisos = jug;
     }
     
     public Jugador getJugadorAvisos(){
-        return this.avisosJugador;
+        return this.jugadorAvisos;
     }
 }

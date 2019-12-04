@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.crearpartida.Globals;
-import com.example.crearpartida.Jugador;
-import com.example.crearpartida.R;
+import com.example.crearpartida.*;
 
 public class TriggersFragment extends Fragment {
 

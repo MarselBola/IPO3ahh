@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".triggers.Avisos">
+    tools:context=".triggers.DialogEliminar">
     
     <TextView
         android:id="@+id/textViewAvis"
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toBottomOf = "@+id/textView">
         
         <TableLayout
-            android:id = "@+id/tlSv1"
+            android:id = "@+id/tlSvElim1"
             android:layout_width = "match_parent"
             android:layout_height = "wrap_content" />
     </ScrollView>
@@ -94,7 +94,7 @@
         app:layout_constraintTop_toBottomOf = "@+id/textView2">
         
         <TableLayout
-            android:id = "@+id/tlSv2"
+            android:id = "@+id/tlSvElim2"
             android:layout_width = "match_parent"
             android:layout_height = "wrap_content" />
     </ScrollView>

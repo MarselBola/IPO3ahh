@@ -15,7 +15,7 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import com.example.crearpartida.R;
+import com.example.crearpartida.*;
 
 public class DialogCrear extends AppCompatDialogFragment {
     private int posQuan;
@@ -82,7 +82,7 @@ public class DialogCrear extends AppCompatDialogFragment {
     }
     
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         try {
             listener = (DialogCrearListener) context;

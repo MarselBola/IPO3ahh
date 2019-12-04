@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crearpartida.*;
 
-public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener {
+public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener, DialogEliminar.DialogEliminarListener {
     
     TableLayout tlsv1, tlsv2;
     Button back, crear, elim;
@@ -35,6 +35,15 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         
         elim = findViewById(R.id.bAvisEliminar);
         elim.setOnClickListener(this);
+        
+        
+        Jugador jugadorActual = Globals.getInstance().getJugadorAvisos();
+        
+        for(int i=0; i<jugadorActual.getLlistaAvisos().size(); i++){
+            //TODO posar els avisos que tingui al principi, suposo q al principi no tindra??
+            
+        }
+        
     }
     
     @Override
@@ -103,5 +112,10 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
                 id2++;
             }
         }
+    }
+    
+    @Override
+    public void actualitzarAvisos() {
+        // TODO actualitzar la llista d'avisos del layout
     }
 }

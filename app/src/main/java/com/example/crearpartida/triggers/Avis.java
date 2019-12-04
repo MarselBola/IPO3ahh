@@ -2,25 +2,23 @@ package com.example.crearpartida.triggers;
 
 public class Avis {
     private String nom, descripcio;
-    private String quan;
+    private int quan;
     
     public Avis (String nom, String descripcio, int quan){
         this.nom = nom;
         this.descripcio = descripcio;
-        
-        // fer switch per crear quan
-        switch (quan){
-            case 1:
-                this.quan = "Principi turno";
-                break;
-            case 2:
-                this.quan = "Final turno";
-                break;
-        }
+        this.quan = quan;
     }
     
-    public Avis getAvis(){
-        return this;
+    public String getNom() {
+        return nom;
     }
     
+    public String getDescripcio() {
+        return descripcio;
+    }
+    
+    public int getQuan() {
+        return quan;
+    }
 }

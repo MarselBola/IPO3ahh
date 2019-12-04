@@ -71,7 +71,7 @@ public class DialogCrear extends AppCompatDialogFragment {
                         if (desc.equals("-"))
                             toast = true;
                         
-                        if (posQuan <= 0 || posQuan >= adapterQuan.getCount())
+                        if (posQuan <= 0)
                             toast = true;
                         
                         listener.parametresDialog(nombre, desc, posQuan, toast);
@@ -87,7 +87,7 @@ public class DialogCrear extends AppCompatDialogFragment {
         try {
             listener = (DialogCrearListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + "falta implementar DialogCrearListener");
+            throw new ClassCastException(context.toString() + "falta implementar DialogCrearListener (parametresDialog)");
         }
     }
     

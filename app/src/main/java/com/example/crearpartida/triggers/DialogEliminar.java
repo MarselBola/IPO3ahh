@@ -28,15 +28,17 @@ public class DialogEliminar extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.dialog_eliminar, null);
     
         TableLayout tl1 = view.findViewById(R.id.tlSvElim1);
-        TableLayout rl2 = view.findViewById(R.id.tlSvElim2);
+        TableLayout tl2 = view.findViewById(R.id.tlSvElim2);
         
-        Button elim = new Button(getContext());
+        Button elim;
+        
         
         // posar coses al view
         
     
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setView(view).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        builder.setView(view)
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 listener.actualitzarAvisos();
@@ -60,4 +62,6 @@ public class DialogEliminar extends AppCompatDialogFragment {
     public interface DialogEliminarListener{
         void actualitzarAvisos();
     }
+    
+    
 }

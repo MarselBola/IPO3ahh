@@ -2,13 +2,12 @@ package com.example.crearpartida;
 
 import com.example.crearpartida.triggers.Avis;
 
-import java.util.ArrayList;
-
 public class Jugador {
     private int vida;
     private String nom;
     private ManaPool playerMana = new ManaPool();
-    private ArrayList<Avis> llistaAvisos;
+    private Avis[] llistaAvisos = new Avis[20];
+    private int nAvis = 0;
     
     public Jugador(){
     
@@ -32,7 +31,8 @@ public class Jugador {
     public ManaPool getPlayerMana(){
         return playerMana;
     }
-    public ArrayList<Avis> getLlistaAvisos(){ return llistaAvisos;}
+    public Avis[] getLlistaAvisos(){ return llistaAvisos;}
+    public int getNumAvis() { return nAvis; }
     
     public void decreaseVida(){ vida--; }
     public void incrementVida(){ vida++; }

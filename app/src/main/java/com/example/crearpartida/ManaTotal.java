@@ -68,8 +68,7 @@ public class ManaTotal extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v){
         int resID;
         if(v.getId() == R.id.bAvaiable){
-            Intent toDisp = new Intent(this, ManaAvaiable.class);
-            startActivity(toDisp);
+            super.onBackPressed(); // boton atras (?)
             this.finish();
         }else if(v.getId() == R.id.bAdd){
             Intent toAddMana = new Intent(this, AddMana.class);

@@ -1,9 +1,10 @@
 package com.example.crearpartida;
 
+
 public class ManaPool {
 
     private int rowTotal;           //files a mostrar a ManaTotal
-    private int rowAvaiable;        //files a mostrar a ManaAvaiable
+    private int rowAvaiable;        //files a mostrar a PoolFragment
     private int rowSpent;           //files a mostrar a mana gastant, dins de ManaAvaible; Spent == Wasted
     private int quantManaTotal;     //quantitat total de diferents tipus de mana de l'usuari
     private int quantManaSpent;

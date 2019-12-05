@@ -9,7 +9,7 @@ public class Globals {
     
     private Partida game;
     private Jugador  player = new Jugador(40, "Bruh");
-    private Jugador jugadorAvisos = player;      // jugador actual per mostrar avisos
+    
     
     private Globals() {
     }
@@ -22,12 +22,4 @@ public class Globals {
         return this.game;
     }
     public Jugador getPlayer() {return this.player;}
-    
-    public void setJugadorAvisos(Jugador jug){
-        jugadorAvisos = jug;
-    }
-    
-    public Jugador getJugadorAvisos(){
-        return this.jugadorAvisos;
-    }
 }

@@ -41,9 +41,15 @@ public class DialogEliminar extends AppCompatDialogFragment {
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                listener.actualitzarAvisos();
+            
             }
-        });
+            })
+            .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    listener.actualitzarAvisos();
+                }
+            });
     
         return builder.create();
     }

@@ -11,15 +11,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.crearpartida.Globals;
-import com.example.crearpartida.Jugador;
-import com.example.crearpartida.R;
+import com.example.crearpartida.*;
 
 public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener, DialogEliminar.DialogEliminarListener {
     
     TableLayout tlsv1, tlsv2;
     Button back, crear, elim;
     int id1=0, id2=0;
+    Partida partida = Globals.getInstance().getGame();
+    Jugador jugador = partida.getJugadorConNombre(partida.getJugadorAvisos().getNom());
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +43,6 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     
     @Override
     public void onClick(View v) {
-        
-        //Intent back = new Intent(this, PartidaActivity.class);
-        
         switch (v.getId()){
             case R.id.bAvisBack:
                 this.finish();
@@ -55,8 +52,8 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
                 dialogCrear.show(getSupportFragmentManager(), "");
                 break;
             case R.id.bAvisEliminar:
-                //DialogEliminar dialogEliminar = new DialogEliminar();
-                //dialogEliminar.show(getSupportFragmentManager(), "");
+                DialogEliminar dialogEliminar = new DialogEliminar();
+                dialogEliminar.show(getSupportFragmentManager(), "");
                 break;
         }
     }
@@ -68,7 +65,7 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         if(toast)
             Toast.makeText(getApplicationContext(), "Parametros introducidos incompletos\nNo se han guardado los datos",Toast.LENGTH_LONG).show();
         else{
-            Globals.getInstance().getJugadorAvisos().getLlistaAvisos()[ Globals.getInstance().getJugadorAvisos().getNumAvis()] = new Avis(nombre, desc, quan);
+            partida.getJugadorAvisos().getLlistaAvisos()[partida.getJugadorAvisos().getNumAvis()] = new Avis(nombre, desc, quan);
             agregarAviso(nombre, desc, quan);
         }
     }
@@ -76,14 +73,14 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     @Override
     public void actualitzarAvisos() {
     
-        Jugador jug = Globals.getInstance().getJugadorAvisos();
-        Avis[] avisos =  jug.getLlistaAvisos();
+        Jugador jugadorAvisos = partida.getJugadorAvisos();
+        Avis[] avisos =  jugadorAvisos.getLlistaAvisos();
         
         tlsv1.removeAllViews();
         tlsv2.removeAllViews();
         
         
-        for(int i=0; i<jug.getNumAvis(); i++){
+        for(int i=0; i<jugadorAvisos.getNumAvis(); i++){
             agregarAviso(avisos[i].getNom(), avisos[i].getDescripcio(), avisos[i].getQuan());
         }
     }
@@ -104,11 +101,14 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         row.addView(nom);
         row.addView(espai);
         row.addView(descrip);
-    
+        
+        if(jugador.getNumAvis() < jugador.getMaxAvisos())
+            jugador.getLlistaAvisos()[jugador.getNumAvis()] = new Avis(nombre, desc, quan);
     
         // posar-ho al layout
         if(quan == 1) {
-            row.setId(1+id1);
+            id1 = tlsv1.getChildCount();
+            row.setId(id1);
             if(id1 % 2 == 0)
                 row.setBackgroundColor(Color.GRAY);
             else
@@ -117,7 +117,8 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
             id1++;
         }
         else {
-            row.setId(2+id2);
+            id2 = tlsv2.getChildCount();
+            row.setId(id2);
             if(id2 % 2 == 0)
                 row.setBackgroundColor(Color.GRAY);
             else

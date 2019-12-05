@@ -7,7 +7,7 @@ public class Jugador {
     private String nom;
     private ManaPool playerMana = new ManaPool();
     
-    static final private int max_avisos = 20;
+    static final private int max_avisos = 50;
     private Avis[] llistaAvisos = new Avis[max_avisos];
     private int nAvis = 0;
     
@@ -39,4 +39,11 @@ public class Jugador {
     
     public void decreaseVida(){ vida--; }
     public void incrementVida(){ vida++; }
+
+    public void addAvis(String desc, int quan){
+        if(nAvis < max_avisos){
+            llistaAvisos[nAvis] = new Avis(desc, quan);
+            nAvis++;
+        }
+    }
 }

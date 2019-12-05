@@ -60,13 +60,13 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     
     
     @Override
-    public void parametresDialog(String nombre, String desc, int quan, boolean toast) {
+    public void parametresDialog(String desc, int quan, boolean toast) {
         
         if(toast)
             Toast.makeText(getApplicationContext(), "Parametros introducidos incompletos\nNo se han guardado los datos",Toast.LENGTH_LONG).show();
         else{
-            partida.getJugadorAvisos().getLlistaAvisos()[partida.getJugadorAvisos().getNumAvis()] = new Avis(nombre, desc, quan);
-            agregarAviso(nombre, desc, quan);
+            partida.getJugadorAvisos().addAvis(desc, quan);
+            agregarAviso(desc, quan);
         }
     }
     
@@ -78,32 +78,24 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         
         tlsv1.removeAllViews();
         tlsv2.removeAllViews();
-        
-        
+
         for(int i=0; i<jugadorAvisos.getNumAvis(); i++){
-            agregarAviso(avisos[i].getNom(), avisos[i].getDescripcio(), avisos[i].getQuan());
+            agregarAviso(avisos[i].getDescripcio(), avisos[i].getQuan());
         }
     }
     
-    private void agregarAviso(String nombre, String desc, int quan){
+    private void agregarAviso(String desc, int quan){
         TableRow row = new TableRow(this);
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
         row.setLayoutParams(lp);
     
         // genera tot el q s'ha de posar
-        TextView espai = new TextView(this);
-        espai.setText(" - ");
-        TextView nom = new TextView(this);
-        nom.setText(nombre);
         TextView descrip = new TextView(this);
         descrip.setText(desc);
-    
-        row.addView(nom);
-        row.addView(espai);
         row.addView(descrip);
         
         if(jugador.getNumAvis() < jugador.getMaxAvisos())
-            jugador.getLlistaAvisos()[jugador.getNumAvis()] = new Avis(nombre, desc, quan);
+            jugador.getLlistaAvisos()[jugador.getNumAvis()] = new Avis(desc, quan);
     
         // posar-ho al layout
         if(quan == 1) {

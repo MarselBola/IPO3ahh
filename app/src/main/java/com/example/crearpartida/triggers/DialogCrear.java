@@ -25,15 +25,14 @@ public class DialogCrear extends AppCompatDialogFragment {
     @Override
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final EditText etNombre, etDesc;
+        final EditText etDesc;
         final Spinner quan;
         final ArrayAdapter<CharSequence> adapterQuan;
         
         
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_avis, null);
-        
-        etNombre = view.findViewById(R.id.etNomAvis);
+
         etDesc = view.findViewById(R.id.etDescAvis);
         
         quan = view.findViewById(R.id.sQuan);
@@ -63,18 +62,11 @@ public class DialogCrear extends AppCompatDialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String nombre = etNombre.getText().toString();
-                        if (nombre.equals("-"))
-                            toast = true;
-                        
                         String desc = etDesc.getText().toString();
-                        if (desc.equals("-"))
+                        if (desc.equals("") || posQuan <= 0)
                             toast = true;
-                        
-                        if (posQuan <= 0)
-                            toast = true;
-                        
-                        listener.parametresDialog(nombre, desc, posQuan, toast);
+
+                        listener.parametresDialog(desc, posQuan, toast);
                     }
                 });
         
@@ -92,6 +84,6 @@ public class DialogCrear extends AppCompatDialogFragment {
     }
     
     public interface DialogCrearListener {
-        void parametresDialog(String nombre, String desc, int quan, boolean toast);
+        void parametresDialog(String desc, int quan, boolean toast);
     }
 }

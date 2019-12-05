@@ -1,19 +1,14 @@
 package com.example.crearpartida.triggers;
 
 public class Avis {
-    private String nom, descripcio;
+    private String descripcio;
     private int quan;
     
-    public Avis (String nom, String descripcio, int quan){
-        this.nom = nom;
+    public Avis (String descripcio, int quan){
         this.descripcio = descripcio;
         this.quan = quan;
     }
-    
-    public String getNom() {
-        return nom;
-    }
-    
+
     public String getDescripcio() {
         return descripcio;
     }

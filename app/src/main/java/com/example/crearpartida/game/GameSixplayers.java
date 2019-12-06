@@ -13,21 +13,31 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.crearpartida.Globals;
+import com.example.crearpartida.Jugador;
 import com.example.crearpartida.R;
 public class GameSixplayers extends Fragment {
 
+    Globals g = Globals.getInstance();
+    Jugador player;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.game_sixplayers, container, false);
-
+        player = g.getGame().getJugadors()[g.getGame().getTorn()];
+        if(g.getGame().getNumJug()==1){
+            root.findViewById(R.id.game_extraplayers).setVisibility(View.GONE);
+        }
         // aumentar y disminuir vida jugador 1
         final TextView player1_life = root.findViewById(R.id.player1_life);
         final ImageButton player1_lifeup =  root.findViewById(R.id.player1_lifeup);
+
+        player1_life.setText(String.valueOf(player.getVida()));
         player1_lifeup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                player1_life.setText(String.valueOf(Integer.valueOf(player1_life.getText().toString())+1));
+                player.setVida(player.getVida()+1);
+                player1_life.setText(String.valueOf(player.getVida()));
 
             }
         });
@@ -37,7 +47,9 @@ public class GameSixplayers extends Fragment {
             public void onClick(View view) {
                 if(Integer.valueOf(player1_life.getText().toString()) > 0)
                 {
-                    player1_life.setText(String.valueOf(Integer.valueOf(player1_life.getText().toString())-1));
+                    player.setVida(player.getVida()-1);
+                    player1_life.setText(String.valueOf(player.getVida()));
+
                 }
             }
         });

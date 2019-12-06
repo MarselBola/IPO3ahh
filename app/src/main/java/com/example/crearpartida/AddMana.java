@@ -28,12 +28,12 @@ public class AddMana extends AppCompatActivity {
     ManaPool manaJugador;
     Globals g = Globals.getInstance();
     CheckBox check;
-    Intent back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_mana);
-        back = new Intent(this , ManaTotal.class);
+
         findViewById(R.id.previewMana).setBackgroundResource(R.drawable.bg_1_0);
         check = findViewById(R.id.check_blanco);
         check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -116,7 +116,7 @@ public class AddMana extends AppCompatActivity {
                     }
                     manaToAdd.addTotalMana(Integer.parseInt(cantidadMana.getText().toString()));
                     g.getPlayer().getPlayerMana().addManaAtArray(manaToAdd);
-                    startActivity(back);
+
                     finish();
                 }
 
@@ -127,8 +127,6 @@ public class AddMana extends AppCompatActivity {
 
     }
     public void exit(View v){
-        Intent intent = new Intent(this, ManaTotal.class);
-        startActivity(intent);
         this.finish();
     }
     public void setPreviewMana(){

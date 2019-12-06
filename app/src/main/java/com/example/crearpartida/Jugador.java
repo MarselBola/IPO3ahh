@@ -12,6 +12,9 @@ public class Jugador {
         this.vida = vida;
         this.nom = nom;
     }
+    public int getVida(){
+        return vida;
+    }
     public void setVida(int vida){
         this.vida = vida;
     }

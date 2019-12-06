@@ -21,13 +21,14 @@ import com.example.crearpartida.Jugador;
 import com.example.crearpartida.Partida;
 import com.example.crearpartida.R;
 
+import java.util.ArrayList;
+
 public class DialogEliminar extends AppCompatDialogFragment {
 
     private Partida partida = Globals.getInstance().getGame();
     private Jugador jugador = partida.getJugadorAvisos();
-    private Avis[] avisos = jugador.getLlistaAvisos();
+    private ArrayList<Avis> avisos = jugador.getLlistaAvisos();
     private DialogEliminarListener listener;
-    private QuinAvisEliminar quinsEliminar;
 
     @Override
     @NonNull
@@ -39,23 +40,19 @@ public class DialogEliminar extends AppCompatDialogFragment {
         final TableLayout tl1 = view.findViewById(R.id.tlSvElim1);
         final TableLayout tl2 = view.findViewById(R.id.tlSvElim2);
 
-        char id1 = 0, id2 = 0;
-        char pos1=0, pos2=0;
-
-        quinsEliminar = new QuinAvisEliminar(2 * jugador.getMaxAvisos());
-        for(int i=0; i<quinsEliminar.getNumAvisos(); i++)
-            quinsEliminar.getQuinsEliminar()[i] = 0;
+        char id1, id2 ;
+        char pos1, pos2;
         
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
         TextView desc;
-        TableRow row;
+        RowAvisEliminar row;
 
-        for(int i = 0; i < jugador.getNumAvis(); i++){
-            row = new TableRow(getContext());
+        for(int i = 0; i < avisos.size(); i++){
+            row = new RowAvisEliminar(getContext(), i, false);
             row.setLayoutParams(lp);
 
             desc = new TextView(getContext());
-            desc.setText(avisos[i].getDescripcio());
+            desc.setText(avisos.get(i).getDescripcio());
             row.addView(desc);
             
             row.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +61,7 @@ public class DialogEliminar extends AppCompatDialogFragment {
                     int color = ((ColorDrawable) v.getBackground()).getColor();
                     if (color == Color.GRAY || color == Color.LTGRAY) {
                         v.setBackgroundColor(Color.RED);
-                        quinsEliminar.getQuinsEliminar()[quinsEliminar.getNumAvisos()] = (char) v.getId();
+                        ((RowAvisEliminar) v).setEliminar(true);
                     }
                     else{
                         for(int i=0; i<tl1.getChildCount(); i++){
@@ -73,6 +70,8 @@ public class DialogEliminar extends AppCompatDialogFragment {
                                     v.setBackgroundColor(Color.GRAY);
                                 else
                                     v.setBackgroundColor(Color.LTGRAY);
+
+                                ((RowAvisEliminar) v).setEliminar(false);
                             }
                         }
     
@@ -82,20 +81,15 @@ public class DialogEliminar extends AppCompatDialogFragment {
                                     v.setBackgroundColor(Color.GRAY);
                                 else
                                     v.setBackgroundColor(Color.LTGRAY);
-                            }
-                        }
-                        
-                        for(int i=0; i<quinsEliminar.getNumAvisos(); i++){
-                            //TODO posarlos a la taula
-                            if(quinsEliminar.getQuinsEliminar()[i] == v.getId()){
-                                quinsEliminar.getQuinsEliminar()[i] = 0;
+
+                                ((RowAvisEliminar) v).setEliminar(false);
                             }
                         }
                     }
                 }
             });
             
-            if(avisos[i].getQuan() == 1) {
+            if(avisos.get(i).getQuan() == 1) {
                 pos1 = (char) tl1.getChildCount();
                 id1 = pos1;
                 row.setId(id1);
@@ -132,6 +126,21 @@ public class DialogEliminar extends AppCompatDialogFragment {
             .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    RowAvisEliminar row;
+                    for(int i=0; i<tl1.getChildCount(); i++){
+                        row = (RowAvisEliminar) tl1.getChildAt(i);
+                        if(row.getEliminar()){
+                            avisos.remove(row.getPosTaulaAvisos());
+                        }
+                    }
+
+                    for(int i=0; i<tl2.getChildCount(); i++){
+                        row = (RowAvisEliminar) tl2.getChildAt(i);
+                        if(row.getEliminar()){
+                            avisos.remove(row.getPosTaulaAvisos());
+                        }
+                    }
+
                     listener.actualitzarAvisos();
                 }
             });

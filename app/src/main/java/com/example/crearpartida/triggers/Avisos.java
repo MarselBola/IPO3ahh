@@ -16,15 +16,16 @@ import com.example.crearpartida.Jugador;
 import com.example.crearpartida.Partida;
 import com.example.crearpartida.R;
 
+import java.util.ArrayList;
+
 public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener, DialogEliminar.DialogEliminarListener {
     
     TableLayout tlsv1, tlsv2;
     Button back, crear, elim;
     int id1=0, id2=0;
     Partida partida = Globals.getInstance().getGame();
-    Jugador jugador = partida.getJugadorConNombre(partida.getJugadorAvisos().getNom());
     Jugador jugadorAvisos = partida.getJugadorAvisos();
-    Avis[] avisos =  jugadorAvisos.getLlistaAvisos();
+    ArrayList<Avis> avisos =  jugadorAvisos.getLlistaAvisos();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +67,10 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     
     @Override
     public void parametresDialog(String desc, int quan, boolean toast) {
-        
         if(toast)
             Toast.makeText(getApplicationContext(), "Parametros introducidos incompletos\nNo se han guardado los datos",Toast.LENGTH_LONG).show();
         else{
-            partida.getJugadorAvisos().addAvis(desc, quan);
+            avisos.add(new Avis(desc, quan));
             agregarAviso(desc, quan);
         }
     }
@@ -78,14 +78,11 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     
     @Override
     public void actualitzarAvisos() {
-    
-        
-        
         tlsv1.removeAllViews();
         tlsv2.removeAllViews();
 
-        for(int i=0; i<jugadorAvisos.getNumAvis(); i++){
-            agregarAviso(avisos[i].getDescripcio(), avisos[i].getQuan());
+        for(int i=0; i<avisos.size(); i++){
+            agregarAviso(avisos.get(i).getDescripcio(), avisos.get(i).getQuan());
         }
     }
     
@@ -98,9 +95,6 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         TextView descrip = new TextView(this);
         descrip.setText(desc);
         row.addView(descrip);
-        
-        if(jugador.getNumAvis() < jugador.getMaxAvisos())
-            jugador.getLlistaAvisos()[jugador.getNumAvis()] = new Avis(desc, quan);
     
         // posar-ho al layout
         if(quan == 1) {

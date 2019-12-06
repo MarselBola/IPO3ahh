@@ -145,7 +145,7 @@ public class AddMana extends Fragment {
         Fragment manatotal = new ManaTotal();
         FragmentManager fm = getParentFragment().getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.manaavaiable, manatotal);
+        fragmentTransaction.replace(R.id.manaavaliable, manatotal);
         fragmentTransaction.commit();
     }
     public void setPreviewMana(){

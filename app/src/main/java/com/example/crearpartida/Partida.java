@@ -6,10 +6,13 @@ public class Partida {
     private Jugador[] Jugadors;
     private int torn = 0;
 
-    public Partida (){
+    public Partida ()
+    {
 
     }
-    public Partida (int numJug, String format, int vida){
+
+    public Partida (int numJug, String format, int vida)
+    {
         this.format = format;
         this.numJug = numJug;
         Jugadors = new Jugador[numJug];
@@ -19,7 +22,9 @@ public class Partida {
         }
         torn=0;
     }
-    public Partida crearPartida(int numJug, String format, int vida){
+
+    public Partida crearPartida(int numJug, String format, int vida)
+    {
 
         Partida new_game = new Partida(numJug, format, vida);
         return new_game;

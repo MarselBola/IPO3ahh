@@ -30,8 +30,7 @@ public class Mana {
      * Inicialitza totes les variables de la classe a 0
      * @param manaType
      */
-    public Mana(int[] manaType)
-    {
+    public Mana(int[] manaType){
         this.manaType = manaType;
         quantTotal = 0;
         quantAvaiable = 0;
@@ -45,8 +44,7 @@ public class Mana {
      * @param total: quantitat total d'aquest
      * @param avaiable: quantitat disponible d'aquest
      */
-    public Mana( int[] manaType, int total, int avaiable)
-    {
+    public Mana( int[] manaType, int total, int avaiable){
         this.manaType = manaType;
         isIncolor = isManaIncolor(manaType);
         isUniversal = isManaUniversal(manaType);
@@ -59,8 +57,7 @@ public class Mana {
      * @param manaType
      * @return true if incolor, false otherwise
      */
-    private boolean isManaIncolor(int[] manaType)
-    {
+    private boolean isManaIncolor(int[] manaType){
         if(manaType.length == 1){
             if(manaType[0] == 0) return true;
         }
@@ -72,8 +69,7 @@ public class Mana {
      * @param manaType
      * @return true if universal, false otherwise
      */
-    private boolean isManaUniversal(int[] manaType)
-    {
+    private boolean isManaUniversal(int[] manaType){
         if(manaType.length == 1){
             if(manaType[0] == 6) return true;
         }
@@ -85,8 +81,7 @@ public class Mana {
      * ... li correspon al mana en questio
      * @return nom de l'arxiu
      */
-    public String getBackground()
-    {
+    public String getBackground(){
         String aux = "bg_" + getManaType().length + "_";
         for(int i = 0;i < getManaType().length; i++){
             aux = aux.concat("" + getManaType()[i]);
@@ -98,8 +93,7 @@ public class Mana {
      * Setter de la quantitat de mana total
      * @param total
      */
-    public void setTotal(int total)
-    {
+    public void setTotal(int total){
         this.quantTotal = total;
     }
 
@@ -107,8 +101,7 @@ public class Mana {
      * Setter de la quantitat de mana disponible
      * @param disp
      */
-    public void setAvaiable(int disp)
-    {
+    public void setAvaiable(int disp){
         this.quantAvaiable = disp;
     }
 
@@ -116,8 +109,7 @@ public class Mana {
      * Setter del tipus de mana
      * @param manaType
      */
-    public void setManaType(int[] manaType)
-    {
+    public void setManaType(int[] manaType) {
         this.manaType = manaType;
     }
 
@@ -125,8 +117,7 @@ public class Mana {
      * Getter de la quantitat de mana total
      * @return quantTotal
      */
-    public int getTotal()
-    {
+    public int getTotal(){
         return quantTotal;
     }
 
@@ -134,8 +125,7 @@ public class Mana {
      * Getter de la quantitat de mana disponible
      * @return quantAvaiable
      */
-    public int getAvaiable()
-    {
+    public int getAvaiable() {
         return quantAvaiable;
     }
 
@@ -143,16 +133,14 @@ public class Mana {
      * Getter del tipus de mana
      * @return manaType
      */
-    public int[] getManaType()
-    {
+    public int[] getManaType() {
         return manaType;
     }
 
     /**
      * Reseteja el mana disponible al total disponible
      */
-    public void resetMana()
-    {
+    public void resetMana(){
         this.quantAvaiable = quantTotal;
     }
 
@@ -160,8 +148,7 @@ public class Mana {
      * Augmenta el valor del mana total en una quantitat passada per parametre
      * @param cantidad
      */
-    public void addTotalMana(int cantidad)
-    {
+    public void addTotalMana(int cantidad){
         this.quantTotal += cantidad;
         this.quantAvaiable += cantidad;
     }
@@ -169,8 +156,7 @@ public class Mana {
     /**
      * Augmentar el Total en 1
      */
-    public void addOneToTotal()
-    {
+    public void addOneToTotal(){
         quantTotal += 1;
         quantAvaiable += 1;
     }
@@ -178,16 +164,14 @@ public class Mana {
     /**
      * Augmentar el disponible en 1
      */
-    public void addOneToAvaiable()
-    {
+    public void addOneToAvaiable(){
         quantAvaiable += 1;
     }
 
     /**
      * Si el total es mes gran que 0, decrementar en 1
      */
-    public void subOneToTotal()
-    {
+    public void subOneToTotal(){
         if(getTotal() > 0){
             setTotal(getTotal() - 1);
             if(getAvaiable() > 0) setAvaiable(getAvaiable() - 1);
@@ -197,8 +181,7 @@ public class Mana {
     /**
      * si el disponible es mes gran que 0, decrementar en 1
      */
-    public void subOneToAvaiable()
-    {
+    public void subOneToAvaiable(){
         if(getAvaiable() > 0) setAvaiable(getAvaiable() - 1);
     }
 
@@ -208,8 +191,7 @@ public class Mana {
      * @param mana
      * @return true if equals, false otherwise
      */
-    public boolean isEqual(Mana mana)
-    {
+    public boolean isEqual(Mana mana){
         if(mana.getManaType().length != this.getManaType().length) return false;
         else{
             int i = 0;
@@ -225,8 +207,7 @@ public class Mana {
      * Retorna una copia del mana sobre el qual s'esta realitzant aquest metode
      * @return copy: copia del mana
      */
-    public Mana Copy()
-    {
+    public Mana Copy(){
         Mana copy = new Mana(this.manaType, this.quantTotal, this.quantAvaiable);
         return copy;
     }

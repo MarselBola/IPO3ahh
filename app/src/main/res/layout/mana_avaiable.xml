@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ManaAvaiable">
 
     <Button
         android:id="@+id/bTotal"
@@ -41,7 +42,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/manaAvaiable" />
 
-    <!-- Scroll del mana que es vol utilitzar per a realitzar una jugada -->
     <Button
         android:id="@+id/bReset"
         android:layout_width="153dp"
@@ -50,12 +50,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bSpent"
         app:layout_constraintStart_toEndOf="@+id/bAccept"
-        app:layout_constraintTop_toBottomOf="@+id/manaAvaiable" />
+        app:layout_constraintTop_toBottomOf="@+id/manaAvaiable"
+        app:layout_constraintVertical_bias="0.0" />
 
+    <!-- Scroll del mana que es vol utilitzar per a realitzar una jugada -->
     <ScrollView
         android:id="@+id/manaWasted"
         android:layout_width="270dp"
-        android:layout_height="280dp"
+        android:layout_height="320dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/manaAvaiable"
@@ -889,7 +891,7 @@
     <ScrollView
         android:id="@+id/manaAvaiable"
         android:layout_width="462dp"
-        android:layout_height="250dp"
+        android:layout_height="312dp"
         app:layout_constraintBottom_toTopOf="@+id/bAccept"
         app:layout_constraintEnd_toStartOf="@+id/manaWasted"
         app:layout_constraintStart_toStartOf="parent"
@@ -1242,10 +1244,10 @@
                         android:id="@+id/sub7"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:onClick="addOneToDisponible"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/quant7"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:onClick="addOneToDisponible"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/less" />
 

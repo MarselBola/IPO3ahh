@@ -7,7 +7,7 @@ public class Jugador {
     private String nom;
     private ManaPool playerMana = new ManaPool();
     
-    static final public int max_avisos = 50;
+    static final private int max_avisos = 50;
     private Avis[] llistaAvisos = new Avis[max_avisos];
     private int nAvis = 0;
     
@@ -49,6 +49,6 @@ public class Jugador {
     }
     
     public void removeAvis(int index){
-    
+        //si index
     }
 }

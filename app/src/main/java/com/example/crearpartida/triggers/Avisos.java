@@ -23,6 +23,8 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     int id1=0, id2=0;
     Partida partida = Globals.getInstance().getGame();
     Jugador jugador = partida.getJugadorConNombre(partida.getJugadorAvisos().getNom());
+    Jugador jugadorAvisos = partida.getJugadorAvisos();
+    Avis[] avisos =  jugadorAvisos.getLlistaAvisos();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,22 +75,11 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         }
     }
     
-    @Override
-    public void actualitzarAvisos(char[] quins) {
-        for(int i=0; i<quins.length; i++){
-            if(quins[i] == 1) {
-                jugador.removeAvis(i);
-                jugador.setNumAvis(jugador.getNumAvis() - 1);
-            }
-        }
-        actualitzarAvisos();
-    }
     
     @Override
     public void actualitzarAvisos() {
     
-        Jugador jugadorAvisos = partida.getJugadorAvisos();
-        Avis[] avisos =  jugadorAvisos.getLlistaAvisos();
+        
         
         tlsv1.removeAllViews();
         tlsv2.removeAllViews();

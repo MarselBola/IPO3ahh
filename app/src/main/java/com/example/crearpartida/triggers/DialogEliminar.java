@@ -27,10 +27,8 @@ public class DialogEliminar extends AppCompatDialogFragment {
     private Jugador jugador = partida.getJugadorAvisos();
     private Avis[] avisos = jugador.getLlistaAvisos();
     private DialogEliminarListener listener;
-    private TableRow row;
-    private char[] quinsEliminar;
-    private char pos1=0, pos2=0;
-    
+    private QuinAvisEliminar quinsEliminar;
+
     @Override
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -42,14 +40,15 @@ public class DialogEliminar extends AppCompatDialogFragment {
         final TableLayout tl2 = view.findViewById(R.id.tlSvElim2);
 
         char id1 = 0, id2 = 0;
-        
+        char pos1=0, pos2=0;
 
-        quinsEliminar = new char[2 * Jugador.max_avisos];
-        for(int i=0; i<quinsEliminar.length; i++)
-            quinsEliminar[i] = 0;
+        quinsEliminar = new QuinAvisEliminar(2 * jugador.getMaxAvisos());
+        for(int i=0; i<quinsEliminar.getNumAvisos(); i++)
+            quinsEliminar.getQuinsEliminar()[i] = 0;
         
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
         TextView desc;
+        TableRow row;
 
         for(int i = 0; i < jugador.getNumAvis(); i++){
             row = new TableRow(getContext());
@@ -65,7 +64,7 @@ public class DialogEliminar extends AppCompatDialogFragment {
                     int color = ((ColorDrawable) v.getBackground()).getColor();
                     if (color == Color.GRAY || color == Color.LTGRAY) {
                         v.setBackgroundColor(Color.RED);
-                        quinsEliminar[v.getId()] = 1;
+                        quinsEliminar.getQuinsEliminar()[quinsEliminar.getNumAvisos()] = (char) v.getId();
                     }
                     else{
                         for(int i=0; i<tl1.getChildCount(); i++){
@@ -85,7 +84,13 @@ public class DialogEliminar extends AppCompatDialogFragment {
                                     v.setBackgroundColor(Color.LTGRAY);
                             }
                         }
-                        quinsEliminar[v.getId()] = 0;
+                        
+                        for(int i=0; i<quinsEliminar.getNumAvisos(); i++){
+                            //TODO posarlos a la taula
+                            if(quinsEliminar.getQuinsEliminar()[i] == v.getId()){
+                                quinsEliminar.getQuinsEliminar()[i] = 0;
+                            }
+                        }
                     }
                 }
             });
@@ -103,7 +108,7 @@ public class DialogEliminar extends AppCompatDialogFragment {
             }
             else {
                 pos2 = (char) tl2.getChildCount();
-                id2 = (char) (Jugador.max_avisos + pos2 - 1);
+                id2 = (char) (jugador.getMaxAvisos() + pos2);
                 if(pos2 % 2 == 0)
                     row.setBackgroundColor(Color.GRAY);
                 else
@@ -127,7 +132,7 @@ public class DialogEliminar extends AppCompatDialogFragment {
             .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    listener.actualitzarAvisos(quinsEliminar);
+                    listener.actualitzarAvisos();
                 }
             });
     
@@ -146,7 +151,6 @@ public class DialogEliminar extends AppCompatDialogFragment {
     }
     
     public interface DialogEliminarListener{
-        void actualitzarAvisos(char[] quins);
         void actualitzarAvisos();
     }
     

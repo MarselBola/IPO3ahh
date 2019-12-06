@@ -5,21 +5,13 @@ import android.widget.TableRow;
 
 public class RowAvisEliminar extends TableRow {
 
-    private int posTaulaAvisos;
     private boolean eliminar=false;
+    private Avis avis;
 
-    public RowAvisEliminar(Context context, int pos, boolean elim){
+    public RowAvisEliminar(Context context, boolean elim, Avis avis){
         super(context);
-        posTaulaAvisos = pos;
         eliminar = elim;
-    }
-
-    public int getPosTaulaAvisos() {
-        return posTaulaAvisos;
-    }
-
-    public void setPosTaulaAvisos(int posTaulaAvisos) {
-        this.posTaulaAvisos = posTaulaAvisos;
+        this.avis = avis;
     }
 
     public boolean getEliminar() {
@@ -28,5 +20,9 @@ public class RowAvisEliminar extends TableRow {
 
     public void setEliminar(boolean eliminar) {
         this.eliminar = eliminar;
+    }
+
+    public Avis getAvis() {
+        return avis;
     }
 }

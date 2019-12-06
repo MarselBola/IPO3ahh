@@ -48,7 +48,7 @@ public class DialogEliminar extends AppCompatDialogFragment {
         RowAvisEliminar row;
 
         for(int i = 0; i < avisos.size(); i++){
-            row = new RowAvisEliminar(getContext(), i, false);
+            row = new RowAvisEliminar(getContext(), false, avisos.get(i));
             row.setLayoutParams(lp);
 
             desc = new TextView(getContext());
@@ -127,20 +127,16 @@ public class DialogEliminar extends AppCompatDialogFragment {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     RowAvisEliminar row;
-                    for(int i=0; i<tl1.getChildCount(); i++){
-                        row = (RowAvisEliminar) tl1.getChildAt(i);
+                    for(int i=0; i < tl1.getChildCount() + tl2.getChildCount() ; i++){
+                        if(i < tl1.getChildCount())
+                            row = (RowAvisEliminar) tl1.getChildAt(i);
+                        else
+                            row = (RowAvisEliminar) tl2.getChildAt(i - tl1.getChildCount());
+
                         if(row.getEliminar()){
-                            avisos.remove(row.getPosTaulaAvisos());
+                            avisos.remove(row.getAvis());
                         }
                     }
-
-                    for(int i=0; i<tl2.getChildCount(); i++){
-                        row = (RowAvisEliminar) tl2.getChildAt(i);
-                        if(row.getEliminar()){
-                            avisos.remove(row.getPosTaulaAvisos());
-                        }
-                    }
-
                     listener.actualitzarAvisos();
                 }
             });

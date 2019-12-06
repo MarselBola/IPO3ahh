@@ -42,7 +42,8 @@ public class TriggersFragment extends Fragment {
             boto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    partida.setJugadorAvisos(jugador);
+                    int pos = partida.buscarPosJugador(((Button) v).getText().toString());
+                    partida.setJugadorAvisos(partida.getLlistaJugadors()[pos]);
                     Intent toTriggers = new Intent(getActivity(), Avisos.class);
                     startActivity(toTriggers);
                 }

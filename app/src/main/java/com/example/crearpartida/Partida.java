@@ -57,7 +57,9 @@ public class Partida {
     }
     
     public  Jugador[] getLlistaJugadors() { return this.Jugadors; }
-    
+
+    public int getNumJug() { return numJug; }
+
     public void setJugadorAvisos(Jugador jug){
         jugadorAvisos = jug;
     }

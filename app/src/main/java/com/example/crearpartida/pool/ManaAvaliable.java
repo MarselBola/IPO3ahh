@@ -125,7 +125,7 @@ public class ManaAvaliable extends Fragment implements View.OnClickListener{
                 if(v.getId() == resID){
                     player.getPlayer().getPlayerMana().getManaArray()[i].addOneToAvaiable();
                     resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
-                    aux = root.findViewById(resID);
+                    aux = getView().findViewById(resID);
                     aux.setText("" + player.getPlayer().getPlayerMana().getManaArray()[i].getAvaiable());
                 }
                 resID = getResources().getIdentifier("sub" + i,"id", getActivity().getPackageName());
@@ -133,7 +133,7 @@ public class ManaAvaliable extends Fragment implements View.OnClickListener{
                     if(player.getPlayer().getPlayerMana().getManaArray()[i].getAvaiable() > 0 ){
                         player.getPlayer().getPlayerMana().getManaArray()[i].subOneToAvaiable();
                         resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
-                        aux = root.findViewById(resID);
+                        aux = getView().findViewById(resID);
                         aux.setText("" + player.getPlayer().getPlayerMana().getManaArray()[i].getAvaiable());
 
                         int pos = player.getPlayer().getPlayerMana().getManaPosition(
@@ -146,19 +146,19 @@ public class ManaAvaliable extends Fragment implements View.OnClickListener{
 
 
                             resID = getResources().getIdentifier("row0" + (player.getPlayer().getPlayerMana().getRowSpent()-1),"id", getActivity().getPackageName());
-                            root.findViewById(resID).setVisibility(View.VISIBLE);
+                            getView().findViewById(resID).setVisibility(View.VISIBLE);
 
                             resID = getResources().getIdentifier("manaWasted" + (player.getPlayer().getPlayerMana().getQuantManaSpent()-1), "id", getActivity().getPackageName());
-                            root.findViewById(resID).setVisibility(View.VISIBLE);
+                            getView().findViewById(resID).setVisibility(View.VISIBLE);
 
                             //obtinc el BackGround especific pel tipus de mana
                             background = player.getPlayer().getPlayerMana().getManaSpent()[i].getBackground();
                             id = getResources().getIdentifier(background, "drawable", getActivity().getPackageName());
-                            root.findViewById(resID).setBackgroundResource(id);
+                            getView().findViewById(resID).setBackgroundResource(id);
 
                             //visualitzo la quantitat de mana total
                             resID = getResources().getIdentifier("quantWasted" + (player.getPlayer().getPlayerMana().getQuantManaSpent()-1),"id", getActivity().getPackageName());
-                            aux = root.findViewById(resID);
+                            aux = getView().findViewById(resID);
                             aux.setText("1");
                             aux.setTextColor(Color.WHITE);
                             aux.setTextSize(30);
@@ -166,7 +166,7 @@ public class ManaAvaliable extends Fragment implements View.OnClickListener{
                         else {
                             player.getPlayer().getPlayerMana().getManaSpent()[pos].addOneToTotal();
                             resID = getResources().getIdentifier("quantWasted" + pos, "id", getActivity().getPackageName());
-                            aux = root.findViewById(resID);
+                            aux = getView().findViewById(resID);
                             int debug = player.getPlayer().getPlayerMana().getManaSpent()[pos].getTotal();
                             aux.setText("" + debug);
                         }

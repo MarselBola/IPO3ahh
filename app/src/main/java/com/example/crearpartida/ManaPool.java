@@ -69,7 +69,8 @@ public class ManaPool {
      * Getter de les files totals del mana total
      * @return rowTotal
      */
-    public int getRowTotal() {
+    public int getRowTotal()
+    {
         return rowTotal;
     }
 
@@ -77,18 +78,21 @@ public class ManaPool {
      * Getter de la quantitat de mana total del jugador
      * @return quantManaTotal
      */
-    public int getQuantManaTotal(){
+    public int getQuantManaTotal()
+    {
         return quantManaTotal;
     }
 
-    public int getQuantManaSpent(){
+    public int getQuantManaSpent()
+    {
         return this.quantManaSpent;
     }
     /**
      * Getter de la array de mana del jugador
      * @return manaArray
      */
-    public Mana[] getManaArray(){
+    public Mana[] getManaArray()
+    {
         return manaArray;
     }
 
@@ -96,7 +100,8 @@ public class ManaPool {
      * Getter de la array de mana gastat del jugador
      * @return manaSpent
      */
-    public Mana[] getManaSpent(){
+    public Mana[] getManaSpent()
+    {
         return manaSpent;
     }
 
@@ -105,8 +110,10 @@ public class ManaPool {
      * @param mana
      * @return pos in the manaArray
      */
-    public int getManaPosition(Mana mana, Mana[] manaArray, int limit){
-        for(int pos = 0; pos < limit; pos++){
+    public int getManaPosition(Mana mana, Mana[] manaArray, int limit)
+    {
+        for(int pos = 0; pos < limit; pos++)
+        {
             if(manaArray[pos].isEqual(mana)) return pos;
         }
         return -1;
@@ -118,9 +125,12 @@ public class ManaPool {
      * ...quantitat de mana d'aquest tipus
      * @param mana
      */
-    public void addManaAtArray(Mana mana){
+    public void addManaAtArray(Mana mana)
+    {
         int pos = getManaPosition(mana, getManaArray(), getQuantManaTotal());
-        if(pos == -1){ //si pos == -1 vol dir que no ha trobat el mana dins l'array
+        if(pos == -1)
+        {
+            //si pos == -1 vol dir que no ha trobat el mana dins l'array
             manaArray[quantManaTotal] = mana;
             quantManaTotal++;
             if(quantManaTotal % 4 == 1) rowTotal++;
@@ -129,9 +139,11 @@ public class ManaPool {
         else manaArray[pos].addTotalMana(mana.getTotal()); //augmentem el nombre de mana del tipus
     }
 
-    public void addManaAtSpent(Mana mana){
+    public void addManaAtSpent(Mana mana)
+    {
         int pos = getManaPosition(mana, getManaSpent(), getQuantManaSpent());
-        if(pos == -1){
+        if(pos == -1)
+        {
             manaSpent[quantManaSpent] = mana;
             quantManaSpent++;
             if (quantManaSpent % 2 == 1) rowSpent++;
@@ -143,7 +155,8 @@ public class ManaPool {
      * Busca el mana passat per referencia dins la manaArray i l'elimina
      * @param mana
      */
-    public void removeManaFromArray(Mana mana){
+    public void removeManaFromArray(Mana mana)
+    {
         int pos = getManaPosition(mana, getManaArray(), getQuantManaTotal());
         if(pos == -1); //error, el mana no esta dins l'array;
         else{

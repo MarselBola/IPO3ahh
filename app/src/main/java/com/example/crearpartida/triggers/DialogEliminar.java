@@ -5,11 +5,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -17,7 +16,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import com.example.crearpartida.*;
+import com.example.crearpartida.Globals;
+import com.example.crearpartida.Jugador;
+import com.example.crearpartida.Partida;
+import com.example.crearpartida.R;
 
 public class DialogEliminar extends AppCompatDialogFragment {
 
@@ -25,6 +27,9 @@ public class DialogEliminar extends AppCompatDialogFragment {
     private Jugador jugador = partida.getJugadorAvisos();
     private Avis[] avisos = jugador.getLlistaAvisos();
     private DialogEliminarListener listener;
+    private TableRow row;
+    private char[] quinsEliminar;
+    private char pos1=0, pos2=0;
     
     @Override
     @NonNull
@@ -33,15 +38,18 @@ public class DialogEliminar extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_eliminar, null);
 
-        TableLayout tl1 = view.findViewById(R.id.tlSvElim1);
-        TableLayout tl2 = view.findViewById(R.id.tlSvElim2);
+        final TableLayout tl1 = view.findViewById(R.id.tlSvElim1);
+        final TableLayout tl2 = view.findViewById(R.id.tlSvElim2);
 
-        int id1 = 0, id2 = 0;
+        char id1 = 0, id2 = 0;
+        
 
-        TableRow row;
+        quinsEliminar = new char[2 * Jugador.max_avisos];
+        for(int i=0; i<quinsEliminar.length; i++)
+            quinsEliminar[i] = 0;
+        
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
         TextView desc;
-        // CheckBox checkBox;
 
         for(int i = 0; i < jugador.getNumAvis(); i++){
             row = new TableRow(getContext());
@@ -50,26 +58,59 @@ public class DialogEliminar extends AppCompatDialogFragment {
             desc = new TextView(getContext());
             desc.setText(avisos[i].getDescripcio());
             row.addView(desc);
-
-            //TODO mirar com fer per seleccionar quins eliminar
-
+            
+            row.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int color = ((ColorDrawable) v.getBackground()).getColor();
+                    if (color == Color.GRAY || color == Color.LTGRAY) {
+                        v.setBackgroundColor(Color.RED);
+                        quinsEliminar[v.getId()] = 1;
+                    }
+                    else{
+                        for(int i=0; i<tl1.getChildCount(); i++){
+                            if(tl1.getChildAt(i) == v){
+                                if(i % 2 == 0)
+                                    v.setBackgroundColor(Color.GRAY);
+                                else
+                                    v.setBackgroundColor(Color.LTGRAY);
+                            }
+                        }
+    
+                        for(int i=0; i<tl2.getChildCount(); i++){
+                            if(tl2.getChildAt(i) == v){
+                                if(i % 2 == 0)
+                                    v.setBackgroundColor(Color.GRAY);
+                                else
+                                    v.setBackgroundColor(Color.LTGRAY);
+                            }
+                        }
+                        quinsEliminar[v.getId()] = 0;
+                    }
+                }
+            });
+            
             if(avisos[i].getQuan() == 1) {
-                id1 = tl1.getChildCount();
+                pos1 = (char) tl1.getChildCount();
+                id1 = pos1;
                 row.setId(id1);
-                if(id1 % 2 == 0)
+                if(pos1 % 2 == 0)
                     row.setBackgroundColor(Color.GRAY);
                 else
                     row.setBackgroundColor(Color.LTGRAY);
-                tl1.addView(row, id1);
+    
+                tl1.addView(row, pos1);
             }
             else {
-                id2 = tl2.getChildCount();
-                row.setId(id2);
-                if(id2 % 2 == 0)
+                pos2 = (char) tl2.getChildCount();
+                id2 = (char) (Jugador.max_avisos + pos2 - 1);
+                if(pos2 % 2 == 0)
                     row.setBackgroundColor(Color.GRAY);
                 else
                     row.setBackgroundColor(Color.LTGRAY);
-                tl2.addView(row, id2);
+    
+                row.setId(id2);
+                tl2.addView(row, pos2);
             }
 
         }
@@ -86,8 +127,7 @@ public class DialogEliminar extends AppCompatDialogFragment {
             .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    //TODO comprovar quins eliminar i eliminar
-                    listener.actualitzarAvisos();
+                    listener.actualitzarAvisos(quinsEliminar);
                 }
             });
     
@@ -106,6 +146,7 @@ public class DialogEliminar extends AppCompatDialogFragment {
     }
     
     public interface DialogEliminarListener{
+        void actualitzarAvisos(char[] quins);
         void actualitzarAvisos();
     }
     

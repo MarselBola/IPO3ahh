@@ -7,7 +7,7 @@ public class Jugador {
     private String nom;
     private ManaPool playerMana = new ManaPool();
     
-    static final private int max_avisos = 50;
+    static final public int max_avisos = 50;
     private Avis[] llistaAvisos = new Avis[max_avisos];
     private int nAvis = 0;
     
@@ -26,6 +26,7 @@ public class Jugador {
     public void setNom(String nom){
         this.nom = nom;
     }
+    public void setNumAvis(int num) { this.nAvis = num; }
     
     public String getNom(){
         return nom;
@@ -45,5 +46,9 @@ public class Jugador {
             llistaAvisos[nAvis] = new Avis(desc, quan);
             nAvis++;
         }
+    }
+    
+    public void removeAvis(int index){
+    
     }
 }

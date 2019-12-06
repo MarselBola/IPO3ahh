@@ -11,7 +11,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.crearpartida.*;
+import com.example.crearpartida.Globals;
+import com.example.crearpartida.Jugador;
+import com.example.crearpartida.Partida;
+import com.example.crearpartida.R;
 
 public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener, DialogEliminar.DialogEliminarListener {
     
@@ -71,6 +74,17 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     }
     
     @Override
+    public void actualitzarAvisos(char[] quins) {
+        for(int i=0; i<quins.length; i++){
+            if(quins[i] == 1) {
+                jugador.removeAvis(i);
+                jugador.setNumAvis(jugador.getNumAvis() - 1);
+            }
+        }
+        actualitzarAvisos();
+    }
+    
+    @Override
     public void actualitzarAvisos() {
     
         Jugador jugadorAvisos = partida.getJugadorAvisos();
@@ -105,6 +119,7 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
                 row.setBackgroundColor(Color.GRAY);
             else
                 row.setBackgroundColor(Color.LTGRAY);
+                
             tlsv1.addView(row, id1);
             id1++;
         }

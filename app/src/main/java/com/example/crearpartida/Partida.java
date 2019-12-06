@@ -24,6 +24,7 @@ public class Partida {
         Partida new_game = new Partida(numJug, format, vida);
         return new_game;
     }
+    public Jugador[] getJugadors(){ return Jugadors; }
     public void setNumJug(int numJug){
         this.numJug = numJug;
     }
@@ -38,6 +39,7 @@ public class Partida {
             Jugadors[i].setNom("Jugador "+(i+1));
         }
     }
+    public int getNumJug(){ return numJug; }
     public Jugador getJugadorConNombre(String nom){
         return Jugadors[buscarPosJugador(nom)];
     }
@@ -51,5 +53,8 @@ public class Partida {
             else i++;
         }
         return i;
+    }
+    public int getTorn(){
+        return torn;
     }
 }

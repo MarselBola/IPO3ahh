@@ -108,7 +108,7 @@ public class ManaAvaliable extends Fragment implements View.OnClickListener{
             Fragment manatotal = new ManaTotal();
             FragmentManager fm = getParentFragment().getChildFragmentManager();
             FragmentTransaction fragmentTransaction = fm.beginTransaction();
-            fragmentTransaction.replace(R.id.manaavaliable, manatotal);
+            fragmentTransaction.replace(R.id.manafragment, manatotal);
             fragmentTransaction.commit();
         }else if(v.getId() == R.id.bMenu) {
             //this.finish();

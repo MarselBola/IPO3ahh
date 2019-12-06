@@ -28,7 +28,7 @@ public class PoolFragment extends Fragment {
         FragmentTransaction ft= fm.beginTransaction();
 
         Fragment fragment= new ManaAvaliable();
-        ft.add(R.id.manaavaliable, fragment);
+        ft.add(R.id.manafragment, fragment);
         ft.commit();
 
         return root;

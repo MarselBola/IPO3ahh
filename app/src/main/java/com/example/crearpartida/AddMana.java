@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -131,23 +132,28 @@ public class AddMana extends Fragment {
                     Fragment manatotal = new ManaTotal();
                     FragmentManager fm = getParentFragment().getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                    fragmentTransaction.replace(R.id.manaavaliable, manatotal);
+                    fragmentTransaction.replace(R.id.manafragment, manatotal);
                     fragmentTransaction.commit();
                 }
 
             }
         });
 
+        ImageButton buttonBack = root.findViewById(R.id.imageButton);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment manatotal = new ManaTotal();
+                FragmentManager fm = getParentFragment().getChildFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.manafragment, manatotal);
+                fragmentTransaction.commit();
+            }});
+
 
         return root;
     }
-    public void exit(View v){
-        Fragment manatotal = new ManaTotal();
-        FragmentManager fm = getParentFragment().getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.manaavaliable, manatotal);
-        fragmentTransaction.commit();
-    }
+
     public void setPreviewMana(){
         int id;
         bg_string2 = "";

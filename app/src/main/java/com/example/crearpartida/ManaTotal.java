@@ -82,13 +82,13 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
             Fragment manaavaliable = new ManaAvaliable();
             FragmentManager fm = getParentFragment().getChildFragmentManager();
             FragmentTransaction fragmentTransaction = fm.beginTransaction();
-            fragmentTransaction.replace(R.id.manaavaliable, manaavaliable);
+            fragmentTransaction.replace(R.id.manafragment, manaavaliable);
             fragmentTransaction.commit();
         }else if(v.getId() == R.id.bAdd){
             Fragment addmana = new AddMana();
             FragmentManager fm = getParentFragment().getChildFragmentManager();
             FragmentTransaction fragmentTransaction = fm.beginTransaction();
-            fragmentTransaction.replace(R.id.manaavaliable, addmana);
+            fragmentTransaction.replace(R.id.manafragment, addmana);
             fragmentTransaction.commit();
         }else{
             for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {

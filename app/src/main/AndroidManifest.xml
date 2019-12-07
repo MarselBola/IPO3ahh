@@ -37,7 +37,10 @@
             android:name=".AddMana"
             android:theme="@style/OurTheme">
         </activity>
-        <activity android:name=".InGame">
+        <activity
+            android:name=".InGame"
+            >
+
         </activity>
 
     </application>

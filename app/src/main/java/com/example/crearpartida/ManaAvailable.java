@@ -23,10 +23,9 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
     private ImageButton[] add, sub;
 
     @Nullable
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreate(@NonNull LayoutInflater inflater,
                          @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        root = inflater.inflate(R.layout.mana_available,container, false);
+        View root = inflater.inflate(R.layout.mana_available,container, false);
         int resID, id;
         add = new ImageButton[32];
         sub = new ImageButton[32];
@@ -112,7 +111,7 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
     public void onClick(View v){
         int resID, id;
         if(v.getId() == R.id.bTotal){
-            Fragment manatotal = new ManaTotal();
+            Fragment manatotal = new ManaAvailable();
             FragmentManager fm = getParentFragment().getChildFragmentManager();
             FragmentTransaction fragmentTransaction = fm.beginTransaction();
             fragmentTransaction.replace(R.id.manafragment, manatotal);

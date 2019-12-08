@@ -1,12 +1,9 @@
 package com.example.crearpartida;
 
-<<<<<<< HEAD
 import com.example.crearpartida.triggers.Avis;
 
 import java.util.ArrayList;
 
-=======
->>>>>>> parent of 0344f0d... canvis
 public class Jugador {
     private int vida;
     private String nom;

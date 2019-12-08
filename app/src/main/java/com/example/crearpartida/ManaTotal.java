@@ -100,7 +100,7 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
             FragmentTransaction fragmentTransaction = fm.beginTransaction();
             fragmentTransaction.replace(R.id.manafragment, addmana);
             fragmentTransaction.commit();
-            
+
         }else if(v.getId() == R.id.bDel){
             if(isVisible) {
                 for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {

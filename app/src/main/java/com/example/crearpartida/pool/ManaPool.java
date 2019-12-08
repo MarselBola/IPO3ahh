@@ -27,12 +27,14 @@ public class ManaPool {
         rowTotal = 0;
         rowAvailable = 0;
         rowSpent = 0;
+
         quantManaTotal = 0;
         quantManaSpent = 0;
+
         manaArray = new Mana[32];
         manaAvailable = new Mana[32];
         manaSpent = new Mana[32];
-        manaCheckpoint = manaArray;
+        manaCheckpoint = new Mana[32];
     }
 
     /**

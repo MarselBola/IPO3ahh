@@ -69,7 +69,7 @@
         android:id="@+id/tResultatDau"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#ff0000"
+        android:textColor="#FFFFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:hint="Numero de caras del dado"
+        android:hint="Numero de cares del dau"
         android:imeOptions="actionDone"
         />
 

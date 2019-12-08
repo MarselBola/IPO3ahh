@@ -1,6 +1,5 @@
 package com.example.crearpartida;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,12 +9,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import com.example.crearpartida.pool.ManaAvaliable;
-import com.example.crearpartida.pool.PoolFragment;
 
 public class ManaTotal extends Fragment implements View.OnClickListener{
     View root;
@@ -67,7 +63,7 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
             sub[i].setOnClickListener(this);
         }
 
-        buttonAvaiable = root.findViewById(R.id.bAvaiable); //mana disponible
+        buttonAvaiable = root.findViewById(R.id.bAvailable); //mana disponible
         buttonAvaiable.setOnClickListener(this);
         buttonAdd = root.findViewById(R.id.bAdd);           //add mana
         buttonAdd.setOnClickListener(this);
@@ -78,7 +74,7 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v){
         int resID;
-        if(v.getId() == R.id.bAvaiable){
+        if(v.getId() == R.id.bAvailable){
             Fragment manaavaliable = new ManaAvaliable();
             FragmentManager fm = getParentFragment().getChildFragmentManager();
             FragmentTransaction fragmentTransaction = fm.beginTransaction();

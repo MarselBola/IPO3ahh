@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/bTotal"
+        android:id="@+id/bAvailable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MANA TOTAL" />

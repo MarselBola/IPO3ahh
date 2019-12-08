@@ -1,6 +1,5 @@
-package com.example.crearpartida.pool;
+package com.example.crearpartida;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import com.example.crearpartida.*;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -34,7 +33,7 @@ public class ManaAvaliable extends Fragment implements View.OnClickListener{
         sub = new ImageButton[32];
 
         //visualitzo les files necessaries per a visualitzar el mana que tinc
-        for(int i = 0; i < player.getPlayer().getPlayerMana().getRowAvaiable(); i++){
+        for(int i = 0; i < player.getPlayer().getPlayerMana().getRowAvailable(); i++){
             resID = getResources().getIdentifier("row" + i,"id", getActivity().getPackageName());
             root.findViewById(resID).setVisibility(View.VISIBLE);
         }
@@ -88,37 +87,28 @@ public class ManaAvaliable extends Fragment implements View.OnClickListener{
             aux.setTextSize(30);
         }
 
-        buttonTotal = (Button) root.findViewById(R.id.bTotal);
+        buttonTotal = (Button) root.findViewById(R.id.bAvailable);
         buttonTotal.setOnClickListener(this);
         buttonAccept= (Button) root.findViewById(R.id.bAccept);
         buttonAccept.setOnClickListener(this);
         buttonReset= (Button) root.findViewById(R.id.bReset);
         buttonReset.setOnClickListener(this);
-        buttonSpent= (Button) root.findViewById(R.id.bSpent);
-        buttonSpent.setOnClickListener(this);
-        buttonMenu= (Button) root.findViewById(R.id.bMenu);
-        buttonMenu.setOnClickListener(this);
         return root;
     }
 
     @Override
     public void onClick(View v){
         int resID, id;
-        if(v.getId() == R.id.bTotal){
+        if(v.getId() == R.id.bAvailable){
             Fragment manatotal = new ManaTotal();
             FragmentManager fm = getParentFragment().getChildFragmentManager();
             FragmentTransaction fragmentTransaction = fm.beginTransaction();
             fragmentTransaction.replace(R.id.manafragment, manatotal);
             fragmentTransaction.commit();
-        }else if(v.getId() == R.id.bMenu) {
-            //this.finish();
         }else if(v.getId() == R.id.bAccept){
 
         }else if(v.getId() == R.id.bReset){
             //igualar la array de mana avaiable = array checkpoint
-        }else if(v.getId() == R.id.bSpent){
-            //visualitzar l'historial de mana gastat
-            //startActivity(afegirMana);
         }else{
             for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {
                 resID = getResources().getIdentifier("add" + i,"id", getActivity().getPackageName());

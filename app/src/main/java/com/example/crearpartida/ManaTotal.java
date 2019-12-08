@@ -109,6 +109,10 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
                     aux = root.findViewById(resID);
                     aux.setText("" + player.getPlayer().getPlayerMana().getManaArray()[i].getTotal());
                 }
+                resID = getResources().getIdentifier("del" + i, "id", getActivity().getPackageName());
+                if(v.getId() == resID){
+                    //eliminar mana del mana total i del available
+                }
             }
         }
     }

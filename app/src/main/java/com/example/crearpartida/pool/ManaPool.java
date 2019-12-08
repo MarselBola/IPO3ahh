@@ -1,5 +1,7 @@
-package com.example.crearpartida;
+package com.example.crearpartida.pool;
 
+
+import com.example.crearpartida.Mana;
 
 public class ManaPool {
 
@@ -10,7 +12,7 @@ public class ManaPool {
     private int quantManaSpent;
     private Mana[] manaArray;       //llista de tot el mana posible
     private Mana[] manaSpent;       //utilitza el total del mana com a comptador
-    private Mana[] manaCheckpoint;
+    private Mana[] manaCheckpoint;  //ultim checkpoint guardat
 
 
     /**
@@ -26,6 +28,7 @@ public class ManaPool {
         quantManaSpent = 0;
         manaArray = new Mana[32];
         manaSpent = new Mana[32];
+        manaCheckpoint = manaArray;
     }
 
     /**
@@ -46,6 +49,7 @@ public class ManaPool {
             rowAvaiable = 0;
         }
         manaSpent = new Mana[32];
+        manaCheckpoint = manaArray;
         rowSpent = 0;
     }
 
@@ -95,6 +99,14 @@ public class ManaPool {
     {
         return manaArray;
     }
+
+    public void setManaArray(Mana[] mana) {this.manaArray = mana; }
+
+    /**
+     * Getter de la array de l'ultim cp del jugador
+     * @return manaCheckpoint
+     */
+    public Mana[] getManaCheckpoint() { return manaCheckpoint; }
 
     /**
      * Getter de la array de mana gastat del jugador

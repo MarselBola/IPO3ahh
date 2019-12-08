@@ -66,7 +66,7 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
 
         buttonAvaiable = root.findViewById(R.id.bTotal); //mana disponible
         buttonAvaiable.setOnClickListener(this);
-        buttonAdd = root.findViewById(R.id.bAdd);        //add mana
+        buttonAdd = root.findViewById(R.id.bAdd);           //add mana
         buttonAdd.setOnClickListener(this);
 
         return root;

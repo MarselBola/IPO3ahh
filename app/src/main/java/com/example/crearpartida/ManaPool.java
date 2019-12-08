@@ -1,7 +1,5 @@
-package com.example.crearpartida.pool;
+package com.example.crearpartida;
 
-
-import com.example.crearpartida.Mana;
 
 public class ManaPool {
 
@@ -13,9 +11,14 @@ public class ManaPool {
     private int quantManaSpent;     //quantitat de mana que s'esta gastant
 
     private Mana[] manaArray;       //llista de tot el mana posible
+<<<<<<< HEAD:app/src/main/java/com/example/crearpartida/pool/ManaPool.java
     private Mana[] manaAvailable;   //llista del mana disponible per l'usuari
     private Mana[] manaSpent;       //llista del mana que s'esta gastant
     private Mana[] manaCheckpoint;  //ultim checkpoint de mana realitzat
+=======
+    private Mana[] manaSpent;       //utilitza el total del mana com a comptador
+    private Mana[] manaCheckpoint;
+>>>>>>> parent of 9fbd366... Merge branch 'master' of https://github.com/MarselBola/IPO3ahh:app/src/main/java/com/example/crearpartida/ManaPool.java
 
 
     /**
@@ -34,15 +37,35 @@ public class ManaPool {
         manaArray = new Mana[32];
         manaAvailable = new Mana[32];
         manaSpent = new Mana[32];
+<<<<<<< HEAD:app/src/main/java/com/example/crearpartida/pool/ManaPool.java
         manaCheckpoint = new Mana[32];
+=======
+>>>>>>> parent of 9fbd366... Merge branch 'master' of https://github.com/MarselBola/IPO3ahh:app/src/main/java/com/example/crearpartida/ManaPool.java
     }
 
     /**
      * Getter de les files totals del mana disponible
      * @return rowAvaiable
      */
+<<<<<<< HEAD:app/src/main/java/com/example/crearpartida/pool/ManaPool.java
     public int getRowAvailable() {
         return rowAvailable;
+=======
+    public ManaPool(Mana[] manaArray, int quant){
+        this.manaArray = manaArray;
+        quantManaTotal = quant;
+        quantManaSpent = 0;
+        if(quant > 0){
+            rowTotal = 1 + quant / 4;
+            rowAvaiable = 1 + quant / 2;
+        }
+        else {
+            rowTotal = 0;
+            rowAvaiable = 0;
+        }
+        manaSpent = new Mana[32];
+        rowSpent = 0;
+>>>>>>> parent of 9fbd366... Merge branch 'master' of https://github.com/MarselBola/IPO3ahh:app/src/main/java/com/example/crearpartida/ManaPool.java
     }
 
     /**
@@ -116,6 +139,7 @@ public class ManaPool {
         return manaArray;
     }
 
+<<<<<<< HEAD:app/src/main/java/com/example/crearpartida/pool/ManaPool.java
     /**
      * Setter de la array de mana total del jugador
      * @param mana
@@ -140,6 +164,8 @@ public class ManaPool {
      */
     public Mana[] getManaCheckpoint() { return manaCheckpoint; }
 
+=======
+>>>>>>> parent of 9fbd366... Merge branch 'master' of https://github.com/MarselBola/IPO3ahh:app/src/main/java/com/example/crearpartida/ManaPool.java
     /**
      * Setter de la array de l'ultim CheckPoint del jugador
      * @param mana

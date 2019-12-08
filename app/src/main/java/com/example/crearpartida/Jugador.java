@@ -1,5 +1,7 @@
 package com.example.crearpartida;
 
+import com.example.crearpartida.pool.ManaPool;
+
 public class Jugador {
     private int vida;
     private String nom;

@@ -16,10 +16,9 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
     View root;
     Globals player = Globals.getInstance();
 
-    private boolean isVisible = false;
     private String background;
     private TextView aux;
-    private Button buttonAvaiable, buttonAdd, buttonDelete;
+    private Button buttonAvaiable, buttonAdd;
     private ImageButton[] add, sub, del;
 
     @Override
@@ -69,8 +68,6 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
         buttonAvaiable.setOnClickListener(this);
         buttonAdd = root.findViewById(R.id.bAdd);        //add mana
         buttonAdd.setOnClickListener(this);
-        buttonDelete = root.findViewById(R.id.bDel);
-        buttonDelete.setOnClickListener(this);
 
         return root;
     }
@@ -100,21 +97,6 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
             FragmentTransaction fragmentTransaction = fm.beginTransaction();
             fragmentTransaction.replace(R.id.manafragment, addmana);
             fragmentTransaction.commit();
-            
-        }else if(v.getId() == R.id.bDel){
-            if(isVisible) {
-                for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {
-                    resID = getResources().getIdentifier("del" + i, "id", getActivity().getPackageName());
-                    root.findViewById(resID).setVisibility(View.INVISIBLE);
-                }
-                isVisible = true;
-            }else {
-                for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {
-                    resID = getResources().getIdentifier("del" + i, "id", getActivity().getPackageName());
-                    root.findViewById(resID).setVisibility(View.VISIBLE);
-                }
-                isVisible = false;
-            }
         }else{
             for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {
                 resID = getResources().getIdentifier("add" + i,"id", getActivity().getPackageName());

@@ -30,4 +30,5 @@ public class Globals {
     {
         return this.game;
     }
+    public Jugador getPlayer() {return this.player;}
 }

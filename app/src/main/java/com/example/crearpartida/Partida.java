@@ -6,6 +6,9 @@ public class Partida {
     private Jugador[] Jugadors;
     private int torn = 0;
 
+    //--------- Paramtros de los triggers ------------//
+    private Jugador jugadorAvisos;      // jugador a mostrar los triggers
+
     public Partida ()
     {
 
@@ -22,12 +25,8 @@ public class Partida {
         }
         torn=0;
     }
-
-    public Partida crearPartida(int numJug, String format, int vida)
-    {
-
-        Partida new_game = new Partida(numJug, format, vida);
-        return new_game;
+    public Partida crearPartida(int numJug, String format, int vida){
+        return new Partida(numJug, format, vida);
     }
     public Jugador[] getJugadors(){ return Jugadors; }
     public void setNumJug(int numJug){
@@ -60,6 +59,17 @@ public class Partida {
         return i;
     }
     public int getTorn(){
-        return torn;
+      return torn;
+    }
+    public  Jugador[] getLlistaJugadors() { return this.Jugadors; }
+
+
+
+    public void setJugadorAvisos(Jugador jug){
+        jugadorAvisos = jug;
+    }
+
+    public Jugador getJugadorAvisos(){
+        return this.jugadorAvisos;
     }
 }

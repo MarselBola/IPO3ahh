@@ -52,12 +52,12 @@
     <string name="nomAvis">Nombre:</string>
     <string name="descrip">Descripcion:</string>
     <string name="efecte">Efecto:</string>
-    <string name="duracio">Duracion (turnos):</string>
+    <string name="duracio">Duración (turnos):</string>
     <string name="quan">Cuando activar:</string>
     <string name="eliminarAvis">ELIMINAR AVISO</string>
     <string name="avisFinal">Al final</string>
     <string name="avisPrincipi">Al principio</string>
-    <string name="titolParametresAvis">Nombre - Descripcion</string>
+    <string name="titolParametresAvis">Descripción</string>
 
 
 

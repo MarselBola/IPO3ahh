@@ -11,7 +11,7 @@
         android:supportsRtl="true">
         <activity android:name=".CrearPartida">
         </activity>
-        <activity android:name = ".Avisos">
+        <activity android:name = ".triggers.Avisos">
             <intent-filter>
                 <action android:name = "android.intent.action.VIEW"/>
             </intent-filter>

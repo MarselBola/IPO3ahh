@@ -35,13 +35,52 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
         ShowRowsAvaiable();
 
         //visualitzo el mana que tinc en les files anteriors i tot el que comporta
-        ShowManaAvaiable();
+        for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {
+            //visualitzo el mana que tinc en les files anteriors
+            resID = getResources().getIdentifier("mana" + i, "id", getActivity().getPackageName());
+            root.findViewById(resID).setVisibility(View.VISIBLE);
+
+            //obtinc el BackGround especific pel tipus de mana
+            background = player.getPlayer().getPlayerMana().getManaArray()[i].getBackground();
+            id = getResources().getIdentifier(background, "drawable", getActivity().getPackageName());
+            resID = getResources().getIdentifier("bg" + i, "id", getActivity().getPackageName());
+            root.findViewById(resID).setBackgroundResource(id);
+
+            //visualitzo la quantitat de mana total
+            resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
+            aux = root.findViewById(resID);
+            aux.setText("" + player.getPlayer().getPlayerMana().getManaArray()[i].getTotal());
+            aux.setTextSize(30);
+
+            //OnClickListeners dels botons de afegir i eliminar
+            resID = getResources().getIdentifier("add" + i,"id", getActivity().getPackageName());
+            add[i] = root.findViewById(resID);
+            add[i].setOnClickListener(this);
+            resID = getResources().getIdentifier("sub" + i,"id", getActivity().getPackageName());
+            sub[i] = root.findViewById(resID);
+            sub[i].setOnClickListener(this);
+        }
 
         //visualitzo les files del mana que s'esta gastant
         ShowRowsSpending();
 
-        //visualitzo el mana que s'esta gastant
-        ShowManaSpending();
+        for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaSpent(); i++) {
+            //visualitzo el mana que tinc en les files anteriors
+            resID = getResources().getIdentifier("mana0" + i, "id", getActivity().getPackageName());
+            root.findViewById(resID).setVisibility(View.VISIBLE);
+
+            //obtinc el BackGround especific pel tipus de mana
+            background = player.getPlayer().getPlayerMana().getManaArray()[i].getBackground();
+            id = getResources().getIdentifier(background, "drawable", getActivity().getPackageName());
+            resID = getResources().getIdentifier("bg0" + i, "id", getActivity().getPackageName());
+            root.findViewById(resID).setBackgroundResource(id);
+
+            //visualitzo la quantitat de mana total
+            resID = getResources().getIdentifier("quant0" + i,"id", getActivity().getPackageName());
+            aux = root.findViewById(resID);
+            aux.setText("" + player.getPlayer().getPlayerMana().getManaArray()[i].getTotal());
+            aux.setTextSize(30);
+        }
 
         buttonTotal = root.findViewById(R.id.bTotal);
         buttonTotal.setOnClickListener(this);
@@ -61,82 +100,11 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
         }
     }
 
-    private void ShowManaAvaiable(){
-        int resID, id;
-        for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {
-            //visualitzo el mana que tinc en les files anteriors
-            resID = getResources().getIdentifier("mana" + i, "id", getActivity().getPackageName());
-            root.findViewById(resID).setVisibility(View.VISIBLE);
-
-            //obtinc el BackGround especific pel tipus de mana
-            background = player.getPlayer().getPlayerMana().getManaAvailable()[i].getBackground();
-            id = getResources().getIdentifier(background, "drawable", getActivity().getPackageName());
-            resID = getResources().getIdentifier("bg" + i, "id", getActivity().getPackageName());
-            root.findViewById(resID).setBackgroundResource(id);
-
-            //visualitzo la quantitat de mana total
-            resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
-            aux = root.findViewById(resID);
-            aux.setText("" + player.getPlayer().getPlayerMana().getManaAvailable()[i].getTotal());
-            aux.setTextSize(30);
-
-            //OnClickListeners dels botons de afegir i eliminar
-            resID = getResources().getIdentifier("add" + i,"id", getActivity().getPackageName());
-            add[i] = root.findViewById(resID);
-            add[i].setOnClickListener(this);
-            resID = getResources().getIdentifier("sub" + i,"id", getActivity().getPackageName());
-            sub[i] = root.findViewById(resID);
-            sub[i].setOnClickListener(this);
-        }
-    }
-
     private void ShowRowsSpending(){
         int resID;
         for(int i = 0; i < player.getPlayer().getPlayerMana().getRowSpent(); i++){
             resID = getResources().getIdentifier("row0" + i,"id", getActivity().getPackageName());
             root.findViewById(resID).setVisibility(View.VISIBLE);
-        }
-    }
-
-    private void ShowManaSpending(){
-        int resID, id;
-        for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaSpent(); i++) {
-            //visualitzo el mana que tinc en les files anteriors
-            resID = getResources().getIdentifier("mana0" + i, "id", getActivity().getPackageName());
-            root.findViewById(resID).setVisibility(View.VISIBLE);
-
-            //obtinc el BackGround especific pel tipus de mana
-            background = player.getPlayer().getPlayerMana().getManaSpent()[i].getBackground();
-            id = getResources().getIdentifier(background, "drawable", getActivity().getPackageName());
-            resID = getResources().getIdentifier("bg0" + i, "id", getActivity().getPackageName());
-            root.findViewById(resID).setBackgroundResource(id);
-
-            //visualitzo la quantitat de mana total
-            resID = getResources().getIdentifier("quant0" + i,"id", getActivity().getPackageName());
-            aux = root.findViewById(resID);
-            aux.setText("" + player.getPlayer().getPlayerMana().getManaSpent()[i].getTotal());
-            aux.setTextSize(30);
-        }
-    }
-
-    private void SetRowsAndManaInvisible(int num){ //   0 = spending, 1 = available
-        int resID;
-        String aux;
-
-        if(num == 0) aux = "row0";
-        else aux = "row";
-
-        for(int i = 0; i < 15; i++){
-            resID = getResources().getIdentifier(aux + i,"id", getActivity().getPackageName());
-            root.findViewById(resID).setVisibility(View.GONE);
-        }
-
-        if(num == 0) aux = "mana0";
-        else aux = "mana";
-
-        for(int i = 0; i < 31; i++) {
-            resID = getResources().getIdentifier(aux + i, "id", getActivity().getPackageName());
-            root.findViewById(resID).setVisibility(View.GONE);
         }
     }
 
@@ -150,32 +118,10 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
             fragmentTransaction.replace(R.id.manafragment, manatotal);
             fragmentTransaction.commit();
         }else if(v.getId() == R.id.bAccept){
-            //visualitzar tot el mana available i spending com a gone
-            SetRowsAndManaInvisible(1);
-            SetRowsAndManaInvisible(0);
-
             //crear nou checkpoint i buidar rowsSpending
-            player.getPlayer().getPlayerMana().setManaCheckpoint(player.getPlayer().getPlayerMana().getManaAvailable());
-            player.getPlayer().getPlayerMana().setQuantManaSpent(0);
-            player.getPlayer().getPlayerMana().setRowSpent(0);
-            player.getPlayer().getPlayerMana().setManaSpent(new Mana[32]);
-
-            //visualitzo les files necessaries per a visualitzar el mana que tinc
-            ShowRowsAvaiable();
-
-            //visualitzo el mana que tinc en les files anteriors i tot el que comporta
-            ShowManaAvaiable();
-
         }else if(v.getId() == R.id.bReset){
             //igualar la array de mana avaiable = array checkpoint
-            player.getPlayer().getPlayerMana().setManaAvailable(player.getPlayer().getPlayerMana().getManaCheckpoint());
-
-            //visualitzo les files necessaries per a visualitzar el mana que tinc
-            ShowRowsAvaiable();
-
-            //visualitzo el mana que tinc en les files anteriors i tot el que comporta
-            ShowManaAvaiable();
-
+            player.getPlayer().getPlayerMana().setManaArray(player.getPlayer().getPlayerMana().getManaCheckpoint());
         }else{
             for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {
                 resID = getResources().getIdentifier("add" + i,"id", getActivity().getPackageName());

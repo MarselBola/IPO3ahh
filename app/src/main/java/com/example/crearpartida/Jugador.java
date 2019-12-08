@@ -1,12 +1,8 @@
 package com.example.crearpartida;
 
-
 import com.example.crearpartida.triggers.Avis;
 
 import java.util.ArrayList;
-
-import com.example.crearpartida.pool.ManaPool;
-
 
 public class Jugador {
     private int vida;

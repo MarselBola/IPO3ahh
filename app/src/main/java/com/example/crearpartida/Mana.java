@@ -1,7 +1,5 @@
 package com.example.crearpartida;
 
-import android.graphics.Bitmap;
-
 public class Mana {
 
     /* *

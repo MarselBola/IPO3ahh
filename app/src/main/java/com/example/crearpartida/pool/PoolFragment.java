@@ -1,9 +1,14 @@
 package com.example.crearpartida.pool;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -22,7 +27,7 @@ public class PoolFragment extends Fragment {
         FragmentManager fm= getChildFragmentManager();
         FragmentTransaction ft= fm.beginTransaction();
 
-        Fragment fragment= new ManaAvailable();
+        Fragment fragment= new ManaAvaliable();
         ft.add(R.id.manafragment, fragment);
         ft.commit();
 

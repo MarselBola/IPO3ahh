@@ -19,7 +19,7 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
     private String background;
     private TextView aux;
     private Button buttonAvaiable, buttonAdd;
-    private ImageButton[] add, sub;
+    private ImageButton[] add, sub, del;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -30,6 +30,7 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
         int resID, id;
         add = new ImageButton[32];
         sub = new ImageButton[32];
+        del = new ImageButton[32];
 
         //visualitzo les files necessaries per a visualitzar el mana que tinc
         ShowVisibleRows();
@@ -58,6 +59,9 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
             resID = getResources().getIdentifier("sub" + i,"id", getActivity().getPackageName());
             sub[i] = root.findViewById(resID);
             sub[i].setOnClickListener(this);
+            resID = getResources().getIdentifier("del" + i, "id",getActivity().getPackageName());
+            del[i] = root.findViewById(resID);
+            del[i].setOnClickListener(this);
         }
 
         buttonAvaiable = root.findViewById(R.id.bTotal); //mana disponible

@@ -122,7 +122,7 @@ public class AddMana extends Fragment {
                         manaToAdd = new Mana(manaType);
                     }
                     manaToAdd.addTotalMana(Integer.parseInt(cantidadMana.getText().toString()));
-                    g.getPlayer().getPlayerMana().addManaAtTotal(manaToAdd);
+                    g.getPlayer().getPlayerMana().addManaAtArray(manaToAdd);
 
                     Fragment manatotal = new ManaTotal();
                     FragmentManager fm = getParentFragment().getChildFragmentManager();

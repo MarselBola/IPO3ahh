@@ -94,7 +94,7 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
 
     private void ShowRowsAvaiable(){
         int resID;
-        for(int i = 0; i < player.getPlayer().getPlayerMana().getRowAvailable(); i++){
+        for(int i = 0; i < player.getPlayer().getPlayerMana().getRowAvaiable(); i++){
             resID = getResources().getIdentifier("row" + i,"id", getActivity().getPackageName());
             root.findViewById(resID).setVisibility(View.VISIBLE);
         }

@@ -188,7 +188,8 @@ public class ManaPool {
         {
             //si pos == -1 vol dir que no ha trobat el mana dins l'array
             manaArray[quantManaTotal] = mana;
-            manaAvailable[quantManaTotal] = mana;
+            manaAvailable[quantManaTotal] = mana.Copy();
+            manaCheckpoint[quantManaTotal] = mana.Copy();
             quantManaTotal++;
             if(quantManaTotal % 4 == 1) rowTotal++;
             if(quantManaTotal % 2 == 1) rowAvailable++;
@@ -196,6 +197,7 @@ public class ManaPool {
         else{
             manaArray[pos].addTotalMana(mana.getTotal()); //augmentem el nombre de mana del tipus
             manaAvailable[pos].addTotalMana(mana.getTotal());
+            manaCheckpoint[pos].addTotalMana(mana.getTotal());
         }
     }
 
@@ -210,6 +212,7 @@ public class ManaPool {
         if(pos == -1)
         {
             manaSpent[quantManaSpent] = mana;
+            manaSpent[quantManaSpent].setTotal(1);
             quantManaSpent++;
             if (quantManaSpent % 2 == 1) rowSpent++;
         }
@@ -230,5 +233,27 @@ public class ManaPool {
             quantManaTotal--;
         }
         //else: error, el mana no esta dins l'array;
+    }
+
+    public Mana[] copyCheckPoint(){
+        Mana[] copy = new Mana[32];
+        for(int i = 0; i<manaCheckpoint.length;i++){
+            copy[i] = manaCheckpoint[i].Copy();
+        }
+        return copy;
+    }
+    public Mana[] copyManaTotal(){
+        Mana[] copy = new Mana[32];
+        for(int i = 0; i<manaArray.length;i++){
+            copy[i] = manaArray[i].Copy();
+        }
+        return copy;
+    }
+    public Mana[] copyManaAvailable(){
+        Mana[] copy = new Mana[32];
+        for(int i = 0; i<quantManaTotal;i++){
+            copy[i] = manaAvailable[i].Copy();
+        }
+        return copy;
     }
 }

@@ -77,7 +77,7 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
             //visualitzo la quantitat de mana total
             resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
             aux = root.findViewById(resID);
-            aux.setText("" + player.getPlayer().getPlayerMana().getManaAvailable()[i].getTotal());
+            aux.setText("" + player.getPlayer().getPlayerMana().getManaCheckpoint()[i].getAvaiable());
             aux.setTextSize(30);
 
             //OnClickListeners dels botons de afegir i eliminar
@@ -155,7 +155,8 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
             SetRowsAndManaInvisible(0);
 
             //crear nou checkpoint i buidar rowsSpending
-            player.getPlayer().getPlayerMana().setManaCheckpoint(player.getPlayer().getPlayerMana().getManaAvailable());
+
+            player.getPlayer().getPlayerMana().setManaCheckpoint(player.getPlayer().getPlayerMana().copyManaAvailable());
             player.getPlayer().getPlayerMana().setQuantManaSpent(0);
             player.getPlayer().getPlayerMana().setRowSpent(0);
             player.getPlayer().getPlayerMana().setManaSpent(new Mana[32]);
@@ -180,27 +181,29 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
             for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {
                 resID = getResources().getIdentifier("add" + i,"id", getActivity().getPackageName());
                 if(v.getId() == resID){
-                    player.getPlayer().getPlayerMana().getManaCheckpoint()[i].addOneToAvaiable();
+
+                    player.getPlayer().getPlayerMana().getManaAvailable()[i].addOneToAvaiable();
+
                     resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
                     aux = root.findViewById(resID);
-                    aux.setText("" + player.getPlayer().getPlayerMana().getManaCheckpoint()[i].getAvaiable());
+                    aux.setText("" + player.getPlayer().getPlayerMana().getManaAvailable()[i].getAvaiable());
                 }
                 resID = getResources().getIdentifier("sub" + i,"id", getActivity().getPackageName());
                 if(v.getId() == resID){
-                    if(player.getPlayer().getPlayerMana().getManaCheckpoint()[i].getAvaiable() > 0 ){
-                        player.getPlayer().getPlayerMana().getManaCheckpoint()[i].subOneToAvaiable();
+                    if(player.getPlayer().getPlayerMana().getManaAvailable()[i].getAvaiable() > 0 ){
+                        player.getPlayer().getPlayerMana().getManaAvailable()[i].subOneToAvaiable();
                         resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
                         aux = root.findViewById(resID);
-                        aux.setText("" + player.getPlayer().getPlayerMana().getManaCheckpoint()[i].getAvaiable());
+                        aux.setText("" + player.getPlayer().getPlayerMana().getManaAvailable()[i].getAvaiable());
 
                         int pos = player.getPlayer().getPlayerMana().getManaPosition(
-                                player.getPlayer().getPlayerMana().getManaCheckpoint()[i],
+                                player.getPlayer().getPlayerMana().getManaAvailable()[i],
                                 player.getPlayer().getPlayerMana().getManaSpent(),
                                 player.getPlayer().getPlayerMana().getQuantManaSpent());
                         if(pos == -1){  //no esta dins dels spending
-                            player.getPlayer().getPlayerMana().addManaAtSpent(player.getPlayer().getPlayerMana().getManaCheckpoint()[i].Copy());
+                            player.getPlayer().getPlayerMana().addManaAtSpent(player.getPlayer().getPlayerMana().getManaAvailable()[i].Copy());
 
-                            resID = getResources().getIdentifier("row0" + (player.getPlayer().getPlayerMana().getRowSpent()),"id", getActivity().getPackageName());
+                            resID = getResources().getIdentifier("row0" + (player.getPlayer().getPlayerMana().getRowSpent()-1),"id", getActivity().getPackageName());
                             root.findViewById(resID).setVisibility(View.VISIBLE);
 
                             //visualitzo el mana que tinc en les files anteriors
@@ -208,7 +211,7 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
                             root.findViewById(resID).setVisibility(View.VISIBLE);
 
                             //obtinc el BackGround especific pel tipus de mana
-                            background = player.getPlayer().getPlayerMana().getManaCheckpoint()[i].getBackground();
+                            background = player.getPlayer().getPlayerMana().getManaAvailable()[i].getBackground();
                             id = getResources().getIdentifier(background, "drawable", getActivity().getPackageName());
                             resID = getResources().getIdentifier("bg0" + i, "id", getActivity().getPackageName());
                             root.findViewById(resID).setBackgroundResource(id);
@@ -216,7 +219,7 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
                             //visualitzo la quantitat de mana total
                             resID = getResources().getIdentifier("quant0" + i,"id", getActivity().getPackageName());
                             aux = root.findViewById(resID);
-                            aux.setText("" + player.getPlayer().getPlayerMana().getManaCheckpoint()[i].getTotal());
+                            aux.setText("" + player.getPlayer().getPlayerMana().getManaSpent()[i].getTotal());
                             aux.setTextSize(30);
                         }
                         else {

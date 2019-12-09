@@ -95,7 +95,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del0"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -170,7 +170,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del1"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -244,7 +244,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del2"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -318,7 +318,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del3"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -476,7 +476,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del5"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -550,7 +550,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del6"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -624,7 +624,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del7"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -707,7 +707,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del8"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -782,7 +782,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del9"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -856,7 +856,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del10"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -930,7 +930,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del11"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1013,7 +1013,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del12"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1088,7 +1088,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del13"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1162,8 +1162,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
-                                android:id="@+id/del4"
+                            <ImageButton
+                                android:id="@+id/del14"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:background="@drawable/del"
@@ -1236,7 +1236,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del15"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1319,7 +1319,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del16"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1394,7 +1394,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del17"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1468,7 +1468,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del18"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1542,7 +1542,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del19"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1625,7 +1625,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del20"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1700,7 +1700,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del21"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1774,7 +1774,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del22"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1848,7 +1848,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del23"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -1931,7 +1931,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del24"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -2006,7 +2006,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del25"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -2080,7 +2080,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del26"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -2154,7 +2154,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del27"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -2237,7 +2237,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del28"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -2312,7 +2312,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del29"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -2386,7 +2386,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del30"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
@@ -2460,7 +2460,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
+                            <ImageButton
                                 android:id="@+id/del31"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"

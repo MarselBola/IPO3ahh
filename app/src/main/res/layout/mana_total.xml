@@ -401,8 +401,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="30dp">
 
-                            <Button
-                                android:id="@+id/de43"
+                            <ImageButton
+                                android:id="@+id/del4"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:background="@drawable/del"

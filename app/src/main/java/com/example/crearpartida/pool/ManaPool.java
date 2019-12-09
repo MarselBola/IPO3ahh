@@ -227,9 +227,9 @@ public class ManaPool {
     {
         int pos = getManaPosition(mana, getManaArray(), getQuantManaTotal());
         if(pos != -1){
-            for (int i = pos; i < 31; i++) //desplaça tots els elements de la array una pos endevant
+            for (int i = pos; i < quantManaTotal-1; i++) //desplaça tots els elements de la array una pos endevant
                 manaArray[i] = manaArray[i + 1].Copy();
-            manaArray[31] = null;
+            manaArray[quantManaTotal-1] = null;
             quantManaTotal--;
         }
         //else: error, el mana no esta dins l'array;
@@ -256,4 +256,5 @@ public class ManaPool {
         }
         return copy;
     }
+
 }

@@ -133,7 +133,12 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
                 }
                 resID = getResources().getIdentifier("del" + i, "id", getActivity().getPackageName());
                 if(v.getId() == resID){
-                    //eliminar mana del mana total i del available
+                    player.getPlayer().getPlayerMana().removeManaFromTotal(player.getPlayer().getPlayerMana().getManaArray()[i]);
+                    Fragment reload = new ManaTotal();
+                    FragmentManager fm = getParentFragment().getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                    fragmentTransaction.replace(R.id.manafragment, reload);
+                    fragmentTransaction.commit();
                 }
             }
         }

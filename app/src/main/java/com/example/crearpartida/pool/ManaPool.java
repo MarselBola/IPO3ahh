@@ -237,14 +237,14 @@ public class ManaPool {
 
     public Mana[] copyCheckPoint(){
         Mana[] copy = new Mana[32];
-        for(int i = 0; i<manaCheckpoint.length;i++){
+        for(int i = 0; i<quantManaTotal;i++){
             copy[i] = manaCheckpoint[i].Copy();
         }
         return copy;
     }
     public Mana[] copyManaTotal(){
         Mana[] copy = new Mana[32];
-        for(int i = 0; i<manaArray.length;i++){
+        for(int i = 0; i<quantManaTotal;i++){
             copy[i] = manaArray[i].Copy();
         }
         return copy;

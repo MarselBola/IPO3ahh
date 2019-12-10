@@ -169,8 +169,11 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
 
         }else if(v.getId() == R.id.bReset){
             //igualar la array de mana avaiable = array checkpoint
-            player.getPlayer().getPlayerMana().setManaAvailable(player.getPlayer().getPlayerMana().getManaCheckpoint());
-
+            player.getPlayer().getPlayerMana().setManaAvailable(player.getPlayer().getPlayerMana().copyCheckPoint());
+            SetRowsAndManaInvisible(0);
+            player.getPlayer().getPlayerMana().setQuantManaSpent(0);
+            player.getPlayer().getPlayerMana().setRowSpent(0);
+            player.getPlayer().getPlayerMana().setManaSpent(new Mana[32]);
             //visualitzo les files necessaries per a visualitzar el mana que tinc
             ShowRowsAvaiable();
 

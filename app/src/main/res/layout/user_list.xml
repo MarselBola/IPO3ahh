@@ -4,39 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserList">
+    tools:context=".userlist.UserList">
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lista de Usuarios"
-        app:layout_constraintBottom_toTopOf="@+id/userList"
+        app:layout_constraintBottom_toTopOf="@+id/userListScroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/userList"
-        android:layout_width="409dp"
+    <ScrollView
+        android:id="@+id/userListScroll"
+        android:layout_width="350dp"
         android:layout_height="550dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableLayout
+            android:id="@+id/userList"
+            android:layout_width="350dp"
+            android:layout_height="550dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/exitButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+        </TableLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomButtons"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/exitButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atras"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/exitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginBottom="24dp"
-        android:text="Atras"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        <Button
+            android:id="@+id/createUserButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añadir"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

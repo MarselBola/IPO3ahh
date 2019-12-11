@@ -10,11 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/OurTheme">
         <activity
-            android:name=".UserList"
-            android:screenOrientation="landscape" />
+            android:name=".userlist.CreateUser"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".userlist.UserList"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CrearPartida"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".triggers.Avisos"
             android:screenOrientation="landscape">

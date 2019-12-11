@@ -17,7 +17,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CrearPartida"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape" />
         <activity
             android:name=".triggers.Avisos"
             android:screenOrientation="landscape">

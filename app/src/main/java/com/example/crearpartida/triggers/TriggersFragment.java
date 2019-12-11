@@ -25,8 +25,7 @@ import com.example.crearpartida.game.GameSixplayers;
 public class TriggersFragment extends Fragment {
     
     private Partida partida = Globals.getInstance().getGame();
-    private static final int CODI = 1;
-
+    
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_triggers, container, false);
@@ -41,7 +40,7 @@ public class TriggersFragment extends Fragment {
         if(partida.getNumJug() == 1){
             partida.setJugadorAvisos(partida.getLlistaJugadors()[0]);
             toTriggers.putExtra("player", partida.getLlistaJugadors()[0].getNom());
-            startActivityForResult(toTriggers, CODI);
+            startActivityForResult(toTriggers, 1);
         }
         else
             for(int i = 0; i < partida.getLlistaJugadors().length; i++){
@@ -75,7 +74,7 @@ public class TriggersFragment extends Fragment {
         if(resultCode == Activity.RESULT_OK){
             Fragment onePlayerGame = new GameSixplayers();
             FragmentManager fm = getParentFragment().getChildFragmentManager();
-            if(requestCode == CODI){
+            if(requestCode == 1){
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.triggers, onePlayerGame);
                 fragmentTransaction.commit();

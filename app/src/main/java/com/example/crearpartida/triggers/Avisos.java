@@ -29,6 +29,8 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     Partida partida = Globals.getInstance().getGame();
     Jugador jugadorAvisos = partida.getJugadorAvisos();
     ArrayList<Avis> avisos =  jugadorAvisos.getLlistaAvisos();
+    
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -16,13 +16,13 @@ public class StartMenu extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_menu);
 
-        botonComencar = (Button) findViewById(R.id.bComencar);
+        botonComencar= findViewById(R.id.bComencar);
         botonComencar.setOnClickListener(this);
-        botonDaus = (Button) findViewById(R.id.bDaus);
+        botonDaus= findViewById(R.id.bDaus);
         botonDaus.setOnClickListener(this);
-        botonHist = (Button) findViewById(R.id.bHistorial);
+        botonHist= findViewById(R.id.bHistorial);
         botonHist.setOnClickListener(this);
-        botonJug = (Button) findViewById(R.id.bJugadors);
+        botonJug= findViewById(R.id.bJugadors);
         botonJug.setOnClickListener(this);
     }
 
@@ -30,6 +30,7 @@ public class StartMenu extends AppCompatActivity implements View.OnClickListener
     public void onClick(View v) {
         Intent game = new Intent(this, CrearPartida.class);
         Intent daus = new Intent(this, DausActivity.class);
+        Intent jugadors= new Intent(this, UserList.class);
 
         switch (v.getId()){
             case R.id.bComencar:
@@ -46,7 +47,7 @@ public class StartMenu extends AppCompatActivity implements View.OnClickListener
                 break;
             case R.id.bJugadors:
                 //Toast.makeText(getApplicationContext(), "Boto Jugadors", Toast.LENGTH_SHORT).show();
-                //startActivity(jugadors);
+                startActivity(jugadors);
                 break;
             default:
                 break;

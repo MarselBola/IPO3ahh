@@ -41,7 +41,7 @@ public class GameSixplayersE extends Fragment {
         // aumentar y disminuir vida jugador 1
         final TextView player1_life_e = root.findViewById(R.id.player1_life_e);
         final ImageButton player1_lifeup_e =  root.findViewById(R.id.player1_lifeup_e);
-        player1_life_e.setText(String.valueOf(player6.getVida()));
+        player1_life_e.setText(String.valueOf(player.getVida()));
         player1_lifeup_e.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 player.setVida(player.getVida()+1);

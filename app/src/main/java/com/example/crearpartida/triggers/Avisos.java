@@ -12,9 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.crearpartida.Globals;
 import com.example.crearpartida.Jugador;
@@ -27,6 +24,7 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     
     TableLayout tlsv1, tlsv2;
     Button back, crear, elim;
+    TextView tvAvis;
     int id1=0, id2=0;
     Partida partida = Globals.getInstance().getGame();
     Jugador jugadorAvisos = partida.getJugadorAvisos();
@@ -36,6 +34,10 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.avisos);
+        
+        String titol = "Avisos: " + getIntent().getStringExtra("player");
+        tvAvis = findViewById(R.id.textViewAvis);
+        tvAvis.setText(titol);
         
         tlsv1 = findViewById(R.id.tlSv1);
         tlsv2 = findViewById(R.id.tlSv2);

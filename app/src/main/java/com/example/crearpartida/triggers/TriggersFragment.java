@@ -2,7 +2,6 @@ package com.example.crearpartida.triggers;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.crearpartida.*;
+import com.example.crearpartida.Globals;
+import com.example.crearpartida.Jugador;
+import com.example.crearpartida.Partida;
+import com.example.crearpartida.R;
 import com.example.crearpartida.game.GameSixplayers;
 
 public class TriggersFragment extends Fragment {
@@ -54,6 +56,7 @@ public class TriggersFragment extends Fragment {
                     public void onClick(View v) {
                         int pos = partida.buscarPosJugador(((Button) v).getText().toString());
                         partida.setJugadorAvisos(partida.getLlistaJugadors()[pos]);
+                        toTriggers.putExtra("player", ((Button) v).getText().toString());
                         startActivity(toTriggers);
                     }
                 });

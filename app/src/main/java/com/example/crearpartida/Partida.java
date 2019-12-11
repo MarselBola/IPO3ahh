@@ -6,10 +6,16 @@ public class Partida {
     private Jugador[] Jugadors;
     private int torn = 0;
 
-    public Partida (){
+    //--------- Paramtros de los triggers ------------//
+    private Jugador jugadorAvisos;      // jugador a mostrar los triggers
+
+    public Partida ()
+    {
 
     }
-    public Partida (int numJug, String format, int vida){
+
+    public Partida (int numJug, String format, int vida)
+    {
         this.format = format;
         this.numJug = numJug;
         Jugadors = new Jugador[numJug];
@@ -20,10 +26,9 @@ public class Partida {
         torn=0;
     }
     public Partida crearPartida(int numJug, String format, int vida){
-
-        Partida new_game = new Partida(numJug, format, vida);
-        return new_game;
+        return new Partida(numJug, format, vida);
     }
+    public Jugador[] getJugadors(){ return Jugadors; }
     public void setNumJug(int numJug){
         this.numJug = numJug;
     }
@@ -38,6 +43,7 @@ public class Partida {
             Jugadors[i].setNom("Jugador "+(i+1));
         }
     }
+    public int getNumJug(){ return numJug; }
     public Jugador getJugadorConNombre(String nom){
         return Jugadors[buscarPosJugador(nom)];
     }
@@ -51,5 +57,19 @@ public class Partida {
             else i++;
         }
         return i;
+    }
+    public int getTorn(){
+      return torn;
+    }
+    public  Jugador[] getLlistaJugadors() { return this.Jugadors; }
+
+
+
+    public void setJugadorAvisos(Jugador jug){
+        jugadorAvisos = jug;
+    }
+
+    public Jugador getJugadorAvisos(){
+        return this.jugadorAvisos;
     }
 }

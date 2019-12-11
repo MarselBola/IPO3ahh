@@ -110,14 +110,17 @@ public class CrearPartida extends AppCompatActivity implements View.OnClickListe
             case R.id.bvida20:
                 vidaConfig = true;
                 vida =20;
+                custom.setText(String.valueOf(vida));
                 break;
             case R.id.bvida30:
                 vidaConfig = true;
                 vida =30;
+                custom.setText(String.valueOf(vida));
                 break;
             case R.id.bvida40:
                 vidaConfig = true;
                 vida =40;
+                custom.setText(String.valueOf(vida));
                 break;
 
         }

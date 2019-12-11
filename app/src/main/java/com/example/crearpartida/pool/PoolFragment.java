@@ -1,29 +1,32 @@
 package com.example.crearpartida.pool;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.example.crearpartida.ManaAvaiable;
-import com.example.crearpartida.R;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import com.example.crearpartida.*;
 
 public class PoolFragment extends Fragment {
 
-
-    View root;
-
+    @Nullable
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_pool, container, false);
-        Intent toPool = new Intent(getActivity(), ManaAvaiable.class);
-        startActivity(toPool);
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_pool, container, false);
+
+        FragmentManager fm= getChildFragmentManager();
+        FragmentTransaction ft= fm.beginTransaction();
+
+        Fragment fragment= new ManaAvailable();
+        ft.add(R.id.manafragment, fragment);
+        ft.commit();
+
         return root;
     }
-
 
 }

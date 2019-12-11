@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Avisos">
+    tools:context=".triggers.Avisos">
     
     <TextView
         android:id="@+id/textViewAvis"
@@ -22,6 +22,7 @@
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
         android:layout_marginStart = "16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop = "16dp"
         android:text = "@string/avisFinal"
         app:layout_constraintEnd_toEndOf = "parent"
@@ -40,20 +41,13 @@
     
     </TextView>
     
-    <Space
-        android:id = "@+id/espai"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        app:layout_constraintBottom_toBottomOf = "parent"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintTop_toBottomOf = "@+id/textViewAvis" />
-    
     
     <TextView
         android:id = "@+id/textView"
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
         android:layout_marginStart = "32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop = "8dp"
         android:text = "@string/titolParametresAvis"
         app:layout_constraintStart_toStartOf = "parent"
@@ -64,34 +58,39 @@
         android:layout_width = "300dp"
         android:layout_height = "175dp"
         android:layout_marginStart = "32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop = "8dp"
         android:layout_marginEnd = "16dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintEnd_toStartOf = "@+id/divider"
         app:layout_constraintHorizontal_bias = "0.0"
         app:layout_constraintStart_toStartOf = "parent"
         app:layout_constraintTop_toBottomOf = "@+id/textView">
-        
+
         <TableLayout
-            android:id = "@+id/tlSv1"
-            android:layout_width = "match_parent"
-            android:layout_height = "wrap_content" />
+            android:id="@+id/tlSv1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="#ff0000"/>
     </ScrollView>
     
     <ScrollView
         android:id = "@+id/scrollView2"
         android:layout_width = "300dp"
         android:layout_height = "175dp"
-        android:layout_marginStart = "24dp"
+        android:layout_marginStart = "36dp"
+        android:layout_marginLeft = "36dp"
         android:layout_marginTop = "8dp"
         android:layout_marginEnd = "24dp"
+        android:layout_marginRight="24dp"
         app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintHorizontal_bias = "0.466"
+        app:layout_constraintHorizontal_bias = "0.0"
         app:layout_constraintStart_toEndOf = "@+id/divider"
         app:layout_constraintTop_toBottomOf = "@+id/textView2">
-        
+    
         <TableLayout
             android:id = "@+id/tlSv2"
-            android:layout_width = "match_parent"
+            android:layout_width = "200dp"
             android:layout_height = "wrap_content" />
     </ScrollView>
     
@@ -100,6 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
         android:layout_marginBottom="48dp"
         android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -138,6 +138,7 @@
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
         android:layout_marginStart = "36dp"
+        android:layout_marginLeft="36dp"
         android:layout_marginTop = "8dp"
         android:text = "@string/titolParametresAvis"
         app:layout_constraintStart_toEndOf = "@+id/divider"
@@ -146,14 +147,15 @@
     <View
         android:id = "@+id/divider"
         android:layout_width = "4dp"
-        android:layout_height = "402dp"
-        android:layout_marginTop = "1dp"
+        android:layout_height = "200dp"
         android:background = "?android:attr/listDivider"
         android:visibility = "invisible"
-        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintBottom_toBottomOf = "@+id/scrollView2"
         app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintHorizontal_bias = "0.499"
         app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toTopOf = "parent" />
+        app:layout_constraintTop_toBottomOf = "@+id/textView2"
+        app:layout_constraintVertical_bias = "1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,10 +21,10 @@ public class Partida {
         Jugadors = new Jugador[numJug];
         for(int i=0; i<numJug;i++){
             Jugadors[i].setVida(vida);
-            Jugadors[i].setNom("Jugador "+(i+1));
         }
         torn=0;
     }
+
     public Partida crearPartida(int numJug, String format, int vida){
         return new Partida(numJug, format, vida);
     }
@@ -35,6 +35,7 @@ public class Partida {
     public void setFormat(String f){
         format = f;
     }
+
     public void setDefaultNamesWHP(int vida){
         Jugadors = new Jugador[numJug];
         for(int i=0; i<numJug;i++){
@@ -43,6 +44,7 @@ public class Partida {
             Jugadors[i].setNom("Jugador "+(i+1));
         }
     }
+
     public int getNumJug(){ return numJug; }
     public Jugador getJugadorConNombre(String nom){
         return Jugadors[buscarPosJugador(nom)];

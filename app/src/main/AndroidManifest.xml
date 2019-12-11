@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/OurTheme">
-        <activity android:name=".UserList"></activity>
-        <activity android:name=".LocalRoom" />
+        <activity
+            android:name=".UserList"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".CrearPartida"
             android:screenOrientation="landscape" />

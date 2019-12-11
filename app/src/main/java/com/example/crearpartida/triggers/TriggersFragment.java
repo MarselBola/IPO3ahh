@@ -40,6 +40,7 @@ public class TriggersFragment extends Fragment {
 
         if(partida.getNumJug() == 1){
             partida.setJugadorAvisos(partida.getLlistaJugadors()[0]);
+            toTriggers.putExtra("player", partida.getLlistaJugadors()[0].getNom());
             startActivityForResult(toTriggers, CODI);
         }
         else

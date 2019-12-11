@@ -1,5 +1,7 @@
 package com.example.crearpartida;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +44,10 @@ public class DausActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()){
             case R.id.bDausBack:
-                finish();
+                Uri uri = Uri.parse(""+2);
+                Intent canvi = new Intent(null, uri);
+                setResult(RESULT_OK, canvi);
+                this.finish();
                 break;
 
             case R.id.bThrow:

@@ -19,16 +19,22 @@ import com.example.crearpartida.R;
 
 public class GameSixplayersE extends Fragment {
     Globals g = Globals.getInstance();
-    Jugador player = g.getGame().getJugadors()[g.getGame().getTorn()];
-    Jugador player2= g.getGame().getJugadors()[(g.getGame().getTorn() + 1) % g.getGame().getNumJug()];
-    Jugador player3= g.getGame().getJugadors()[(g.getGame().getTorn() + 2) % g.getGame().getNumJug()];
-    Jugador player4= g.getGame().getJugadors()[(g.getGame().getTorn() + 3) % g.getGame().getNumJug()];
-    Jugador player5= g.getGame().getJugadors()[(g.getGame().getTorn() + 4) % g.getGame().getNumJug()];
-    Jugador player6= g.getGame().getJugadors()[(g.getGame().getTorn() + 5) % g.getGame().getNumJug()];
+    Jugador player;
+    Jugador player2;
+    Jugador player3;
+    Jugador player4;
+    Jugador player5;
+    Jugador player6;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        player = g.getGame().getJugadors()[g.getGame().getTorn()];
+        player2= g.getGame().getJugadors()[(g.getGame().getTorn() + 1) % g.getGame().getNumJug()];
+        player3= g.getGame().getJugadors()[(g.getGame().getTorn() + 2) % g.getGame().getNumJug()];
+        player4= g.getGame().getJugadors()[(g.getGame().getTorn() + 3) % g.getGame().getNumJug()];
+        player5= g.getGame().getJugadors()[(g.getGame().getTorn() + 4) % g.getGame().getNumJug()];
+        player6= g.getGame().getJugadors()[(g.getGame().getTorn() + 5) % g.getGame().getNumJug()];
         View root = inflater.inflate(R.layout.game_sixplayers_e, container, false);
         int resID;
         for(int i = g.getGame().getNumJug(); i<6;i++)

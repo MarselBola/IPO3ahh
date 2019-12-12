@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import com.example.crearpartida.CrearPartida;
 import com.example.crearpartida.Globals;
@@ -29,15 +31,21 @@ public class LocalRoom extends AppCompatActivity implements View.OnClickListener
         botonAnadirJugador.setOnClickListener(this);
 
         // lista de jugadores
-        LinearLayout lista= findViewById(R.id.playerlist_localroom);
+        TableLayout lista= findViewById(R.id.userlist_localroom);
+        TableRow jugador;
         int numJugadorsPartida= 0;
         for(int i=0; p.getNumJug()>i; i++)
         {
-                ConstraintLayout usuario= new ConstraintLayout(this);
-                lista.addView(usuario);
+                jugador= new TableRow(this);
+                lista.addView(jugador, i);
                 TextView nombre= new TextView(this);
                 nombre.setText(p.getJugadors()[i].getNom());
-                usuario.addView(nombre);
+                nombre.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT));
+                nombre.setPadding(0,0,50,0);
+                jugador.addView(nombre);
+                Button editPlayer= new Button(this);
+                editPlayer.setText("EDIT");
+                jugador.addView(editPlayer);
                 numJugadorsPartida++;
             }
 

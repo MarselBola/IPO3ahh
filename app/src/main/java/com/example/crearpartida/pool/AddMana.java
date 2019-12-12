@@ -1,4 +1,4 @@
-package com.example.crearpartida;
+package com.example.crearpartida.pool;
 
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +16,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.crearpartida.pool.ManaPool;
+import com.example.crearpartida.clases.Globals;
+import com.example.crearpartida.clases.Jugador;
+import com.example.crearpartida.clases.Mana;
+import com.example.crearpartida.clases.Partida;
+import com.example.crearpartida.R;
 
 public class AddMana extends Fragment {
     Mana manaToAdd;

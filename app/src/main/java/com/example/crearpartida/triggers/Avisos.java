@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.crearpartida.Globals;
-import com.example.crearpartida.Jugador;
-import com.example.crearpartida.Partida;
+import com.example.crearpartida.clases.Globals;
+import com.example.crearpartida.clases.Jugador;
+import com.example.crearpartida.clases.Partida;
 import com.example.crearpartida.R;
 
 import java.util.ArrayList;

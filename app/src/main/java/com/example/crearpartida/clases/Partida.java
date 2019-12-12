@@ -1,4 +1,4 @@
-package com.example.crearpartida;
+package com.example.crearpartida.clases;
 
 public class Partida {
     private int numJug;

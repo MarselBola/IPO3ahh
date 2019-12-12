@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/playerlist"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_icon_rightmenu" />
+        app:srcCompat="@drawable/ic_icon_rightmenu" />
 
     <TextView
         android:id="@+id/player1_name_e"
@@ -46,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/player1_life_e"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_resta" />
+        app:srcCompat="@drawable/ic_resta" />
 
     <ImageButton
         android:id="@+id/player1_lifeup_e"
@@ -57,7 +57,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/player1_life_e"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_suma" />
+        app:srcCompat="@drawable/ic_suma" />
 
     <ImageButton
         android:id="@+id/player1_extracounters_e"
@@ -67,7 +67,7 @@
         android:scaleType="fitXY"
         app:layout_constraintEnd_toStartOf="@+id/playerlist"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_game_extracounters" />
+        app:srcCompat="@drawable/ic_game_extracounters" />
 
     <ScrollView
         android:id="@+id/playerlist"
@@ -106,7 +106,7 @@
                     android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_game_extracounters" />
+                    app:srcCompat="@drawable/ic_game_extracounters" />
 
                 <TextView
                     android:id="@+id/player2_life"
@@ -128,7 +128,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/player2_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_resta" />
+                    app:srcCompat="@drawable/ic_resta" />
 
                 <ImageButton
                     android:id="@+id/player2_lifeup"
@@ -140,7 +140,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/player2_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_suma" />
+                    app:srcCompat="@drawable/ic_suma" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Player 3 -->
@@ -167,7 +167,7 @@
                     android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_game_extracounters" />
+                    app:srcCompat="@drawable/ic_game_extracounters" />
 
                 <TextView
                     android:id="@+id/player3_life"
@@ -190,7 +190,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/player3_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_resta" />
+                    app:srcCompat="@drawable/ic_resta" />
 
                 <ImageButton
                     android:id="@+id/player3_lifeup"
@@ -202,7 +202,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/player3_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_suma" />
+                    app:srcCompat="@drawable/ic_suma" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -230,7 +230,7 @@
                     android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_game_extracounters" />
+                    app:srcCompat="@drawable/ic_game_extracounters" />
 
                 <TextView
                     android:id="@+id/player4_life"
@@ -253,7 +253,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/player4_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_resta" />
+                    app:srcCompat="@drawable/ic_resta" />
 
                 <ImageButton
                     android:id="@+id/player4_lifeup"
@@ -265,7 +265,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/player4_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_suma" />
+                    app:srcCompat="@drawable/ic_suma" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -293,7 +293,7 @@
                     android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_game_extracounters" />
+                    app:srcCompat="@drawable/ic_game_extracounters" />
 
                 <TextView
                     android:id="@+id/player5_life"
@@ -316,7 +316,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/player5_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_resta" />
+                    app:srcCompat="@drawable/ic_resta" />
 
                 <ImageButton
                     android:id="@+id/player5_lifeup"
@@ -328,7 +328,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/player5_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_suma" />
+                    app:srcCompat="@drawable/ic_suma" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -356,7 +356,7 @@
                     android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_game_extracounters" />
+                    app:srcCompat="@drawable/ic_game_extracounters" />
 
                 <TextView
                     android:id="@+id/player6_life"
@@ -379,7 +379,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/player6_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_resta" />
+                    app:srcCompat="@drawable/ic_resta" />
 
                 <ImageButton
                     android:id="@+id/player6_lifeup"
@@ -391,7 +391,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/player6_life"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@mipmap/ic_suma" />
+                    app:srcCompat="@drawable/ic_suma" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

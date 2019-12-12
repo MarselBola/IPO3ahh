@@ -14,8 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.crearpartida.Globals;
-import com.example.crearpartida.Jugador;
+import com.example.crearpartida.clases.Globals;
+import com.example.crearpartida.clases.Jugador;
 import com.example.crearpartida.R;
 
 public class GameSixplayersE extends Fragment {

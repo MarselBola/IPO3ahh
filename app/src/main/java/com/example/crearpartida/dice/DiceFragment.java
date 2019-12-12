@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.crearpartida.DausActivity;
 import com.example.crearpartida.R;
 import com.example.crearpartida.game.GameSixplayers;
 

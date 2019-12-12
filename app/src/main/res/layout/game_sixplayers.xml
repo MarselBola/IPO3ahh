@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_icon_rightmenu" />
+        app:srcCompat="@drawable/ic_icon_rightmenu" />
 
     <TextView
         android:id="@+id/player1_name"
@@ -46,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/player1_life"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_resta" />
+        app:srcCompat="@drawable/ic_resta" />
 
     <ImageButton
         android:id="@+id/player1_lifeup"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toEndOf="@+id/player1_life"
         app:layout_constraintTop_toTopOf="parent"
 
-        app:srcCompat="@mipmap/ic_suma" />
+        app:srcCompat="@drawable/ic_suma" />
 
     <ImageButton
         android:id="@+id/game_extracounters"
@@ -68,7 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="fitXY"
-        app:srcCompat="@mipmap/ic_game_extracounters" />
+        app:srcCompat="@drawable/ic_game_extracounters" />
 
     <Button
         android:id="@+id/bPasar"

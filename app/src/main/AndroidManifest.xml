@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ManaTotal"
+            android:name=".pool.ManaTotal"
             android:screenOrientation="landscape"
             android:theme="@style/OurTheme" />
         <activity
@@ -39,11 +39,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DausActivity"
+            android:name=".dice.DausActivity"
             android:screenOrientation="landscape"
             android:theme="@style/OurTheme" />
         <activity
-            android:name=".AddMana"
+            android:name=".pool.AddMana"
             android:screenOrientation="landscape"
             android:theme="@style/OurTheme" />
         <activity

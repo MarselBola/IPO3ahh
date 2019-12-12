@@ -1,4 +1,4 @@
-package com.example.crearpartida;
+package com.example.crearpartida.pool;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.crearpartida.clases.Globals;
+import com.example.crearpartida.R;
 
 public class ManaTotal extends Fragment implements View.OnClickListener{
     View root;

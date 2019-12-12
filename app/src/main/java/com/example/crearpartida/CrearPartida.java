@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.crearpartida.clases.Globals;
+import com.example.crearpartida.clases.Partida;
+
 public class CrearPartida extends AppCompatActivity implements View.OnClickListener {
 
     Spinner sformat,sjugadors;

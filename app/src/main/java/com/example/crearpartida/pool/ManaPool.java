@@ -1,7 +1,7 @@
 package com.example.crearpartida.pool;
 
 
-import com.example.crearpartida.Mana;
+import com.example.crearpartida.clases.Mana;
 
 public class ManaPool {
 

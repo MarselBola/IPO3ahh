@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class DausActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button back, throwDau;
+    Button back, throwDau, predefinidos;
     Random r = new Random();
     TextView dau;
     EditText etcares;
@@ -28,6 +28,18 @@ public class DausActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daus);
 
+        predefinidos = findViewById(R.id.d2);
+        predefinidos.setOnClickListener(this);
+        predefinidos = findViewById(R.id.d4);
+        predefinidos.setOnClickListener(this);
+        predefinidos = findViewById(R.id.d6);
+        predefinidos.setOnClickListener(this);
+        predefinidos = findViewById(R.id.d8);
+        predefinidos.setOnClickListener(this);
+        predefinidos = findViewById(R.id.d12);
+        predefinidos.setOnClickListener(this);
+        predefinidos = findViewById(R.id.d20);
+        predefinidos.setOnClickListener(this);
         back = findViewById(R.id.bDausBack);
         back.setOnClickListener(this);
 
@@ -51,7 +63,36 @@ public class DausActivity extends AppCompatActivity implements View.OnClickListe
                 setResult(RESULT_OK, canvi);
                 this.finish();
                 break;
-
+            case R.id.d2:
+                cares = 2;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
+                break;
+            case R.id.d4:
+                cares = 4;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
+                break;
+            case R.id.d6:
+                cares = 6;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
+                break;
+            case R.id.d8:
+                cares = 8;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
+                break;
+            case R.id.d12:
+                cares = 12;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
+                break;
+            case R.id.d20:
+                cares = 20;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
+                break;
             case R.id.bThrow:
                 cares = Integer.parseInt(etcares.getText().toString());
                 if(cares > 0){

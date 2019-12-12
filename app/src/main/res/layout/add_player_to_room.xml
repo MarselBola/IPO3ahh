@@ -4,41 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userlist.UserList">
+    tools:context=".localroom.AddPlayerToRoom">
 
     <TextView
-        android:id="@+id/title_userlist"
+        android:id="@+id/title_addplayertoroom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Lista de Usuarios"
+        android:text="Añadir jugador a partida"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/userListScroll"
+        android:id="@+id/userListScroll_addplayertoroom"
         android:layout_width="350dp"
         android:layout_height="500dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_userlist">
+        app:layout_constraintTop_toBottomOf="@+id/title_addplayertoroom">
 
         <TableLayout
-            android:id="@+id/userList"
+            android:id="@+id/userList_addplayertoroom"
             android:layout_width="350dp"
             android:layout_height="550dp"
             android:layout_marginBottom="24dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/exitButton"
+            app:layout_constraintBottom_toTopOf="@+id/exitButton_addplayertoroom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"></TableLayout>
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottomButtons"
+        android:id="@+id/bottomButtons_addplayertoroom"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -47,30 +47,11 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/exitButton"
+            android:id="@+id/exitButton_addplayertoroom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Atras"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/createUserButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Añadir"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/userCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Número de usuarios: registrados 0"
-        app:layout_constraintBottom_toTopOf="@+id/bottomButtons"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.839"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userListScroll" />
 </androidx.constraintlayout.widget.ConstraintLayout>

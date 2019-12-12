@@ -19,7 +19,7 @@ public class Partida {
         this.numJug = numJug;
         Jugadors = new Jugador[numJug];
         for(int i=0; i<numJug;i++){
-            Jugadors[i].setVida(vida);
+            Jugadors[i].setNom("Jugador " + (i+1));
         }
         jugadorActual = Jugadors[0];
         torn=0;
@@ -42,7 +42,7 @@ public class Partida {
         for(int i=0; i<numJug;i++){
             Jugadors[i]=new Jugador();
             Jugadors[i].setVida(vida);
-            Jugadors[i].setNom("Jugador "+(i+1));
+            Jugadors[i].setNom("Jugador " + (i+1));
         }
         jugadorActual = Jugadors[0];
     }

@@ -66,6 +66,8 @@ public class Partida {
     public  Jugador[] getLlistaJugadors() { return this.Jugadors; }
 
     public Jugador getJugadorActual(){ return jugadorActual; }
+    
+    public void setJugadorActual(Jugador jugAct) {jugadorActual = jugAct; }
 
     public void setJugadorAvisos(Jugador jug){
         jugadorAvisos = jug;

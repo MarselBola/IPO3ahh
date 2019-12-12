@@ -34,6 +34,7 @@ public class GameSixplayers extends Fragment {
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.game_sixplayers, container, false);
         player = g.getGame().getJugadors()[g.getGame().getTorn()];
+        g.getGame().setJugadorActual(g.getGame().getJugadors()[g.getGame().getTorn()]);
         if(g.getGame().getNumJug()==1){
             root.findViewById(R.id.game_extraplayers).setVisibility(View.GONE);
         }
@@ -42,6 +43,8 @@ public class GameSixplayers extends Fragment {
         final Button bPasar =  root.findViewById(R.id.bPasar);
         bPasar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                g.getGame().nextTurn();
+                g.getGame().setJugadorActual(g.getGame().getJugadors()[g.getGame().getTorn()]);
                 String mensage = "";
                 for(Avis avis : player.getLlistaAvisos()){
                     if(avis.getQuan() == 1)
@@ -57,8 +60,6 @@ public class GameSixplayers extends Fragment {
                     toast.show();
                 }
                 
-                
-                g.getGame().nextTurn();
                 Fragment sixplayersgame = new GameSixplayers();
                 FragmentManager fm = getParentFragment().getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();

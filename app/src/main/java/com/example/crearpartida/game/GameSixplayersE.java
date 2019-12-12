@@ -29,6 +29,7 @@ public class GameSixplayersE extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        g.getGame().setJugadorActual(g.getGame().getJugadors()[g.getGame().getTorn()]);
         player = g.getGame().getJugadors()[g.getGame().getTorn()];
         player2= g.getGame().getJugadors()[(g.getGame().getTorn() + 1) % g.getGame().getNumJug()];
         player3= g.getGame().getJugadors()[(g.getGame().getTorn() + 2) % g.getGame().getNumJug()];
@@ -59,23 +60,42 @@ public class GameSixplayersE extends Fragment {
         bPasar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 g.getGame().nextTurn();
-                Fragment sixplayersgame = new GameSixplayersE();
+                g.getGame().setJugadorActual(g.getGame().getJugadors()[g.getGame().getTorn()]);
+                String mensage = "";
+                for(Avis avis : player.getLlistaAvisos()){
+                    if(avis.getQuan() == 1)
+                        mensage += "\n" + avis.getDescripcio();
+                }
+                if(!mensage.equals("")){
+                    Toast toast = new Toast(getContext());
+                    View toast_layout = getLayoutInflater().inflate(R.layout.toast_avis, (ViewGroup) root.findViewById(R.id.tvToast));
+                    toast.setView(toast_layout);
+                    TextView textView = (TextView) toast_layout.findViewById(R.id.toastMessage);
+                    textView.setText(mensage);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+    
+                Fragment sixplayersgame = new GameSixplayers();
                 FragmentManager fm = getParentFragment().getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);
                 fragmentTransaction.commit();
     
-                String mensage = "";
+                mensage = "";
                 for(Avis avis : player.getLlistaAvisos()){
-                    mensage = mensage + "\n" + avis.getDescripcio();
+                    if(avis.getQuan() == 2)
+                        mensage += "\n" + avis.getDescripcio();
                 }
-                Toast toast = new Toast(getContext());
-                View toast_layout = getLayoutInflater().inflate(R.layout.toast_avis, (ViewGroup) root.findViewById(R.id.tvToast));
-                toast.setView(toast_layout);
-                TextView textView = (TextView) toast_layout.findViewById(R.id.toastMessage);
-                textView.setText(mensage);
-                toast.setDuration(Toast.LENGTH_SHORT);
-                toast.show();
+                if(!mensage.equals("")){
+                    Toast toast = new Toast(getContext());
+                    View toast_layout = getLayoutInflater().inflate(R.layout.toast_avis, (ViewGroup) root.findViewById(R.id.tvToast));
+                    toast.setView(toast_layout);
+                    TextView textView = (TextView) toast_layout.findViewById(R.id.toastMessage);
+                    textView.setText(mensage);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
 

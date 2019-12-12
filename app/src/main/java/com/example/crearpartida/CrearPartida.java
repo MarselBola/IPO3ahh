@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.crearpartida.localroom.LocalRoom;
+
 public class CrearPartida extends AppCompatActivity implements View.OnClickListener {
 
     Spinner sformat,sjugadors;
@@ -99,9 +101,10 @@ public class CrearPartida extends AppCompatActivity implements View.OnClickListe
                     partida.setFormat(format);
                     partida.setDefaultNamesWHP(vida);
                     g.setGame(partida);
-                    Intent start = new Intent(this, InGame.class);
-                    startActivity(start);
 
+                    Intent toLocalRoom= new Intent(this, LocalRoom.class);
+                    finish(); // cerrar actividad actual
+                    startActivity(toLocalRoom);
                 }
                 break;
             case R.id.bback:
@@ -122,7 +125,8 @@ public class CrearPartida extends AppCompatActivity implements View.OnClickListe
                 vida =40;
                 custom.setText(String.valueOf(vida));
                 break;
-
+            default:
+                break;
         }
     }
 }

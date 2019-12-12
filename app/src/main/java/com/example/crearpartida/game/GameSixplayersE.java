@@ -63,7 +63,7 @@ public class GameSixplayersE extends Fragment {
                 g.getGame().setJugadorActual(g.getGame().getJugadors()[g.getGame().getTorn()]);
                 String mensage = "";
                 for(Avis avis : player.getLlistaAvisos()){
-                    if(avis.getQuan() == 1)
+                    if(avis.getQuan() == 2)
                         mensage += "\n" + avis.getDescripcio();
                 }
                 if(!mensage.equals("")){
@@ -84,7 +84,7 @@ public class GameSixplayersE extends Fragment {
     
                 mensage = "";
                 for(Avis avis : player.getLlistaAvisos()){
-                    if(avis.getQuan() == 2)
+                    if(avis.getQuan() == 1)
                         mensage += "\n" + avis.getDescripcio();
                 }
                 if(!mensage.equals("")){

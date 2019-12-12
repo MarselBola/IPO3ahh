@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import com.example.crearpartida.Globals;
-import com.example.crearpartida.Partida;
+import com.example.crearpartida.clases.Globals;
+import com.example.crearpartida.clases.Partida;
 import com.example.crearpartida.R;
 import java.util.Map;
 

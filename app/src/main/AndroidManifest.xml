@@ -9,8 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/OurTheme">
-        <activity android:name=".localroom.AddPlayerToRoom"></activity>
-        <activity android:name=".localroom.LocalRoom" />
+        <activity
+            android:name=".localroom.AddPlayerToRoom"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".localroom.LocalRoom"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".userlist.CreateUser"
             android:screenOrientation="portrait" />

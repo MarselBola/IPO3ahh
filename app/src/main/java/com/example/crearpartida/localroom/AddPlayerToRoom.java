@@ -11,21 +11,21 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import com.example.crearpartida.Globals;
 import com.example.crearpartida.Partida;
 import com.example.crearpartida.R;
-
 import java.util.Map;
 
 public class AddPlayerToRoom extends AppCompatActivity implements View.OnClickListener {
     Button botonSalir;
     Partida p= Globals.getInstance().getGame();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_player_to_room);
+        final int id = getIntent().getExtras().getInt("id"); // cojemos la id de LocalRoom
 
         // shared preferences
         SharedPreferences prefs= getSharedPreferences("listaUsuarios", Context.MODE_PRIVATE);
@@ -49,25 +49,7 @@ public class AddPlayerToRoom extends AppCompatActivity implements View.OnClickLi
             addUser.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
-                    boolean trobat= false;
-                    int i= 0;
-                    while((!trobat) && (i<p.getNumJug()))
-                    {
-                        if(p.getJugadors()[i].getNom().equals("empty"))
-                        {
-                            trobat= true;
-                        }
-                        else
-                        {
-                            i++;
-                        }
-                    }
-                    if(trobat)
-                    {
-                        p.getJugadors()[i].setNom(name);
-                    }
+                    p.getJugadors()[id].setNom(name);
                     Intent toLocalRoom = new Intent(getApplicationContext(), LocalRoom.class);
                     finish(); // cerrar actividad actual
                     startActivity(toLocalRoom);

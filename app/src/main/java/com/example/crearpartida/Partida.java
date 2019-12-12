@@ -20,7 +20,7 @@ public class Partida {
         this.numJug = numJug;
         Jugadors = new Jugador[numJug];
         for(int i=0; i<numJug;i++){
-            Jugadors[i].setNom("empty");
+            Jugadors[i].setNom("Jugador " + (i+1));
         }
         torn=0;
     }
@@ -42,7 +42,7 @@ public class Partida {
         for(int i=0; i<numJug;i++){
             Jugadors[i]=new Jugador();
             Jugadors[i].setVida(vida);
-            Jugadors[i].setNom("empty");
+            Jugadors[i].setNom("Jugador " + (i+1));
         }
     }
 

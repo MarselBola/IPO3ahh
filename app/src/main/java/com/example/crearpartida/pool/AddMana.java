@@ -23,20 +23,21 @@ import com.example.crearpartida.clases.Partida;
 import com.example.crearpartida.R;
 
 public class AddMana extends Fragment {
-    Mana manaToAdd;
-    int[] manaType = new int[1];
-    int Cantidad = 1;
-    EditText cantidadMana;
+    private Mana manaToAdd;
+    private int[] manaType = new int[1];
+    private int Cantidad = 1;
+    private EditText cantidadMana;
 
-    int seleccionados;
-    String bg_string, bg_string2;
+    private int seleccionados;
+    /*
     Partida partida;
     String nombre_jugador;
     Jugador jugador;
     ManaPool manaJugador;
-    Globals g = Globals.getInstance();
-    CheckBox check;
-    View root;
+     */
+    private Globals g = Globals.getInstance();
+    private CheckBox check;
+    private View root;
 
 
     @Nullable
@@ -81,8 +82,8 @@ public class AddMana extends Fragment {
                 setPreviewMana();
             }
         });
-        Button buttonAñadir = root.findViewById(R.id.button_añadir);
-        buttonAñadir.setOnClickListener(new View.OnClickListener() {
+        Button buttonAnadir = root.findViewById(R.id.button_añadir);
+        buttonAnadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cantidadMana = root.findViewById(R.id.editText);
@@ -126,7 +127,7 @@ public class AddMana extends Fragment {
                         manaToAdd = new Mana(manaType);
                     }
                     manaToAdd.addTotalMana(Integer.parseInt(cantidadMana.getText().toString()));
-                    g.getPlayer().getPlayerMana().addManaAtTotal(manaToAdd);
+                    g.getGame().getJugadorActual().getPlayerMana().addManaAtTotal(manaToAdd);
 
                     Fragment manatotal = new ManaTotal();
                     FragmentManager fm = getParentFragment().getChildFragmentManager();
@@ -155,8 +156,8 @@ public class AddMana extends Fragment {
 
     public void setPreviewMana(){
         int id;
-        bg_string2 = "";
-        bg_string = "bg_";
+        String bg_string2 = "";
+        String bg_string = "bg_";
         boolean checked;
         seleccionados = 0;
         check = root.findViewById(R.id.check_blanco);

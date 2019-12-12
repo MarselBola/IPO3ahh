@@ -5,8 +5,7 @@ public class Partida {
     private String format;
     private Jugador[] Jugadors;
     private int torn = 0;
-
-    //--------- Paramtros de los triggers ------------//
+    private Jugador jugadorActual;
     private Jugador jugadorAvisos;      // jugador a mostrar los triggers
 
     public Partida ()
@@ -66,7 +65,7 @@ public class Partida {
     }
     public  Jugador[] getLlistaJugadors() { return this.Jugadors; }
 
-
+    public Jugador getJugadorActual(){ return jugadorActual; }
 
     public void setJugadorAvisos(Jugador jug){
         jugadorAvisos = jug;

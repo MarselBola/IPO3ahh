@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,15 +19,12 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.crearpartida.clases.Globals;
 import com.example.crearpartida.clases.Jugador;
 import com.example.crearpartida.R;
+import com.example.crearpartida.triggers.Avis;
 
 public class GameSixplayersE extends Fragment {
-    Globals g = Globals.getInstance();
-    Jugador player;
-    Jugador player2;
-    Jugador player3;
-    Jugador player4;
-    Jugador player5;
-    Jugador player6;
+    private Globals g = Globals.getInstance();
+    private Jugador player, player2, player3, player4, player5, player6;
+    
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -37,7 +35,7 @@ public class GameSixplayersE extends Fragment {
         player4= g.getGame().getJugadors()[(g.getGame().getTorn() + 3) % g.getGame().getNumJug()];
         player5= g.getGame().getJugadors()[(g.getGame().getTorn() + 4) % g.getGame().getNumJug()];
         player6= g.getGame().getJugadors()[(g.getGame().getTorn() + 5) % g.getGame().getNumJug()];
-        View root = inflater.inflate(R.layout.game_sixplayers_e, container, false);
+        final View root = inflater.inflate(R.layout.game_sixplayers_e, container, false);
 
         final TextView player1_name = root.findViewById(R.id.player1_name_e);
         player1_name.setText(player.getNom());
@@ -66,6 +64,18 @@ public class GameSixplayersE extends Fragment {
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);
                 fragmentTransaction.commit();
+    
+                String mensage = "";
+                for(Avis avis : player.getLlistaAvisos()){
+                    mensage = mensage + "\n" + avis.getDescripcio();
+                }
+                Toast toast = new Toast(getContext());
+                View toast_layout = getLayoutInflater().inflate(R.layout.toast_avis, (ViewGroup) root.findViewById(R.id.tvToast));
+                toast.setView(toast_layout);
+                TextView textView = (TextView) toast_layout.findViewById(R.id.toastMessage);
+                textView.setText(mensage);
+                toast.setDuration(Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
 

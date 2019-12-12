@@ -31,15 +31,15 @@ public class LocalRoom extends AppCompatActivity implements View.OnClickListener
         // lista de jugadores
         LinearLayout lista= findViewById(R.id.playerlist_localroom);
         int numJugadorsPartida= 0;
-        for(int i=0; (p.getNumJug() < numJugadorsPartida) || (p.getNumJug()<i); i++)
+        for(int i=0; (p.getNumJug() < numJugadorsPartida) && (p.getNumJug()<i); i++)
         {
-            if(p.getJugadors()[i].getNom() != "empty")
+            if(!(p.getJugadors()[i].getNom().equals("empty")))
             {
                 ConstraintLayout usuario= new ConstraintLayout(this);
+                lista.addView(usuario);
                 TextView nombre= new TextView(this);
                 nombre.setText(p.getJugadors()[i].getNom());
                 usuario.addView(nombre);
-                lista.addView(usuario);
                 numJugadorsPartida++;
             }
         }

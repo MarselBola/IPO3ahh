@@ -21,6 +21,7 @@ public class Partida {
         for(int i=0; i<numJug;i++){
             Jugadors[i].setVida(vida);
         }
+        jugadorActual = Jugadors[0];
         torn=0;
     }
 
@@ -43,6 +44,7 @@ public class Partida {
             Jugadors[i].setVida(vida);
             Jugadors[i].setNom("Jugador "+(i+1));
         }
+        jugadorActual = Jugadors[0];
     }
 
     public int getNumJug(){ return numJug; }

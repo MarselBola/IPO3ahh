@@ -76,7 +76,7 @@ public class GameSixplayersE extends Fragment {
                     toast.show();
                 }
     
-                Fragment sixplayersgame = new GameSixplayers();
+                Fragment sixplayersgame = new GameSixplayersE();
                 FragmentManager fm = getParentFragment().getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);

@@ -15,20 +15,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import com.example.crearpartida.clases.Globals;
 import com.example.crearpartida.clases.Jugador;
 import com.example.crearpartida.clases.Partida;
 import com.example.crearpartida.R;
+import com.example.crearpartida.game.GameFragment;
 import com.example.crearpartida.game.GameSixplayers;
 
 public class TriggersFragment extends Fragment {
-    
+    View root;
     private Partida partida = Globals.getInstance().getGame();
     
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_triggers, container, false);
+        root = inflater.inflate(R.layout.fragment_triggers, container, false);
         
         Button boto;
         TableRow row;
@@ -72,12 +74,9 @@ public class TriggersFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == Activity.RESULT_OK){
-            Fragment onePlayerGame = new GameSixplayers();
-            FragmentManager fm = getParentFragment().getChildFragmentManager();
+
             if(requestCode == 1){
-                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.triggers, onePlayerGame);
-                fragmentTransaction.commit();
+                Navigation.findNavController(root).navigate(R.id.nav_game);
             }
         }
     }

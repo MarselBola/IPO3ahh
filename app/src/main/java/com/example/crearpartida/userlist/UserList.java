@@ -49,8 +49,7 @@ public class UserList extends AppCompatActivity implements View.OnClickListener 
                     SharedPreferences.Editor editor= prefs.edit();
                     editor.remove(id);
                     editor.commit();
-                    finish();
-                    startActivity(getIntent());
+                    recreate(); // para actualizar la actividad con los nuevos datos de la lista de usuarios.
                 }
             });
             deleteUser.setText("DEL");
@@ -62,8 +61,9 @@ public class UserList extends AppCompatActivity implements View.OnClickListener 
 
         // boton crear usuario
         botonCrearUsuario= findViewById(R.id.createUserButton);
-        if(numUsuarios >= 1000)
+        if(numUsuarios >= 100)
         {
+            // limite de usuarios en la lista= 100.
             botonCrearUsuario.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

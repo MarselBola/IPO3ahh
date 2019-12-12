@@ -49,6 +49,8 @@ public class AddPlayerToRoom extends AppCompatActivity implements View.OnClickLi
             addUser.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+
                     boolean trobat= false;
                     int i= 0;
                     while((!trobat) && (i<p.getNumJug()))
@@ -57,7 +59,10 @@ public class AddPlayerToRoom extends AppCompatActivity implements View.OnClickLi
                         {
                             trobat= true;
                         }
-                        i++;
+                        else
+                        {
+                            i++;
+                        }
                     }
                     if(trobat)
                     {

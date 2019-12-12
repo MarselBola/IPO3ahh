@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/player1_name"
+
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/player1_extracounters_e"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +29,7 @@
         android:id="@+id/player1_life_e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/player1_life"
+
         android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +93,7 @@
                     android:id="@+id/player2_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player2_name"
+
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@+id/player2_extracounters"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -111,7 +112,6 @@
                     android:id="@+id/player2_life"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player2_life"
                     android:textSize="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +154,7 @@
                     android:id="@+id/player3_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player3_name"
+
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@+id/player3_extracounters"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -173,7 +173,7 @@
                     android:id="@+id/player3_life"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player3_life"
+
                     android:textSize="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -217,7 +217,7 @@
                     android:id="@+id/player4_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player4_name"
+
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@+id/player4_extracounters"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -236,7 +236,7 @@
                     android:id="@+id/player4_life"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player4_life"
+
                     android:textSize="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -280,7 +280,7 @@
                     android:id="@+id/player5_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player5_name"
+
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@+id/player5_extracounters"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -299,7 +299,7 @@
                     android:id="@+id/player5_life"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player3_life"
+
                     android:textSize="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -343,7 +343,7 @@
                     android:id="@+id/player6_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player6_name"
+                   
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@+id/player6_extracounters"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -362,7 +362,7 @@
                     android:id="@+id/player6_life"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/player6_life"
+
                     android:textSize="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -396,4 +396,17 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/bPasar_e"
+        android:layout_width="139dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="312dp"
+        android:text="PASAR TURNO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

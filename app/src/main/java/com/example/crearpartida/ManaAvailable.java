@@ -16,7 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class ManaAvailable extends Fragment implements View.OnClickListener{
     View root;
-    private Button buttonTotal, buttonAccept, buttonReset;
+    private Button buttonTotal, buttonAccept, buttonReset, buttonFill;
     Globals player = Globals.getInstance();
     private String background;
     private TextView aux;
@@ -49,7 +49,8 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
         buttonAccept.setOnClickListener(this);
         buttonReset= root.findViewById(R.id.bReset);
         buttonReset.setOnClickListener(this);
-
+        buttonFill = root.findViewById(R.id.bRellenar);
+        buttonFill.setOnClickListener(this);
         return root;
     }
 
@@ -167,7 +168,7 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
             //visualitzo el mana que tinc en les files anteriors i tot el que comporta
             ShowManaAvaiable();
 
-        }else if(v.getId() == R.id.bReset){
+        }else if(v.getId() == R.id.bReset) {
             //igualar la array de mana avaiable = array checkpoint
             player.getPlayer().getPlayerMana().setManaAvailable(player.getPlayer().getPlayerMana().copyCheckPoint());
             SetRowsAndManaInvisible(0);
@@ -179,7 +180,12 @@ public class ManaAvailable extends Fragment implements View.OnClickListener{
 
             //visualitzo el mana que tinc en les files anteriors i tot el que comporta
             ShowManaAvaiable();
-
+        }else if(v.getId() == R.id.bRellenar){
+            SetRowsAndManaInvisible(1);
+            player.getPlayer().getPlayerMana().setManaAvailable(player.getPlayer().getPlayerMana().copyManaTotal());
+            player.getPlayer().getPlayerMana().setManaCheckpoint(player.getPlayer().getPlayerMana().copyManaTotal());
+            ShowRowsAvaiable();
+            ShowManaAvaiable();
         }else{
             for(int i = 0; i < player.getPlayer().getPlayerMana().getQuantManaTotal(); i++) {
                 resID = getResources().getIdentifier("add" + i,"id", getActivity().getPackageName());

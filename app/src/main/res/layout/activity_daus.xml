@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DausActivity"
-    android:background="@drawable/marc">
+    tools:context=".DausActivity">
 
     <Button
         android:id="@+id/bThrow"
@@ -79,15 +78,28 @@
         app:layout_constraintVertical_bias="0.498" />
 
     <EditText
-        android:id="@+id/etCares"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="Numero de caras del dado"
-        android:imeOptions="actionDone"
-        />
+        android:id = "@+id/etCares"
+        style = "@android:style/Widget.DeviceDefault.Light.EditText"
+        android:layout_width = "50dp"
+        android:layout_height = "45dp"
+        android:layout_marginStart = "8dp"
+        android:layout_marginLeft = "8dp"
+        android:layout_marginBottom = "84dp"
+        android:imeOptions = "actionDone"
+        android:inputType = "number"
+        android:shadowColor = "#00FFFFFF"
+        app:layout_constraintBottom_toTopOf = "@+id/bDausBack"
+        app:layout_constraintStart_toEndOf = "@+id/textView6" />
+
+    <TextView
+        android:id = "@+id/textView6"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginStart = "40dp"
+        android:layout_marginLeft = "40dp"
+        android:layout_marginBottom = "92dp"
+        android:text = "Numero de caras:"
+        app:layout_constraintBottom_toTopOf = "@+id/bDausBack"
+        app:layout_constraintStart_toStartOf = "parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

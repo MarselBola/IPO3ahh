@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -19,29 +20,58 @@ import com.example.crearpartida.R;
 
 public class GameSixplayersE extends Fragment {
     Globals g = Globals.getInstance();
-    Jugador player = g.getGame().getJugadors()[g.getGame().getTorn()];
-    Jugador player2= g.getGame().getJugadors()[(g.getGame().getTorn() + 1) % g.getGame().getNumJug()];
-    Jugador player3= g.getGame().getJugadors()[(g.getGame().getTorn() + 2) % g.getGame().getNumJug()];
-    Jugador player4= g.getGame().getJugadors()[(g.getGame().getTorn() + 3) % g.getGame().getNumJug()];
-    Jugador player5= g.getGame().getJugadors()[(g.getGame().getTorn() + 4) % g.getGame().getNumJug()];
-    Jugador player6= g.getGame().getJugadors()[(g.getGame().getTorn() + 5) % g.getGame().getNumJug()];
+    Jugador player;
+    Jugador player2;
+    Jugador player3;
+    Jugador player4;
+    Jugador player5;
+    Jugador player6;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        player = g.getGame().getJugadors()[g.getGame().getTorn()];
+        player2= g.getGame().getJugadors()[(g.getGame().getTorn() + 1) % g.getGame().getNumJug()];
+        player3= g.getGame().getJugadors()[(g.getGame().getTorn() + 2) % g.getGame().getNumJug()];
+        player4= g.getGame().getJugadors()[(g.getGame().getTorn() + 3) % g.getGame().getNumJug()];
+        player5= g.getGame().getJugadors()[(g.getGame().getTorn() + 4) % g.getGame().getNumJug()];
+        player6= g.getGame().getJugadors()[(g.getGame().getTorn() + 5) % g.getGame().getNumJug()];
         View root = inflater.inflate(R.layout.game_sixplayers_e, container, false);
+
+        final TextView player1_name = root.findViewById(R.id.player1_name_e);
+        player1_name.setText(player.getNom());
+        final TextView player2_name = root.findViewById(R.id.player2_name);
+        player2_name.setText(player2.getNom());
+        final TextView player3_name = root.findViewById(R.id.player3_name);
+        player3_name.setText(player3.getNom());
+        final TextView player4_name = root.findViewById(R.id.player4_name);
+        player4_name.setText(player4.getNom());
+        final TextView player5_name = root.findViewById(R.id.player5_name);
+        player5_name.setText(player5.getNom());
+        final TextView player6_name = root.findViewById(R.id.player6_name);
+        player6_name.setText(player6.getNom());
         int resID;
         for(int i = g.getGame().getNumJug(); i<6;i++)
         {
             resID = getResources().getIdentifier("player" + (i+1), "id", getActivity().getPackageName());
             root.findViewById(resID).setVisibility(View.GONE);
         }
-
+        final Button bPasar =  root.findViewById(R.id.bPasar_e);
+        bPasar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                g.getGame().nextTurn();
+                Fragment sixplayersgame = new GameSixplayersE();
+                FragmentManager fm = getParentFragment().getChildFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);
+                fragmentTransaction.commit();
+            }
+        });
 
         // aumentar y disminuir vida jugador 1
         final TextView player1_life_e = root.findViewById(R.id.player1_life_e);
         final ImageButton player1_lifeup_e =  root.findViewById(R.id.player1_lifeup_e);
-        player1_life_e.setText(String.valueOf(player6.getVida()));
+        player1_life_e.setText(String.valueOf(player.getVida()));
         player1_lifeup_e.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 player.setVida(player.getVida()+1);

@@ -1,6 +1,8 @@
 package com.example.crearpartida.triggers;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,15 +24,22 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     
     TableLayout tlsv1, tlsv2;
     Button back, crear, elim;
+    TextView tvAvis;
     int id1=0, id2=0;
     Partida partida = Globals.getInstance().getGame();
     Jugador jugadorAvisos = partida.getJugadorAvisos();
     ArrayList<Avis> avisos =  jugadorAvisos.getLlistaAvisos();
     
+    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.avisos);
+        
+        String titol = "Avisos: " + getIntent().getStringExtra("player");
+        tvAvis = findViewById(R.id.textViewAvis);
+        tvAvis.setText(titol);
         
         tlsv1 = findViewById(R.id.tlSv1);
         tlsv2 = findViewById(R.id.tlSv2);
@@ -51,6 +60,11 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bAvisBack:
+                if(partida.getNumJug() == 1){
+                    Uri uri = Uri.parse(""+1);
+                    Intent canvi = new Intent(null, uri);
+                    setResult(RESULT_OK, canvi);
+                }
                 this.finish();
                 break;
             case R.id.bAvisCrear:

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -29,6 +30,19 @@ public class GameSixplayers extends Fragment {
         if(g.getGame().getNumJug()==1){
             root.findViewById(R.id.game_extraplayers).setVisibility(View.GONE);
         }
+        final TextView player1_name = root.findViewById(R.id.player1_name);
+        player1_name.setText(g.getGame().getJugadors()[g.getGame().getTorn()].getNom());
+        final Button bPasar =  root.findViewById(R.id.bPasar);
+        bPasar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                g.getGame().nextTurn();
+                Fragment sixplayersgame = new GameSixplayers();
+                FragmentManager fm = getParentFragment().getChildFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);
+                fragmentTransaction.commit();
+            }
+        });
         // aumentar y disminuir vida jugador 1
         final TextView player1_life = root.findViewById(R.id.player1_life);
         final ImageButton player1_lifeup =  root.findViewById(R.id.player1_lifeup);

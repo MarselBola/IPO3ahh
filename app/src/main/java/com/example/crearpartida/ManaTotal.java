@@ -120,6 +120,8 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
                 resID = getResources().getIdentifier("add" + i,"id", getActivity().getPackageName());
                 if(v.getId() == resID){
                     player.getPlayer().getPlayerMana().getManaArray()[i].addOneToTotal();
+                    player.getPlayer().getPlayerMana().getManaAvailable()[i].addOneToTotal();
+                    player.getPlayer().getPlayerMana().getManaCheckpoint()[i].addOneToTotal();
                     resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
                     aux = root.findViewById(resID);
                     aux.setText("" + player.getPlayer().getPlayerMana().getManaArray()[i].getTotal());
@@ -127,6 +129,8 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
                 resID = getResources().getIdentifier("sub" + i,"id", getActivity().getPackageName());
                 if(v.getId() == resID){
                     player.getPlayer().getPlayerMana().getManaArray()[i].subOneToTotal();
+                    player.getPlayer().getPlayerMana().getManaAvailable()[i].subOneToTotal();
+                    player.getPlayer().getPlayerMana().getManaCheckpoint()[i].subOneToTotal();
                     resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
                     aux = root.findViewById(resID);
                     aux.setText("" + player.getPlayer().getPlayerMana().getManaArray()[i].getTotal());

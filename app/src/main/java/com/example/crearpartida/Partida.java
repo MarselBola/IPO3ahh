@@ -28,6 +28,7 @@ public class Partida {
     public Partida crearPartida(int numJug, String format, int vida){
         return new Partida(numJug, format, vida);
     }
+
     public Jugador[] getJugadors(){ return Jugadors; }
     public void setNumJug(int numJug){
         this.numJug = numJug;
@@ -73,5 +74,10 @@ public class Partida {
 
     public Jugador getJugadorAvisos(){
         return this.jugadorAvisos;
+    }
+
+    public void nextTurn(){
+        torn += 1;
+        torn = torn % numJug;
     }
 }

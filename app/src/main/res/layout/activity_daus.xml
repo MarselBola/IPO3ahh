@@ -70,6 +70,7 @@
         android:layout_height="wrap_content"
         android:textColor="#ff0000"
         android:textSize="24sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.674"
@@ -102,69 +103,79 @@
         app:layout_constraintBottom_toTopOf = "@+id/bDausBack"
         app:layout_constraintStart_toStartOf = "parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/d2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200px"
+        android:layout_height="200px"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="d2"
+
+        android:background="@drawable/d2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/d4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200px"
+        android:layout_height="200px"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="d4"
+
+        android:background="@drawable/d4"
         app:layout_constraintStart_toEndOf="@+id/d2"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/d6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200px"
+        android:layout_height="200px"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="d6"
+
+        android:background="@drawable/d6"
+
         app:layout_constraintStart_toEndOf="@+id/d4"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/d8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200px"
+        android:layout_height="200px"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="d8"
+
+        android:background="@drawable/d8"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/d2" />
 
-    <Button
+    <ImageButton
         android:id="@+id/d12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200px"
+        android:layout_height="200px"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="d12"
+        
+        android:background="@drawable/d12"
+
         app:layout_constraintStart_toEndOf="@+id/d8"
         app:layout_constraintTop_toBottomOf="@+id/d4" />
 
-    <Button
+    <ImageButton
         android:id="@+id/d20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200px"
+        android:layout_height="200px"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:text="d20"
+
+        android:background="@drawable/d20"
+
         app:layout_constraintStart_toEndOf="@+id/d12"
         app:layout_constraintTop_toBottomOf="@+id/d6" />
 

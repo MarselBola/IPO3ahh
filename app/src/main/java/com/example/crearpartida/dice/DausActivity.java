@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,8 @@ import java.util.Random;
 
 public class DausActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button back, throwDau, predefinidos;
+    Button back, throwDau;
+    ImageButton predefinidos;
     Random r = new Random();
     TextView dau;
     EditText etcares;

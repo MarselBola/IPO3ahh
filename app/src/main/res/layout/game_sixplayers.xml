@@ -35,49 +35,49 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/player1_lifedown"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:scaleType="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/player1_life"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_resta" />
-
-    <ImageButton
-        android:id="@+id/player1_lifeup"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/player1_life"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:srcCompat="@drawable/ic_suma" />
-
-    <ImageButton
-        android:id="@+id/game_extracounters"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:cropToPadding="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/ic_game_extracounters" />
-
+    
+    <ImageView
+        android:id = "@+id/player1_lifedown"
+        android:layout_width = "75dp"
+        android:layout_height = "75dp"
+        android:layout_marginEnd = "50dp"
+        android:layout_marginRight = "50dp"
+        android:scaleType = "fitCenter"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintEnd_toStartOf = "@+id/player1_life"
+        app:layout_constraintTop_toTopOf = "parent"
+        app:srcCompat = "@drawable/ic_resta" />
+    
+    <ImageView
+        android:id = "@+id/player1_lifeup"
+        android:layout_width = "75dp"
+        android:layout_height = "75dp"
+        android:layout_marginStart = "50dp"
+        android:layout_marginLeft = "50dp"
+        android:scaleType = "fitCenter"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintStart_toEndOf = "@+id/player1_life"
+        
+        app:layout_constraintTop_toTopOf = "parent"
+        app:srcCompat = "@drawable/ic_suma" />
+    
+    <ImageView
+        android:id = "@+id/game_extracounters"
+        android:layout_width = "40dp"
+        android:layout_height = "40dp"
+        android:cropToPadding = "false"
+        android:scaleType = "fitXY"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintTop_toTopOf = "parent"
+        app:srcCompat = "@drawable/ic_game_extracounters" />
+    
     <Button
-        android:id="@+id/bPasar"
-        android:layout_width="139dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="312dp"
-        android:text="PASAR TURNO"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id = "@+id/bPasar"
+        android:layout_width = "139dp"
+        android:layout_height = "67dp"
+        android:layout_marginBottom = "32dp"
+        android:text = "PASAR TURNO"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

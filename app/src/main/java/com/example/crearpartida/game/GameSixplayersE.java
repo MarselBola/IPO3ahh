@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -70,7 +71,7 @@ public class GameSixplayersE extends Fragment {
 
         // aumentar y disminuir vida jugador 1
         final TextView player1_life_e = root.findViewById(R.id.player1_life_e);
-        final ImageButton player1_lifeup_e =  root.findViewById(R.id.player1_lifeup_e);
+        final ImageView player1_lifeup_e =  root.findViewById(R.id.player1_lifeup_e);
         player1_life_e.setText(String.valueOf(player.getVida()));
         player1_lifeup_e.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -80,7 +81,7 @@ public class GameSixplayersE extends Fragment {
             }
         });
 
-        final ImageButton player1_lifedown_e =  root.findViewById(R.id.player1_lifedown_e);
+        final ImageView player1_lifedown_e =  root.findViewById(R.id.player1_lifedown_e);
         player1_lifedown_e.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(Integer.valueOf(player1_life_e.getText().toString()) > 0)
@@ -93,7 +94,7 @@ public class GameSixplayersE extends Fragment {
 
         // aumentar y disminuir vida jugador 2
         final TextView player2_life = root.findViewById(R.id.player2_life);
-        final ImageButton player2_lifeup =  root.findViewById(R.id.player2_lifeup);
+        final ImageView player2_lifeup =  root.findViewById(R.id.player2_lifeup);
         player2_life.setText(String.valueOf(player2.getVida()));
         player2_lifeup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -103,7 +104,7 @@ public class GameSixplayersE extends Fragment {
             }
         });
 
-        final ImageButton player2_lifedown =  root.findViewById(R.id.player2_lifedown);
+        final ImageView player2_lifedown =  root.findViewById(R.id.player2_lifedown);
         player2_lifedown.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(Integer.valueOf(player2_life.getText().toString()) > 0)
@@ -116,7 +117,7 @@ public class GameSixplayersE extends Fragment {
 
         // aumentar y disminuir vida jugador 3
         final TextView player3_life = root.findViewById(R.id.player3_life);
-        final ImageButton player3_lifeup =  root.findViewById(R.id.player3_lifeup);
+        final ImageView player3_lifeup =  root.findViewById(R.id.player3_lifeup);
         player3_life.setText(String.valueOf(player3.getVida()));
         player3_lifeup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -126,7 +127,7 @@ public class GameSixplayersE extends Fragment {
             }
         });
 
-        final ImageButton player3_lifedown =  root.findViewById(R.id.player3_lifedown);
+        final ImageView player3_lifedown =  root.findViewById(R.id.player3_lifedown);
         player3_lifedown.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(Integer.valueOf(player3_life.getText().toString()) > 0)
@@ -139,7 +140,7 @@ public class GameSixplayersE extends Fragment {
 
         // aumentar y disminuir vida jugador 4
         final TextView player4_life = root.findViewById(R.id.player4_life);
-        final ImageButton player4_lifeup =  root.findViewById(R.id.player4_lifeup);
+        final ImageView player4_lifeup =  root.findViewById(R.id.player4_lifeup);
         player4_life.setText(String.valueOf(player4.getVida()));
         player4_lifeup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -149,7 +150,7 @@ public class GameSixplayersE extends Fragment {
             }
         });
 
-        final ImageButton player4_lifedown =  root.findViewById(R.id.player4_lifedown);
+        final ImageView player4_lifedown =  root.findViewById(R.id.player4_lifedown);
         player4_lifedown.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(Integer.valueOf(player4_life.getText().toString()) > 0)
@@ -162,7 +163,7 @@ public class GameSixplayersE extends Fragment {
 
         // aumentar y disminuir vida jugador 5
         final TextView player5_life = root.findViewById(R.id.player5_life);
-        final ImageButton player5_lifeup =  root.findViewById(R.id.player5_lifeup);
+        final ImageView player5_lifeup =  root.findViewById(R.id.player5_lifeup);
         player5_life.setText(String.valueOf(player5.getVida()));
         player5_lifeup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -172,7 +173,7 @@ public class GameSixplayersE extends Fragment {
             }
         });
 
-        final ImageButton player5_lifedown =  root.findViewById(R.id.player5_lifedown);
+        final ImageView player5_lifedown =  root.findViewById(R.id.player5_lifedown);
         player5_lifedown.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(Integer.valueOf(player5_life.getText().toString()) > 0)
@@ -185,7 +186,7 @@ public class GameSixplayersE extends Fragment {
 
         // aumentar y disminuir vida jugador 6
         final TextView player6_life = root.findViewById(R.id.player6_life);
-        final ImageButton player6_lifeup =  root.findViewById(R.id.player6_lifeup);
+        final ImageView player6_lifeup =  root.findViewById(R.id.player6_lifeup);
         player6_life.setText(String.valueOf(player6.getVida()));
         player6_lifeup.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -195,7 +196,7 @@ public class GameSixplayersE extends Fragment {
             }
         });
 
-        final ImageButton player6_lifedown =  root.findViewById(R.id.player6_lifedown);
+        final ImageView player6_lifedown =  root.findViewById(R.id.player6_lifedown);
         player6_lifedown.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(Integer.valueOf(player6_life.getText().toString()) > 0)

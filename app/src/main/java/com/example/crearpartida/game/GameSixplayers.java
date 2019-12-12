@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,7 +46,7 @@ public class GameSixplayers extends Fragment {
         });
         // aumentar y disminuir vida jugador 1
         final TextView player1_life = root.findViewById(R.id.player1_life);
-        final ImageButton player1_lifeup =  root.findViewById(R.id.player1_lifeup);
+        final ImageView player1_lifeup =  root.findViewById(R.id.player1_lifeup);
 
         player1_life.setText(String.valueOf(player.getVida()));
         player1_lifeup.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +57,7 @@ public class GameSixplayers extends Fragment {
             }
         });
 
-        final ImageButton player1_lifedown =  root.findViewById(R.id.player1_lifedown);
+        final ImageView player1_lifedown =  root.findViewById(R.id.player1_lifedown);
         player1_lifedown.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(Integer.valueOf(player1_life.getText().toString()) > 0)

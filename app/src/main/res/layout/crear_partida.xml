@@ -11,154 +11,144 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Formato de la partida:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.693"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintTop_toBottomOf="@+id/CrearPartida" />
 
     <Spinner
         android:id="@+id/sFormat"
         android:layout_width="190dp"
         android:layout_height="33dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.715"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
-    
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
     <EditText
-        android:id = "@+id/eCustomVida"
-        android:layout_width = "104dp"
-        android:layout_height = "44dp"
-        android:layout_marginStart = "16dp"
-        android:layout_marginLeft = "16dp"
-        android:ems = "10"
-        android:hint = "Vida"
-        android:inputType = "number"
-        android:padding = "8dp"
-        app:layout_constraintBottom_toBottomOf = "parent"
-        app:layout_constraintStart_toEndOf = "@+id/bvida40"
-        app:layout_constraintTop_toTopOf = "parent"
-        app:layout_constraintVertical_bias = "0.629" />
-    
+        android:id="@+id/eCustomVida"
+        android:layout_width="104dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Vida"
+        android:inputType="number"
+        android:padding="8dp"
+        app:layout_constraintStart_toEndOf="@+id/bvida40"
+        app:layout_constraintTop_toBottomOf="@+id/vida" />
+
     <Button
-        android:id = "@+id/bvida30"
-        android:layout_width = "64dp"
-        android:layout_height = "45dp"
-        android:layout_marginStart = "16dp"
-        android:layout_marginLeft = "16dp"
-        android:text = "@string/vida30"
-        android:textAppearance = "@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf = "parent"
-        app:layout_constraintStart_toEndOf = "@+id/bvida20"
-        app:layout_constraintTop_toTopOf = "parent"
-        app:layout_constraintVertical_bias = "0.633" />
-    
+        android:id="@+id/bvida30"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/vida30"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toEndOf="@+id/bvida20"
+        app:layout_constraintTop_toBottomOf="@+id/vida" />
+
     <TextView
         android:id="@+id/vida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
         android:text="@string/vida"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.457" />
-    
+        app:layout_constraintTop_toBottomOf="@+id/sJugadors" />
+
     <Button
-        android:id = "@+id/bvida40"
-        android:layout_width = "64dp"
-        android:layout_height = "45dp"
-        android:layout_marginStart = "16dp"
-        android:layout_marginLeft = "16dp"
-        android:text = "@string/vida40"
-        android:textAppearance = "@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf = "parent"
-        app:layout_constraintStart_toEndOf = "@+id/bvida30"
-        app:layout_constraintTop_toTopOf = "parent"
-        app:layout_constraintVertical_bias = "0.633" />
-    
-    <Button
-        android:id = "@+id/bback"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:layout_marginStart = "232dp"
-        android:layout_marginLeft = "232dp"
-        android:text = "@string/back_p"
-        app:layout_constraintBottom_toBottomOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toTopOf = "parent"
-        app:layout_constraintVertical_bias = "0.933" />
-    
-    <Button
-        android:id="@+id/bstart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.601"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
+        android:id="@+id/bvida40"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/vida40"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toEndOf="@+id/bvida30"
+        app:layout_constraintTop_toBottomOf="@+id/vida" />
 
     <TextView
         android:id="@+id/CrearPartida"
         android:layout_width="172dp"
         android:layout_height="30dp"
+        android:layout_marginTop="32dp"
         android:text="@string/crear_p"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.018" />
-    
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id = "@+id/bvida20"
-        android:layout_width = "64dp"
-        android:layout_height = "45dp"
-        android:layout_marginStart = "192dp"
-        android:layout_marginLeft = "192dp"
-        android:text = "@string/vida20"
-        android:textAppearance = "@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toTopOf = "parent"
-        app:layout_constraintVertical_bias = "0.633" />
-    
+        android:id="@+id/bvida20"
+        android:layout_width="64dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/vida20"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vida" />
+
     <Spinner
         android:id="@+id/sJugadors"
         android:layout_width="191dp"
         android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.248"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="40dp"
         android:text="@string/jugadors"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CrearPartida" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomButtons_crearpartida"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.264"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/bback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_p"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/bstart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

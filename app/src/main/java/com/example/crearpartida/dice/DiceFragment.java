@@ -12,17 +12,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import com.example.crearpartida.R;
 import com.example.crearpartida.game.GameSixplayers;
 
 public class DiceFragment extends Fragment {
 
-
+    View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_dice, container, false);
+        root = inflater.inflate(R.layout.fragment_dice, container, false);
         Intent toDice = new Intent(getActivity(), DausActivity.class);
         startActivityForResult(toDice, 2);
         return root;
@@ -32,12 +33,9 @@ public class DiceFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
     
         if(resultCode == Activity.RESULT_OK){
-            Fragment onePlayerGame = new GameSixplayers();
-            FragmentManager fm = getParentFragment().getChildFragmentManager();
+
             if(requestCode == 2){
-                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.dice, onePlayerGame);
-                fragmentTransaction.commit();
+                Navigation.findNavController(root).navigate(R.id.nav_game);
             }
         }
     }

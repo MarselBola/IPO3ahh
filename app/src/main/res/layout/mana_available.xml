@@ -2269,12 +2269,53 @@
             android:id="@+id/spending"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:visibility="visible">
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
+            <Button
+                android:id="@+id/bReset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="312dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="40dp"
+                android:text="DESHACER"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/bRellenar"
+                app:layout_constraintStart_toEndOf="@id/bAccept"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/bAccept"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="312dp"
+
+                android:layout_marginBottom="40dp"
+                android:text="ACEPTAR"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/bRellenar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="312dp"
+                android:layout_marginBottom="40dp"
+                android:text="RELLENAR"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:minWidth="100dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -2285,14 +2326,14 @@
                     android:id="@+id/textGastando"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:text="GASTANDO:"
                     android:textSize="18sp" />
-
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:minHeight="300dp"
-                    tools:minWidth="400dp">
+                    android:layout_height="240dp"
+                    android:layout_below="@+id/textGastando"
+                    android:minHeight="240dp">
 
                     <LinearLayout
                         android:id="@+id/SpentList"
@@ -2327,6 +2368,7 @@
                                     android:id="@+id/quant00"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2349,8 +2391,10 @@
 
                                 <TextView
                                     android:id="@+id/quant01"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2384,6 +2428,7 @@
                                     android:id="@+id/quant02"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2406,8 +2451,9 @@
 
                                 <TextView
                                     android:id="@+id/quant03"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2441,6 +2487,7 @@
                                     android:id="@+id/quant04"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2463,8 +2510,9 @@
 
                                 <TextView
                                     android:id="@+id/quant05"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2498,6 +2546,7 @@
                                     android:id="@+id/quant06"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2520,8 +2569,9 @@
 
                                 <TextView
                                     android:id="@+id/quant07"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2555,6 +2605,7 @@
                                     android:id="@+id/quant08"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2577,8 +2628,9 @@
 
                                 <TextView
                                     android:id="@+id/quant09"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2612,6 +2664,7 @@
                                     android:id="@+id/quant010"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2634,8 +2687,9 @@
 
                                 <TextView
                                     android:id="@+id/quant011"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2669,6 +2723,7 @@
                                     android:id="@+id/quant012"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2691,8 +2746,9 @@
 
                                 <TextView
                                     android:id="@+id/quant013"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2726,6 +2782,7 @@
                                     android:id="@+id/quant014"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2748,8 +2805,9 @@
 
                                 <TextView
                                     android:id="@+id/quant015"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2783,6 +2841,7 @@
                                     android:id="@+id/quant016"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2805,8 +2864,9 @@
 
                                 <TextView
                                     android:id="@+id/quant017"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2840,6 +2900,7 @@
                                     android:id="@+id/quant018"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2862,8 +2923,9 @@
 
                                 <TextView
                                     android:id="@+id/quant019"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2897,6 +2959,7 @@
                                     android:id="@+id/quant020"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2919,8 +2982,9 @@
 
                                 <TextView
                                     android:id="@+id/quant021"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2954,6 +3018,7 @@
                                     android:id="@+id/quant022"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -2976,8 +3041,9 @@
 
                                 <TextView
                                     android:id="@+id/quant023"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -3011,6 +3077,7 @@
                                     android:id="@+id/quant024"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -3033,8 +3100,9 @@
 
                                 <TextView
                                     android:id="@+id/quant025"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -3068,6 +3136,7 @@
                                     android:id="@+id/quant026"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -3090,8 +3159,9 @@
 
                                 <TextView
                                     android:id="@+id/quant027"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -3125,6 +3195,7 @@
                                     android:id="@+id/quant028"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -3147,8 +3218,9 @@
 
                                 <TextView
                                     android:id="@+id/quant029"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -3182,6 +3254,7 @@
                                     android:id="@+id/quant030"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -3204,8 +3277,9 @@
 
                                 <TextView
                                     android:id="@+id/quant031"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:text="TextView" />
 
                             </LinearLayout>
@@ -3214,49 +3288,7 @@
                     </LinearLayout>
                 </ScrollView>
 
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/bReset"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="17dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginEnd="22dp"
-                android:layout_marginRight="22dp"
-                android:text="DESHACER"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/bRellenar"
-                app:layout_constraintStart_toEndOf="@+id/bAccept"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <Button
-                android:id="@+id/bAccept"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="ACEPTAR"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/bReset"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <Button
-                android:id="@+id/bRellenar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:text="RELLENAR"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/bReset"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+            </RelativeLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

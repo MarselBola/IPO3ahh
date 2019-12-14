@@ -67,43 +67,57 @@ public class DausActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.d2:
                 cares = 2;
+                etcares.setText("2");
                 rand = r.nextInt(cares);
                 dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d4:
                 cares = 4;
+                etcares.setText("4");
                 rand = r.nextInt(cares);
                 dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d6:
                 cares = 6;
+                etcares.setText("6");
                 rand = r.nextInt(cares);
                 dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d8:
                 cares = 8;
+                etcares.setText("8");
                 rand = r.nextInt(cares);
                 dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d12:
                 cares = 12;
+                etcares.setText("12");
                 rand = r.nextInt(cares);
                 dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d20:
                 cares = 20;
+                etcares.setText("20");
                 rand = r.nextInt(cares);
                 dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.bThrow:
-                cares = Integer.parseInt(etcares.getText().toString());
-                if(cares > 0){
-
-                    rand = r.nextInt(cares);
-                    dau.setText(String.valueOf(rand+1));
+                String check = etcares.getText().toString();
+                if(check.equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Introduce el numero de caras del dado", Toast.LENGTH_SHORT).show();
                 }
-                else
-                    Toast.makeText(getApplicationContext(), "El nombre de cares ha de ser superior a 2", Toast.LENGTH_SHORT).show();
+                else{
+                    cares = Integer.parseInt(check);
+                    if(cares > 1){
+
+                        rand = r.nextInt(cares);
+                        dau.setText(String.valueOf(rand+1));
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(), "El nombre de cares ha de ser superior a 2", Toast.LENGTH_SHORT).show();
+                }
+
                 break;
             default:
                 break;

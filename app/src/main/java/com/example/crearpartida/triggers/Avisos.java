@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -97,32 +98,35 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         tlsv1.removeAllViews();
         tlsv2.removeAllViews();
 
-        for(int i=0; i<avisos.size(); i++){
-            agregarAviso(avisos.get(i).getDescripcio(), avisos.get(i).getQuan(), avisos.get(i).getId());
+        for(Avis avis : avisos){
+            agregarAviso(avis.getDescripcio(), avis.getQuan(), avis.getId());
         }
     }
     
-    private void agregarAviso(String desc, int quan, int id){
+    private void agregarAviso(String desc, int quan, final int id){
         TableRow row = new TableRow(this);
-        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
         row.setLayoutParams(lp);
     
         // genera tot el q s'ha de posar
         TextView descrip = new TextView(this);
         descrip.setText(desc);
+        descrip.setWidth(150);
         row.addView(descrip);
 
-        // posar boto modificar
         ButtonEdit edit = new ButtonEdit(this);
         edit.setIdAvis(id);
+        edit.setLayoutParams(lp);
+        edit.setText("EDIT");
+        edit.setWidth(50);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogEliminar dialogModificar = new DialogEliminar();
+                DialogModificar dialogModificar = new DialogModificar().setId(id);
                 dialogModificar.show(getSupportFragmentManager(), "");
             }
         });
-        row.addView(row);
+        row.addView(edit);
 
         // posar-ho al layout
         if(quan == 1) {
@@ -131,7 +135,6 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
                 row.setBackgroundColor(Color.GRAY);
             else
                 row.setBackgroundColor(Color.LTGRAY);
-                
             tlsv1.addView(row);
             id1++;
         }

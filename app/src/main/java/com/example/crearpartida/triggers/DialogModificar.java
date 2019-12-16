@@ -37,7 +37,7 @@ public class DialogModificar extends AppCompatDialogFragment {
 
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_avis, null);
+        View view = inflater.inflate(R.layout.dialog_modificar, null);
 
         etDesc = view.findViewById(R.id.etDescAvis);
 

@@ -65,42 +65,56 @@ public class GameSixplayersE extends Fragment {
                 ArrayList<Avis> avisos = player.getLlistaAvisos();
                 String nom1 = player.getNom();
                 StringBuilder mensage = new StringBuilder(nom1 + "\n");
+                boolean vacio = true;
+
+                // crear mensage del jugador anterior
                 for(int i=0; i<avisos.size(); i++){
                     if(avisos.get(i).getQuan() == 2)
-                        if(mensage.length() == 0)
+                        if(vacio){
                             mensage.append("-> ").append(avisos.get(i).getDescripcio());
+                            vacio = false;
+                        }
                         else
                             mensage.append("\n-> ").append(avisos.get(i).getDescripcio());
                 }
 
+                // pasar turno
                 g.getGame().nextTurn();
                 g.getGame().setJugadorActual(g.getGame().getJugadors()[g.getGame().getTorn()]);
                 player = g.getGame().getJugadorActual();
-                Fragment sixplayersgame = new GameSixplayersE();
-                FragmentManager fm = getParentFragment().getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);
-                fragmentTransaction.commit();
+                Fragment sixplayersgame = new GameSixplayers();
+                FragmentManager fm;
+                if (getParentFragment() != null) {
+                    fm = getParentFragment().getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                    fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);
+                    fragmentTransaction.commit();
+                }
 
+                // agregar el mensage del jugador actual
                 avisos = player.getLlistaAvisos();
                 mensage.append("\n\n").append(player.getNom()).append("\n");
+                boolean vacio2 = true;
                 for(int i=0; i<avisos.size(); i++){
                     if(avisos.get(i).getQuan() == 1)
-                        if(mensage.length() == 0)
+                        if(vacio2){
                             mensage.append("-> ").append(avisos.get(i).getDescripcio());
+                            vacio2 = false;
+                        }
                         else
                             mensage.append("\n-> ").append(avisos.get(i).getDescripcio());
                 }
 
-                if(!mensage.toString().equals(nom1 + "\n\n\n" + player.getNom() + "\n")){
-                    Toast toast1 = new Toast(getContext());
+                // mostrar mensage
+                if(!vacio && !vacio2){
+                    Toast toast = new Toast(getContext());
                     View toast_layout = getLayoutInflater().inflate(R.layout.toast_avis, (ViewGroup) root.findViewById(R.id.tvToast));
-                    toast1.setView(toast_layout);
-                    TextView textView = (TextView) toast_layout.findViewById(R.id.toastMessage);
+                    toast.setView(toast_layout);
+                    TextView textView = toast_layout.findViewById(R.id.toastMessage);
                     textView.setText(mensage);
-                    toast1.setDuration(Toast.LENGTH_LONG);
-                    toast1.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, 0);
-                    toast1.show();
+                    toast.setDuration(Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, 0);
+                    toast.show();
                 }
             }
         });

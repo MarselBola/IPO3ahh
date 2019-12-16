@@ -20,7 +20,7 @@ import com.example.crearpartida.R;
 
 import java.util.ArrayList;
 
-public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener, DialogEliminar.DialogEliminarListener {
+public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener, DialogEliminar.DialogEliminarListener, DialogModificar.DialogModListener {
     
     TableLayout tlsv1, tlsv2;
     Button back, crear, elim;
@@ -84,8 +84,10 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         if(toast)
             Toast.makeText(getApplicationContext(), "Parametros introducidos incompletos\nNo se han guardado los datos",Toast.LENGTH_LONG).show();
         else{
-            avisos.add(new Avis(desc, quan));
-            agregarAviso(desc, quan);
+            avisos.add(new Avis(desc, quan, jugadorAvisos.getNumIdAvis()));
+            agregarAviso(desc, quan, jugadorAvisos.getNumIdAvis());
+            jugadorAvisos.augmentaNumIdAvis();
+
         }
     }
     
@@ -96,11 +98,11 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         tlsv2.removeAllViews();
 
         for(int i=0; i<avisos.size(); i++){
-            agregarAviso(avisos.get(i).getDescripcio(), avisos.get(i).getQuan());
+            agregarAviso(avisos.get(i).getDescripcio(), avisos.get(i).getQuan(), avisos.get(i).getId());
         }
     }
     
-    private void agregarAviso(String desc, int quan){
+    private void agregarAviso(String desc, int quan, int id){
         TableRow row = new TableRow(this);
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
         row.setLayoutParams(lp);
@@ -109,28 +111,47 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         TextView descrip = new TextView(this);
         descrip.setText(desc);
         row.addView(descrip);
-    
+
+        // posar boto modificar
+        ButtonEdit edit = new ButtonEdit(this);
+        edit.setIdAvis(id);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogEliminar dialogModificar = new DialogEliminar();
+                dialogModificar.show(getSupportFragmentManager(), "");
+            }
+        });
+        row.addView(row);
+
         // posar-ho al layout
         if(quan == 1) {
             id1 = tlsv1.getChildCount();
-            row.setId(id1);
             if(id1 % 2 == 0)
                 row.setBackgroundColor(Color.GRAY);
             else
                 row.setBackgroundColor(Color.LTGRAY);
                 
-            tlsv1.addView(row, id1);
+            tlsv1.addView(row);
             id1++;
         }
         else {
             id2 = tlsv2.getChildCount();
-            row.setId(id2);
             if(id2 % 2 == 0)
                 row.setBackgroundColor(Color.GRAY);
             else
                 row.setBackgroundColor(Color.LTGRAY);
-            tlsv2.addView(row, id2);
+            tlsv2.addView(row);
             id2++;
         }
+    }
+
+    @Override
+    public void parametresDialogMod(String desc, int quan, int id) {
+        for(int i=0; i<avisos.size(); i++){
+            if(avisos.get(i).getId() == id)
+                avisos.set(i, new Avis(desc, quan, id));
+        }
+        actualitzarAvisos();
     }
 }

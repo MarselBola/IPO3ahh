@@ -105,8 +105,11 @@
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="575dp"
-        android:textSize="20sp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
         android:text="@string/back_p"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/bstart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

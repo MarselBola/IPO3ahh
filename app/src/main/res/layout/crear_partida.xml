@@ -129,7 +129,7 @@
         android:id="@+id/CrearPartida"
         android:layout_width="172dp"
         android:layout_height="30dp"
-        android:text="@string/crear_p"
+        android:text="CREAR PARTIDA"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

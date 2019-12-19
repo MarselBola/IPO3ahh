@@ -23,7 +23,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CrearPartida"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".triggers.Avisos"
             android:screenOrientation="landscape">
@@ -37,6 +37,7 @@
             android:theme="@style/OurTheme" />
         <activity
             android:name=".StartMenu"
+            android:screenOrientation="portrait"
             android:theme="@style/OurTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

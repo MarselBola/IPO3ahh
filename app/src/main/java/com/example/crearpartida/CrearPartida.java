@@ -56,11 +56,29 @@ public class CrearPartida extends AppCompatActivity implements View.OnClickListe
         custom = findViewById(R.id.eCustomVida);
 
         sformat = findViewById(R.id.sFormat);
-        adapterFormat = ArrayAdapter.createFromResource(this, R.array.combo_format, android.R.layout.simple_spinner_item);
-        sformat.setAdapter(adapterFormat);
+        String[] selJugadores = new String[]{
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+        };
+        String[] selFormatos = new String[]{
+
+                "Normal",
+                "Commander"
+        };
+        ArrayAdapter<String> arrayAdapterFormatos = new ArrayAdapter<String>(this, R.layout.spinner_item, selFormatos);
+        arrayAdapterFormatos.setDropDownViewResource(R.layout.spinner_item);
+        sformat.setAdapter(arrayAdapterFormatos);
+
+
+
         sformat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 //Toast.makeText(parent.getContext(), "Jugadors seleccionats: "+parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
                 adapterViewFormat = parent;
                 posFor = position;
@@ -73,8 +91,10 @@ public class CrearPartida extends AppCompatActivity implements View.OnClickListe
         });
 
         sjugadors = findViewById(R.id.sJugadors);
-        adapterJug = ArrayAdapter.createFromResource(this, R.array.combo_jugadors, android.R.layout.simple_spinner_item);
-        sjugadors.setAdapter(adapterJug);
+        ArrayAdapter<String> arrayAdapterJugadores = new ArrayAdapter<String>(this, R.layout.spinner_item, selJugadores);
+        arrayAdapterJugadores.setDropDownViewResource(R.layout.spinner_item);
+        sjugadors.setAdapter(arrayAdapterJugadores);
+
         sjugadors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

@@ -53,14 +53,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textDisponible"
+            android:id="@+id/textTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DIPONIBLE:"
+            android:text="TOTAL:"
             android:textSize="18sp" />
 
         <ScrollView
-            android:id="@+id/manaAvaiable"
+            android:id="@+id/manaTotal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minWidth="400dp"

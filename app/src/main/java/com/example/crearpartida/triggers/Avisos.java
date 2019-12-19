@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -20,7 +21,7 @@ import com.example.crearpartida.R;
 
 import java.util.ArrayList;
 
-public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener, DialogEliminar.DialogEliminarListener {
+public class Avisos extends AppCompatActivity implements View.OnClickListener, DialogCrear.DialogCrearListener, DialogEliminar.DialogEliminarListener, DialogModificar.DialogModListener {
     
     TableLayout tlsv1, tlsv2;
     Button back, crear, elim;
@@ -84,8 +85,10 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         if(toast)
             Toast.makeText(getApplicationContext(), "Parametros introducidos incompletos\nNo se han guardado los datos",Toast.LENGTH_LONG).show();
         else{
-            avisos.add(new Avis(desc, quan));
-            agregarAviso(desc, quan);
+            avisos.add(new Avis(desc, quan, jugadorAvisos.getNumIdAvis()));
+            agregarAviso(desc, quan, jugadorAvisos.getNumIdAvis());
+            jugadorAvisos.augmentaNumIdAvis();
+
         }
     }
     
@@ -95,42 +98,63 @@ public class Avisos extends AppCompatActivity implements View.OnClickListener, D
         tlsv1.removeAllViews();
         tlsv2.removeAllViews();
 
-        for(int i=0; i<avisos.size(); i++){
-            agregarAviso(avisos.get(i).getDescripcio(), avisos.get(i).getQuan());
+        for(Avis avis : avisos){
+            agregarAviso(avis.getDescripcio(), avis.getQuan(), avis.getId());
         }
     }
     
-    private void agregarAviso(String desc, int quan){
+    private void agregarAviso(String desc, int quan, final int id){
         TableRow row = new TableRow(this);
-        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
         row.setLayoutParams(lp);
     
         // genera tot el q s'ha de posar
         TextView descrip = new TextView(this);
         descrip.setText(desc);
+        descrip.setWidth(150);
         row.addView(descrip);
-    
+
+        ButtonEdit edit = new ButtonEdit(this);
+        edit.setIdAvis(id);
+        edit.setLayoutParams(lp);
+        edit.setText("EDIT");
+        edit.setWidth(50);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogModificar dialogModificar = new DialogModificar().setId(id);
+                dialogModificar.show(getSupportFragmentManager(), "");
+            }
+        });
+        row.addView(edit);
+
         // posar-ho al layout
         if(quan == 1) {
             id1 = tlsv1.getChildCount();
-            row.setId(id1);
             if(id1 % 2 == 0)
                 row.setBackgroundColor(Color.GRAY);
             else
                 row.setBackgroundColor(Color.LTGRAY);
-                
-            tlsv1.addView(row, id1);
+            tlsv1.addView(row);
             id1++;
         }
         else {
             id2 = tlsv2.getChildCount();
-            row.setId(id2);
             if(id2 % 2 == 0)
                 row.setBackgroundColor(Color.GRAY);
             else
                 row.setBackgroundColor(Color.LTGRAY);
-            tlsv2.addView(row, id2);
+            tlsv2.addView(row);
             id2++;
         }
+    }
+
+    @Override
+    public void parametresDialogMod(String desc, int quan, int id) {
+        for(int i=0; i<avisos.size(); i++){
+            if(avisos.get(i).getId() == id)
+                avisos.set(i, new Avis(desc, quan, id));
+        }
+        actualitzarAvisos();
     }
 }

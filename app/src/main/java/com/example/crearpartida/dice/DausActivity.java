@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crearpartida.R;
@@ -67,22 +66,34 @@ public class DausActivity extends AppCompatActivity implements View.OnClickListe
                 this.finish();
                 break;
             case R.id.d2:
-                etcares.setText(String.valueOf(2));
+                cares = 2;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d4:
-                etcares.setText(String.valueOf(4));
+                cares = 4;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d6:
-                etcares.setText(String.valueOf(6));
+                cares = 6;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d8:
-                etcares.setText(String.valueOf(8));
+                cares = 8;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d12:
-                etcares.setText(String.valueOf(12));
+                cares = 12;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.d20:
-                etcares.setText(String.valueOf(20));
+                cares = 20;
+                rand = r.nextInt(cares);
+                dau.setText(String.valueOf(rand+1));
                 break;
             case R.id.bThrow:
                 cares = Integer.parseInt(etcares.getText().toString());
@@ -92,7 +103,7 @@ public class DausActivity extends AppCompatActivity implements View.OnClickListe
                     dau.setText(String.valueOf(rand+1));
                 }
                 else
-                    Toast.makeText(getApplicationContext(), "El nombre de caras ha de ser superior a 2", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "El nombre de cares ha de ser superior a 2", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

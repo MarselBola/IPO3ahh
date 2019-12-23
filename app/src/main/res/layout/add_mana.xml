@@ -7,132 +7,16 @@
     tools:context=".pool.AddMana">
 
 
-    <ImageView
-        android:id="@+id/negro"
-        android:layout_width="135dp"
-        android:layout_height="81dp"
-        android:src="@drawable/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
-
-    <ImageView
-        android:id="@+id/azul"
-        android:layout_width="135dp"
-        android:layout_height="81dp"
-        android:src="@drawable/blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.255"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
-
-    <CheckBox
-        android:id="@+id/check_verde"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Verde"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verde" />
-
-    <ImageView
-        android:id="@+id/rojo"
-        android:layout_width="135dp"
-        android:layout_height="81dp"
-        android:src="@drawable/red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.708"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
-
-    <ImageView
-        android:id="@+id/blanco"
-        android:layout_width="135dp"
-        android:layout_height="81dp"
-        android:src="@drawable/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
-
-    <ImageView
-        android:id="@+id/verde"
-        android:layout_width="135dp"
-        android:layout_height="81dp"
-        android:src="@drawable/green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
-
-    <CheckBox
-        android:id="@+id/check_negro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Negro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/negro" />
-
-    <CheckBox
-        android:id="@+id/check_azul"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Azul"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.278"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/azul" />
-
-    <CheckBox
-        android:id="@+id/check_rojo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rojo"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.682"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rojo" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="172dp"
         android:layout_height="37dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
         android:text="Selecciona tipo de mana:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147" />
-
-    <CheckBox
-        android:id="@+id/check_blanco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Blanco"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blanco" />
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
@@ -142,23 +26,19 @@
         android:ems="10"
         android:hint="Cantidad de mana"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintTop_toBottomOf="@+id/previewMana" />
 
     <Button
         android:id="@+id/button_añadir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Añadir"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986">
+        app:layout_constraintTop_toBottomOf="@+id/editText">
 
     </Button>
 
@@ -166,13 +46,10 @@
         android:id="@+id/previewMana"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.606" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -184,5 +61,109 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="570dp"
+        android:layout_height="104dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <CheckBox
+            android:id="@+id/check_azul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:text="Azul"
+            app:layout_constraintStart_toEndOf="@+id/check_blanco"
+            app:layout_constraintTop_toBottomOf="@+id/azul" />
+
+        <CheckBox
+            android:id="@+id/check_verde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:text="Verde"
+            app:layout_constraintStart_toEndOf="@+id/check_rojo"
+            app:layout_constraintTop_toBottomOf="@+id/verde" />
+
+        <ImageView
+            android:id="@+id/azul"
+            android:layout_width="114dp"
+            android:layout_height="71dp"
+            android:src="@drawable/blue"
+            app:layout_constraintStart_toEndOf="@+id/blanco"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/check_negro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:text="Negro"
+            app:layout_constraintStart_toEndOf="@+id/check_azul"
+            app:layout_constraintTop_toBottomOf="@+id/negro" />
+
+        <ImageView
+            android:id="@+id/blanco"
+            android:layout_width="114dp"
+            android:layout_height="71dp"
+            android:src="@drawable/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/check_rojo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:text="Rojo"
+            app:layout_constraintStart_toEndOf="@+id/check_negro"
+            app:layout_constraintTop_toBottomOf="@+id/rojo" />
+
+        <ImageView
+            android:id="@+id/verde"
+            android:layout_width="114dp"
+            android:layout_height="71dp"
+            android:src="@drawable/green"
+            app:layout_constraintStart_toEndOf="@+id/rojo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/check_blanco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:text="Blanco"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/blanco" />
+
+        <ImageView
+            android:id="@+id/negro"
+            android:layout_width="114dp"
+            android:layout_height="71dp"
+            android:src="@drawable/black"
+            app:layout_constraintStart_toEndOf="@+id/azul"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/rojo"
+            android:layout_width="114dp"
+            android:layout_height="71dp"
+            android:src="@drawable/red"
+            app:layout_constraintStart_toEndOf="@+id/negro"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

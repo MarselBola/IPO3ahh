@@ -15,6 +15,7 @@ public class Jugador {
 
     static final private int max_avisos = 50;
     private ArrayList<Avis> llistaAvisos = new ArrayList<>(max_avisos);
+    private int numIdAvis = 1;
 
     public Jugador(){
 
@@ -43,6 +44,9 @@ public class Jugador {
     }
     public ArrayList<Avis> getLlistaAvisos(){ return llistaAvisos;}
     public int getMaxAvisos() { return max_avisos; }
+    public int getNumIdAvis(){ return numIdAvis; }
+    public void augmentaNumIdAvis() { this.numIdAvis++; }
+    public void decrementaNumIdAvis() { this.numIdAvis--; }
 
     public void decreaseVida(){ vida--; }
     public void incrementVida(){ vida++; }

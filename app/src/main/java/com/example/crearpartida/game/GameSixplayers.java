@@ -1,28 +1,27 @@
 package com.example.crearpartida.game;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.crearpartida.R;
 import com.example.crearpartida.clases.Globals;
 import com.example.crearpartida.clases.Jugador;
-import com.example.crearpartida.R;
 import com.example.crearpartida.triggers.Avis;
+
+import java.util.ArrayList;
 
 public class GameSixplayers extends Fragment {
 
@@ -43,43 +42,98 @@ public class GameSixplayers extends Fragment {
         final Button bPasar =  root.findViewById(R.id.bPasar);
         bPasar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                ArrayList<Avis> avisos = player.getLlistaAvisos();
+                String nom1 = player.getNom();
+                StringBuilder mensage = new StringBuilder(nom1 + "\n");
+                boolean vacio = true;
+                
+                // si solo hay un jugador
+                if(g.getGame().getNumJug() == 1){
+                    // crear mensage
+                    for(int i = 0; i<avisos.size(); i++){
+                        if(vacio){
+                            mensage.append("-> ").append(avisos.get(i).getDescripcio());
+                            vacio = false;
+                        }
+                        else
+                            mensage.append("\n-> ").append(avisos.get(i).getDescripcio());
+                    }
+                    
+                    // pasar turno
+                    g.getGame().nextTurn();
+                    g.getGame().setJugadorActual(g.getGame().getJugadors()[g.getGame().getTorn()]);
+                    player = g.getGame().getJugadorActual();
+                    Fragment sixplayersgame = new GameSixplayers();
+                    FragmentManager fm;
+                    if (getParentFragment() != null) {
+                        fm = getParentFragment().getChildFragmentManager();
+                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                        fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);
+                        fragmentTransaction.commit();
+                    }
+                    
+                    // mostrar mensage
+                    if(!vacio){
+                        Toast toast = new Toast(getContext());
+                        View toast_layout = getLayoutInflater().inflate(R.layout.toast_avis, (ViewGroup) root.findViewById(R.id.tvToast));
+                        toast.setView(toast_layout);
+                        TextView textView = toast_layout.findViewById(R.id.toastMessage);
+                        textView.setText(mensage);
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, 24);
+                        toast.show();
+                    }
+                }
+                else{
+                    // crear mensage del jugador anterior
+                    for(int i=0; i<avisos.size(); i++){
+                        if(avisos.get(i).getQuan() == 2)
+                            if(vacio){
+                                mensage.append("-> ").append(avisos.get(i).getDescripcio());
+                                vacio = false;
+                            }
+                            else
+                                mensage.append("\n-> ").append(avisos.get(i).getDescripcio());
+                    }
 
-                String mensage = "";
-                for(Avis avis : player.getLlistaAvisos()){
-                    if(avis.getQuan() == 2)
-                        mensage += "\n" + avis.getDescripcio();
-                }
-                if(!mensage.equals("")){
-                    Toast toast = new Toast(getContext());
-                    View toast_layout = getLayoutInflater().inflate(R.layout.toast_avis, (ViewGroup) root.findViewById(R.id.tvToast));
-                    toast.setView(toast_layout);
-                    TextView textView = (TextView) toast_layout.findViewById(R.id.toastMessage);
-                    textView.setText(mensage);
-                    toast.setDuration(Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                g.getGame().nextTurn();
-                g.getGame().setJugadorActual(g.getGame().getJugadors()[g.getGame().getTorn()]);
-                player = g.getGame().getJugadorActual();
-                Fragment sixplayersgame = new GameSixplayers();
-                FragmentManager fm = getParentFragment().getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);
-                fragmentTransaction.commit();
+                    // pasar turno
+                    g.getGame().nextTurn();
+                    g.getGame().setJugadorActual(g.getGame().getJugadors()[g.getGame().getTorn()]);
+                    player = g.getGame().getJugadorActual();
+                    Fragment sixplayersgame = new GameSixplayers();
+                    FragmentManager fm;
+                    if (getParentFragment() != null) {
+                        fm = getParentFragment().getChildFragmentManager();
+                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                        fragmentTransaction.replace(R.id.oneplayer, sixplayersgame);
+                        fragmentTransaction.commit();
+                    }
+                    
+                    // agregar el mensage del jugador actual
+                    avisos = player.getLlistaAvisos();
+                    mensage.append("\n\n").append(player.getNom()).append("\n");
+                    boolean vacio2 = true;
+                    for(int i=0; i<avisos.size(); i++){
+                        if(avisos.get(i).getQuan() == 1)
+                            if(vacio2){
+                                mensage.append("-> ").append(avisos.get(i).getDescripcio());
+                                vacio2 = false;
+                            }
+                            else
+                                mensage.append("\n-> ").append(avisos.get(i).getDescripcio());
+                    }
 
-                mensage = "";
-                for(Avis avis : player.getLlistaAvisos()){
-                    if(avis.getQuan() == 1)
-                        mensage += "\n" + avis.getDescripcio();
-                }
-                if(!mensage.equals("")){
-                    Toast toast = new Toast(getContext());
-                    View toast_layout = getLayoutInflater().inflate(R.layout.toast_avis, (ViewGroup) root.findViewById(R.id.tvToast));
-                    toast.setView(toast_layout);
-                    TextView textView = (TextView) toast_layout.findViewById(R.id.toastMessage);
-                    textView.setText(mensage);
-                    toast.setDuration(Toast.LENGTH_SHORT);
-                    toast.show();
+                    // mostrar mensage
+                    if(!vacio && !vacio2){
+                        Toast toast = new Toast(getContext());
+                        View toast_layout = getLayoutInflater().inflate(R.layout.toast_avis, (ViewGroup) root.findViewById(R.id.tvToast));
+                        toast.setView(toast_layout);
+                        TextView textView = toast_layout.findViewById(R.id.toastMessage);
+                        textView.setText(mensage);
+                        toast.setDuration(Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, 0);
+                        toast.show();
+                    }
                 }
             }
         });
@@ -123,6 +177,4 @@ public class GameSixplayers extends Fragment {
 
         return root;
     }
-
-
 }

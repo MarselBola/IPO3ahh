@@ -55,6 +55,7 @@
     <string name="duracio">Duración (turnos):</string>
     <string name="quan">Cuando activar:</string>
     <string name="eliminarAvis">ELIMINAR AVISO</string>
+    <string name="modAvis">MODIFICAR AVISO</string>
     <string name="avisFinal">Al final</string>
     <string name="avisPrincipi">Al principio</string>
     <string name="titolParametresAvis">Descripción</string>

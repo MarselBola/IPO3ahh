@@ -7,6 +7,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -38,14 +39,15 @@ public class AddMana extends Fragment {
     private Globals g = Globals.getInstance();
     private CheckBox check;
     private View root;
-
+    private TextView aux;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.add_mana, container, false);
-
+        aux = root.findViewById(R.id.selectedPlayer);
+        aux.setText(g.getPlayer().getNom());
         root.findViewById(R.id.previewMana).setBackgroundResource(R.drawable.bg_1_0);
         check = root.findViewById(R.id.check_blanco);
         check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -127,7 +129,7 @@ public class AddMana extends Fragment {
                         manaToAdd = new Mana(manaType);
                     }
                     manaToAdd.addTotalMana(Integer.parseInt(cantidadMana.getText().toString()));
-                    g.getGame().getJugadorActual().getPlayerMana().addManaAtTotal(manaToAdd);
+                    g.getPlayer().getPlayerMana().addManaAtTotal(manaToAdd);
 
                     Fragment manatotal = new ManaTotal();
                     FragmentManager fm = getParentFragment().getChildFragmentManager();

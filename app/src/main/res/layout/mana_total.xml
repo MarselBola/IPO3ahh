@@ -33,6 +33,16 @@
             android:text="ELIMINAR MANA"
             app:layout_constraintEnd_toStartOf="@+id/bAdd"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/selectedPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/bDel"
+            app:layout_constraintStart_toEndOf="@+id/bTotal"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout

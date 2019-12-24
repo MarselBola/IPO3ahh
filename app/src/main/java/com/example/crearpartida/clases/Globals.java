@@ -9,15 +9,19 @@ public class Globals {
     }
 
     private Partida game;
-    /*
-    private Jugador  player = new Jugador(40, "Bruh");
+
+    private Jugador  player;
+
+    public void setPlayer(Jugador player){
+        this.player = player;
+    }
 
     public Jugador getPlayer()
     {
         return this.player;
     }
     
-     */
+
 
     private Globals()
     {

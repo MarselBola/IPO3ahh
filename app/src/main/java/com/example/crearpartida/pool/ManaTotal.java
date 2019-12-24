@@ -13,11 +13,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.crearpartida.clases.Globals;
+import com.example.crearpartida.clases.Jugador;
 import com.example.crearpartida.R;
 
 public class ManaTotal extends Fragment implements View.OnClickListener{
     private View root;
-    private Globals player = Globals.getInstance();
+    private Jugador player = Globals.getInstance().getPlayer();
 
     private boolean isVisible = false;
     private TextView aux;
@@ -27,7 +28,8 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
                              ViewGroup container, Bundle savedInstanceState) {
 
         root = inflater.inflate(R.layout.mana_total, container, false);
-    
+        aux = root.findViewById(R.id.selectedPlayer);
+        aux.setText(player.getNom());
         String background;
         Button buttonAvaiable, buttonAdd, buttonDelete;
         ImageButton[] add, sub, del;
@@ -40,13 +42,13 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
         //visualitzo les files necessaries per a visualitzar el mana que tinc
         ShowVisibleRows();
 
-        for(int i = 0; i < player.getGame().getJugadorActual().getPlayerMana().getQuantManaTotal(); i++) {
+        for(int i = 0; i < player.getPlayerMana().getQuantManaTotal(); i++) {
             //visualitzo el mana que tinc en les files anteriors
             resID = getResources().getIdentifier("mana" + i, "id", getActivity().getPackageName());
             root.findViewById(resID).setVisibility(View.VISIBLE);
 
             //obtinc el BackGround especific pel tipus de mana
-            background = player.getGame().getJugadorActual().getPlayerMana().getManaArray()[i].getBackground();
+            background = player.getPlayerMana().getManaArray()[i].getBackground();
             id = getResources().getIdentifier(background, "drawable", getActivity().getPackageName());
             resID = getResources().getIdentifier("bg" + i, "id", getActivity().getPackageName());
             root.findViewById(resID).setBackgroundResource(id);
@@ -54,7 +56,7 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
             //visualitzo la quantitat de mana total
             resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
             aux = root.findViewById(resID);
-            aux.setText("" + player.getGame().getJugadorActual().getPlayerMana().getManaArray()[i].getTotal());
+            aux.setText("" + player.getPlayerMana().getManaArray()[i].getTotal());
             aux.setTextSize(30);
 
             //OnClickListeners dels botons de afegir i eliminar
@@ -82,7 +84,7 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
     //visualitzo les files necessaries per a visualitzar el mana que tinc
     private void ShowVisibleRows(){
         int aux;
-        for(int i = 0; i < player.getGame().getJugadorActual().getPlayerMana().getRowTotal(); i++){
+        for(int i = 0; i < player.getPlayerMana().getRowTotal(); i++){
             aux = getResources().getIdentifier("row" + i,"id", getActivity().getPackageName());
             root.findViewById(aux).setVisibility(View.VISIBLE);
         }
@@ -107,41 +109,41 @@ public class ManaTotal extends Fragment implements View.OnClickListener{
 
         }else if(v.getId() == R.id.bDel){
             if(isVisible) {
-                for(int i = 0; i < player.getGame().getJugadorActual().getPlayerMana().getQuantManaTotal(); i++) {
+                for(int i = 0; i < player.getPlayerMana().getQuantManaTotal(); i++) {
                     resID = getResources().getIdentifier("del" + i, "id", getActivity().getPackageName());
                     root.findViewById(resID).setVisibility(View.INVISIBLE);
                 }
                 isVisible = true;
             }else {
-                for(int i = 0; i < player.getGame().getJugadorActual().getPlayerMana().getQuantManaTotal(); i++) {
+                for(int i = 0; i < player.getPlayerMana().getQuantManaTotal(); i++) {
                     resID = getResources().getIdentifier("del" + i, "id", getActivity().getPackageName());
                     root.findViewById(resID).setVisibility(View.VISIBLE);
                 }
                 isVisible = false;
             }
         }else{
-            for(int i = 0; i < player.getGame().getJugadorActual().getPlayerMana().getQuantManaTotal(); i++) {
+            for(int i = 0; i < player.getPlayerMana().getQuantManaTotal(); i++) {
                 resID = getResources().getIdentifier("add" + i,"id", getActivity().getPackageName());
                 if(v.getId() == resID){
-                    player.getGame().getJugadorActual().getPlayerMana().getManaArray()[i].addOneToTotal();
-                    player.getGame().getJugadorActual().getPlayerMana().getManaAvailable()[i].addOneToTotal();
-                    player.getGame().getJugadorActual().getPlayerMana().getManaCheckpoint()[i].addOneToTotal();
+                    player.getPlayerMana().getManaArray()[i].addOneToTotal();
+                    player.getPlayerMana().getManaAvailable()[i].addOneToTotal();
+                    player.getPlayerMana().getManaCheckpoint()[i].addOneToTotal();
                     resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
                     aux = root.findViewById(resID);
-                    aux.setText("" + player.getGame().getJugadorActual().getPlayerMana().getManaArray()[i].getTotal());
+                    aux.setText("" + player.getPlayerMana().getManaArray()[i].getTotal());
                 }
                 resID = getResources().getIdentifier("sub" + i,"id", getActivity().getPackageName());
                 if(v.getId() == resID){
-                    player.getGame().getJugadorActual().getPlayerMana().getManaArray()[i].subOneToTotal();
-                    player.getGame().getJugadorActual().getPlayerMana().getManaAvailable()[i].subOneToTotal();
-                    player.getGame().getJugadorActual().getPlayerMana().getManaCheckpoint()[i].subOneToTotal();
+                    player.getPlayerMana().getManaArray()[i].subOneToTotal();
+                    player.getPlayerMana().getManaAvailable()[i].subOneToTotal();
+                    player.getPlayerMana().getManaCheckpoint()[i].subOneToTotal();
                     resID = getResources().getIdentifier("quant" + i,"id", getActivity().getPackageName());
                     aux = root.findViewById(resID);
-                    aux.setText("" + player.getGame().getJugadorActual().getPlayerMana().getManaArray()[i].getTotal());
+                    aux.setText("" + player.getPlayerMana().getManaArray()[i].getTotal());
                 }
                 resID = getResources().getIdentifier("del" + i, "id", getActivity().getPackageName());
                 if(v.getId() == resID){
-                    player.getGame().getJugadorActual().getPlayerMana().removeManaFromTotal(player.getGame().getJugadorActual().getPlayerMana().getManaArray()[i]);
+                    player.getPlayerMana().removeManaFromTotal(player.getPlayerMana().getManaArray()[i]);
                     Fragment reload = new ManaTotal();
                     FragmentManager fm = getParentFragment().getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fm.beginTransaction();
